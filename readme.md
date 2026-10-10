@@ -12,7 +12,7 @@ Este repositorio contiene la solución completa del caso: la migración del sist
 | **readme.md** (este archivo) | Enlace al código, visión general, arquitectura y mapa del repositorio |
 | [instrucciones.md](instrucciones.md) | Cómo ejecutar y probar cada componente, paso a paso |
 | [despliegue.md](despliegue.md) | Cómo desplegar el sistema en AWS |
-| `Informe_tecnico_EFT.pdf` | Informe técnico (se entrega junto al video, fuera del repositorio) |
+| [Informe técnico (PDF)](docs/Informe_tecnico_EFT_Fernando_Fuentes_Allende.pdf) · [Word](docs/Informe_tecnico_EFT_Fernando_Fuentes_Allende.docx) | Diagnóstico, arquitectura, implementación, verificación, desafíos y mejoras |
 
 ---
 
