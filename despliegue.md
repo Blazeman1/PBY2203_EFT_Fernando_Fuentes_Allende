@@ -178,6 +178,31 @@ Los resultados quedan en `/opt/banco-xyz/evidencias/`. Para traerlos al computad
 scp -i labsuser.pem "ubuntu@<IP_PUBLICA>:/opt/banco-xyz/evidencias/evidencia*.log" ./evidencias-aws/
 ```
 
+### 5.3 Resultado de la verificación realizada
+
+Despliegue ejecutado el 10 de octubre de 2026 en AWS Academy Learner Lab (región `us-east-1`, instancia `t3.large` con Ubuntu 24.04). La IP pública se reemplaza por `<IP_PUBLICA>`.
+
+1. `desplegar-ec2.sh` creó el grupo de seguridad y la instancia. El script de arranque terminó solo, sin intervención manual:
+
+```text
++ echo 'ARRANQUE COMPLETADO: 2026-10-10T17:53:10Z'
+```
+
+2. Desde el computador del administrador, a través de Internet, el gateway responde y enruta el inicio de sesión del canal web hasta su BFF. La cabecera `X-Banco-XYZ-Gateway` confirma que la petición pasó por el gateway:
+
+```text
+$ curl -k https://<IP_PUBLICA>:8443/actuator/health
+{"status":"UP"}
+
+$ curl -sk -i -X POST https://<IP_PUBLICA>:8443/api/web/auth/login \
+    -H "Content-Type: application/json" -d '{"cuentaId":101,"nombre":"John Doe"}'
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Banco-XYZ-Gateway: api-gateway
+
+{"token":"eyJhbGciOiJIUzI1NiJ9...","expiraEnSegundos":1800,"cuentaId":101,"titular":"John Doe"}
+```
+
 ## 6. Escalar horizontalmente en la nube
 
 Dentro de la instancia, agregar réplicas de los tres microservicios con el sistema en marcha:
