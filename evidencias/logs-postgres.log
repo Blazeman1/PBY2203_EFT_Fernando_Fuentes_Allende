@@ -1,0 +1,1447 @@
+postgres  | The files belonging to this database system will be owned by user "postgres".
+postgres  | This user must also own the server process.
+postgres  | 
+postgres  | The database cluster will be initialized with locale "en_US.utf8".
+postgres  | The default database encoding has accordingly been set to "UTF8".
+postgres  | The default text search configuration will be set to "english".
+postgres  | 
+postgres  | Data page checksums are disabled.
+postgres  | 
+postgres  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres  | creating subdirectories ... ok
+postgres  | selecting dynamic shared memory implementation ... posix
+postgres  | selecting default max_connections ... 100
+postgres  | selecting default shared_buffers ... 128MB
+postgres  | selecting default time zone ... UTC
+postgres  | creating configuration files ... ok
+postgres  | running bootstrap script ... ok
+postgres  | sh: locale: not found
+postgres  | 2026-10-10 05:18:31.259 UTC [36] WARNING:  no usable system locales were found
+postgres  | performing post-bootstrap initialization ... ok
+postgres  | syncing data to disk ... ok
+postgres  | 
+postgres  | 
+postgres  | Success. You can now start the database server using:
+postgres  | 
+postgres  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres  | 
+postgres  | initdb: warning: enabling "trust" authentication for local connections
+postgres  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres  | waiting for server to start....2026-10-10 05:18:34.515 UTC [42] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres  | 2026-10-10 05:18:34.532 UTC [42] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres  | 2026-10-10 05:18:34.577 UTC [45] LOG:  database system was shut down at 2026-10-10 05:18:32 UTC
+postgres  | 2026-10-10 05:18:34.614 UTC [42] LOG:  database system is ready to accept connections
+postgres  |  done
+postgres  | server started
+postgres  | 
+postgres  | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/01-esquema.sql
+postgres  | CREATE DATABASE
+postgres  | CREATE DATABASE
+postgres  | CREATE DATABASE
+postgres  | CREATE DATABASE
+postgres  | You are now connected to database "clientes_db" as user "bancoxyz".
+postgres  | CREATE TABLE
+postgres  | CREATE SEQUENCE
+postgres  | You are now connected to database "cuentas_db" as user "bancoxyz".
+postgres  | CREATE TABLE
+postgres  | CREATE INDEX
+postgres  | CREATE TABLE
+postgres  | CREATE INDEX
+postgres  | CREATE TABLE
+postgres  | CREATE SEQUENCE
+postgres  | You are now connected to database "pagos_db" as user "bancoxyz".
+postgres  | CREATE TABLE
+postgres  | CREATE INDEX
+postgres  | CREATE INDEX
+postgres  | 
+postgres  | 
+postgres  | waiting for server to shut down...2026-10-10 05:18:36.009 UTC [42] LOG:  received fast shutdown request
+postgres  | .2026-10-10 05:18:36.020 UTC [42] LOG:  aborting any active transactions
+postgres  | 2026-10-10 05:18:36.025 UTC [42] LOG:  background worker "logical replication launcher" (PID 48) exited with exit code 1
+postgres  | 2026-10-10 05:18:36.030 UTC [43] LOG:  shutting down
+postgres  | 2026-10-10 05:18:36.041 UTC [43] LOG:  checkpoint starting: shutdown immediate
+postgres  | .2026-10-10 05:18:37.395 UTC [43] LOG:  checkpoint complete: wrote 3706 buffers (22.6%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.486 s, sync=0.810 s, total=1.366 s; sync files=1212, longest=0.059 s, average=0.001 s; distance=17236 kB, estimate=17236 kB; lsn=0/25CC108, redo lsn=0/25CC108
+postgres  | 2026-10-10 05:18:37.410 UTC [42] LOG:  database system is shut down
+postgres  |  done
+postgres  | server stopped
+postgres  | 
+postgres  | PostgreSQL init process complete; ready for start up.
+postgres  | 
+postgres  | 2026-10-10 05:18:37.477 UTC [1] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+postgres  | 2026-10-10 05:18:37.477 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres  | 2026-10-10 05:18:37.477 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres  | 2026-10-10 05:18:37.510 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres  | 2026-10-10 05:18:37.535 UTC [66] LOG:  database system was shut down at 2026-10-10 05:18:37 UTC
+postgres  | 2026-10-10 05:18:37.557 UTC [1] LOG:  database system is ready to accept connections
+postgres  | 2026-10-10 05:20:11.898 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:11.898 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:11.898 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:11.936 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:11.936 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:11.936 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.333 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.333 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-04-23, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:12.333 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.345 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.345 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-04-23, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:12.345 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.502 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.502 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-07-15, -200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.502 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.507 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.507 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-07-15, -200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.507 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.538 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.538 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.538 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.577 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.577 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.577 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.682 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.682 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-04-22, 1200.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:12.682 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.727 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.727 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-04-22, 1200.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:12.727 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.805 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.805 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-09-20, 1000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.805 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.857 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.857 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-09-20, 1000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.857 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.872 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.872 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-08-14, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.872 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.888 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.888 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-08-14, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:12.888 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.922 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.922 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-06-19, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:12.922 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:12.946 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:12.946 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-06-19, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:12.946 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.023 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.023 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-07-22, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.023 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.025 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.025 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-07-22, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.025 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.115 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.115 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-03-05, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.115 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.118 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.118 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-03-05, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.118 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.229 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.229 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-06-05, 800.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.229 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.254 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.254 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-06-05, 800.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.254 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.282 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.282 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-04-05, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.282 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.294 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.294 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-04-05, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.294 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.361 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.361 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-09-14, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.361 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.370 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.370 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.370 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.373 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.373 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-09-14, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.373 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.377 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.377 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.377 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.428 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.428 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-12-17, 1200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.428 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.440 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.440 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-12-17, 1200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.440 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.489 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.489 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-03-02, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.489 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.501 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.501 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-03-02, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.501 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.502 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.502 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-01-07, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.502 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.511 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.511 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-01-07, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.511 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.569 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.569 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.569 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.587 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.587 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.587 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.588 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.588 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.588 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.630 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.630 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.630 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.647 UTC [232] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.647 UTC [232] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:13.647 UTC [232] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.647 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.647 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:13.647 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.666 UTC [240] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.666 UTC [240] DETAIL:  Key (fecha, monto, tipo)=(2024-02-02, 3000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.666 UTC [240] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:13.678 UTC [231] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:13.678 UTC [231] DETAIL:  Key (fecha, monto, tipo)=(2024-02-02, 3000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:13.678 UTC [231] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:18.286 UTC [249] ERROR:  relation "batch_job_instance" already exists
+postgres  | 2026-10-10 05:20:18.286 UTC [249] STATEMENT:  CREATE TABLE BATCH_JOB_INSTANCE ( JOB_INSTANCE_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT , JOB_NAME VARCHAR(100) NOT NULL, JOB_KEY VARCHAR(32) NOT NULL, constraint JOB_INST_UN unique (JOB_NAME, JOB_KEY) ) 
+postgres  | 2026-10-10 05:20:18.289 UTC [249] ERROR:  relation "batch_job_execution" already exists
+postgres  | 2026-10-10 05:20:18.289 UTC [249] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION ( JOB_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT , JOB_INSTANCE_ID BIGINT NOT NULL, CREATE_TIME TIMESTAMP NOT NULL, START_TIME TIMESTAMP DEFAULT NULL , END_TIME TIMESTAMP DEFAULT NULL , STATUS VARCHAR(10) , EXIT_CODE VARCHAR(2500) , EXIT_MESSAGE VARCHAR(2500) , LAST_UPDATED TIMESTAMP, constraint JOB_INST_EXEC_FK foreign key (JOB_INSTANCE_ID) references BATCH_JOB_INSTANCE(JOB_INSTANCE_ID) ) 
+postgres  | 2026-10-10 05:20:18.290 UTC [249] ERROR:  relation "batch_job_execution_params" already exists
+postgres  | 2026-10-10 05:20:18.290 UTC [249] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION_PARAMS ( JOB_EXECUTION_ID BIGINT NOT NULL , PARAMETER_NAME VARCHAR(100) NOT NULL , PARAMETER_TYPE VARCHAR(100) NOT NULL , PARAMETER_VALUE VARCHAR(2500) , IDENTIFYING CHAR(1) NOT NULL , constraint JOB_EXEC_PARAMS_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:18.290 UTC [249] ERROR:  relation "batch_step_execution" already exists
+postgres  | 2026-10-10 05:20:18.290 UTC [249] STATEMENT:  CREATE TABLE BATCH_STEP_EXECUTION ( STEP_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT NOT NULL, STEP_NAME VARCHAR(100) NOT NULL, JOB_EXECUTION_ID BIGINT NOT NULL, CREATE_TIME TIMESTAMP NOT NULL, START_TIME TIMESTAMP DEFAULT NULL , END_TIME TIMESTAMP DEFAULT NULL , STATUS VARCHAR(10) , COMMIT_COUNT BIGINT , READ_COUNT BIGINT , FILTER_COUNT BIGINT , WRITE_COUNT BIGINT , READ_SKIP_COUNT BIGINT , WRITE_SKIP_COUNT BIGINT , PROCESS_SKIP_COUNT BIGINT , ROLLBACK_COUNT BIGINT , EXIT_CODE VARCHAR(2500) , EXIT_MESSAGE VARCHAR(2500) , LAST_UPDATED TIMESTAMP, constraint JOB_EXEC_STEP_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:18.291 UTC [249] ERROR:  relation "batch_step_execution_context" already exists
+postgres  | 2026-10-10 05:20:18.291 UTC [249] STATEMENT:  CREATE TABLE BATCH_STEP_EXECUTION_CONTEXT ( STEP_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY, SHORT_CONTEXT VARCHAR(2500) NOT NULL, SERIALIZED_CONTEXT TEXT , constraint STEP_EXEC_CTX_FK foreign key (STEP_EXECUTION_ID) references BATCH_STEP_EXECUTION(STEP_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:18.291 UTC [249] ERROR:  relation "batch_job_execution_context" already exists
+postgres  | 2026-10-10 05:20:18.291 UTC [249] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION_CONTEXT ( JOB_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY, SHORT_CONTEXT VARCHAR(2500) NOT NULL, SERIALIZED_CONTEXT TEXT , constraint JOB_EXEC_CTX_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:18.292 UTC [249] ERROR:  relation "batch_step_execution_seq" already exists
+postgres  | 2026-10-10 05:20:18.292 UTC [249] STATEMENT:  CREATE SEQUENCE BATCH_STEP_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:18.292 UTC [249] ERROR:  relation "batch_job_execution_seq" already exists
+postgres  | 2026-10-10 05:20:18.292 UTC [249] STATEMENT:  CREATE SEQUENCE BATCH_JOB_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:18.292 UTC [249] ERROR:  relation "batch_job_seq" already exists
+postgres  | 2026-10-10 05:20:18.292 UTC [249] STATEMENT:  CREATE SEQUENCE BATCH_JOB_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:26.575 UTC [268] ERROR:  relation "batch_job_instance" already exists
+postgres  | 2026-10-10 05:20:26.575 UTC [268] STATEMENT:  CREATE TABLE BATCH_JOB_INSTANCE ( JOB_INSTANCE_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT , JOB_NAME VARCHAR(100) NOT NULL, JOB_KEY VARCHAR(32) NOT NULL, constraint JOB_INST_UN unique (JOB_NAME, JOB_KEY) ) 
+postgres  | 2026-10-10 05:20:26.579 UTC [268] ERROR:  relation "batch_job_execution" already exists
+postgres  | 2026-10-10 05:20:26.579 UTC [268] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION ( JOB_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT , JOB_INSTANCE_ID BIGINT NOT NULL, CREATE_TIME TIMESTAMP NOT NULL, START_TIME TIMESTAMP DEFAULT NULL , END_TIME TIMESTAMP DEFAULT NULL , STATUS VARCHAR(10) , EXIT_CODE VARCHAR(2500) , EXIT_MESSAGE VARCHAR(2500) , LAST_UPDATED TIMESTAMP, constraint JOB_INST_EXEC_FK foreign key (JOB_INSTANCE_ID) references BATCH_JOB_INSTANCE(JOB_INSTANCE_ID) ) 
+postgres  | 2026-10-10 05:20:26.581 UTC [268] ERROR:  relation "batch_job_execution_params" already exists
+postgres  | 2026-10-10 05:20:26.581 UTC [268] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION_PARAMS ( JOB_EXECUTION_ID BIGINT NOT NULL , PARAMETER_NAME VARCHAR(100) NOT NULL , PARAMETER_TYPE VARCHAR(100) NOT NULL , PARAMETER_VALUE VARCHAR(2500) , IDENTIFYING CHAR(1) NOT NULL , constraint JOB_EXEC_PARAMS_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:26.582 UTC [268] ERROR:  relation "batch_step_execution" already exists
+postgres  | 2026-10-10 05:20:26.582 UTC [268] STATEMENT:  CREATE TABLE BATCH_STEP_EXECUTION ( STEP_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT NOT NULL, STEP_NAME VARCHAR(100) NOT NULL, JOB_EXECUTION_ID BIGINT NOT NULL, CREATE_TIME TIMESTAMP NOT NULL, START_TIME TIMESTAMP DEFAULT NULL , END_TIME TIMESTAMP DEFAULT NULL , STATUS VARCHAR(10) , COMMIT_COUNT BIGINT , READ_COUNT BIGINT , FILTER_COUNT BIGINT , WRITE_COUNT BIGINT , READ_SKIP_COUNT BIGINT , WRITE_SKIP_COUNT BIGINT , PROCESS_SKIP_COUNT BIGINT , ROLLBACK_COUNT BIGINT , EXIT_CODE VARCHAR(2500) , EXIT_MESSAGE VARCHAR(2500) , LAST_UPDATED TIMESTAMP, constraint JOB_EXEC_STEP_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:26.584 UTC [268] ERROR:  relation "batch_step_execution_context" already exists
+postgres  | 2026-10-10 05:20:26.584 UTC [268] STATEMENT:  CREATE TABLE BATCH_STEP_EXECUTION_CONTEXT ( STEP_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY, SHORT_CONTEXT VARCHAR(2500) NOT NULL, SERIALIZED_CONTEXT TEXT , constraint STEP_EXEC_CTX_FK foreign key (STEP_EXECUTION_ID) references BATCH_STEP_EXECUTION(STEP_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:26.585 UTC [268] ERROR:  relation "batch_job_execution_context" already exists
+postgres  | 2026-10-10 05:20:26.585 UTC [268] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION_CONTEXT ( JOB_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY, SHORT_CONTEXT VARCHAR(2500) NOT NULL, SERIALIZED_CONTEXT TEXT , constraint JOB_EXEC_CTX_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:26.586 UTC [268] ERROR:  relation "batch_step_execution_seq" already exists
+postgres  | 2026-10-10 05:20:26.586 UTC [268] STATEMENT:  CREATE SEQUENCE BATCH_STEP_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:26.587 UTC [268] ERROR:  relation "batch_job_execution_seq" already exists
+postgres  | 2026-10-10 05:20:26.587 UTC [268] STATEMENT:  CREATE SEQUENCE BATCH_JOB_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:26.588 UTC [268] ERROR:  relation "batch_job_seq" already exists
+postgres  | 2026-10-10 05:20:26.588 UTC [268] STATEMENT:  CREATE SEQUENCE BATCH_JOB_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:27.503 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:27.503 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:27.503 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:27.534 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:27.534 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:27.534 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:27.887 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:27.887 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-04-23, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:27.887 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:27.895 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:27.895 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-04-23, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:27.895 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.015 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.015 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-07-15, -200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.015 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.032 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.032 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-07-15, -200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.032 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.086 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.086 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.086 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.097 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.097 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.097 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.160 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.160 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-04-22, 1200.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.160 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.188 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.188 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-04-22, 1200.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.188 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.255 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.255 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-09-20, 1000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.255 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.275 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.275 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-09-20, 1000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.275 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.296 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.296 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-08-14, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.296 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.311 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.311 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-08-14, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.311 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.332 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.332 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-06-19, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.332 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.352 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.352 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-06-19, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.352 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.405 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.405 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-07-22, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.405 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.427 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.427 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-07-22, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.427 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.480 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.480 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-03-05, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.480 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.491 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.491 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-03-05, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.491 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.587 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.587 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-06-05, 800.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.587 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.614 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.614 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-06-05, 800.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.614 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.644 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.644 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-04-05, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.644 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.650 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.650 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-04-05, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.650 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.719 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.719 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-09-14, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.719 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.725 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.725 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.725 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.734 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.734 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.734 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.736 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.736 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-09-14, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.736 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.798 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.798 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-12-17, 1200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.798 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.811 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.811 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-12-17, 1200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.811 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.861 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.861 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-03-02, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.861 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.880 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.880 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-03-02, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.880 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.890 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.890 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-01-07, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.890 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.896 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.896 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-01-07, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.896 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.935 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.935 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.935 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.945 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.945 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.945 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.958 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.958 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.958 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.974 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.974 UTC [270] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:28.974 UTC [270] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.975 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.975 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.975 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.982 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.982 UTC [268] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:28.982 UTC [268] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.987 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.987 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-02-02, 3000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.987 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:28.996 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:28.996 UTC [269] DETAIL:  Key (fecha, monto, tipo)=(2024-02-02, 3000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:28.996 UTC [269] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.341 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.341 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 5000.00, 30, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.341 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.348 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.348 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 5000.00, 30, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.348 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.367 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.367 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Alice Brown, 10000.00, 45, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.367 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.383 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.383 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Alice Brown, 10000.00, 45, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.383 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.485 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.485 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 7000.00, 40, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.485 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.491 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.491 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 7000.00, 40, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.491 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.602 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.602 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Diana Prince, 12000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.602 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.609 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.609 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Diana Prince, 12000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.609 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.716 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.716 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 8000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.716 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.724 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.724 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 8000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.724 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.737 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.737 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 8000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.737 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.747 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.747 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 8000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.747 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.785 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.785 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(John Doe, 10000.00, 45, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.785 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.795 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.795 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(John Doe, 10000.00, 45, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.795 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.803 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.803 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Bob Johnson, 7000.00, 35, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.803 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.814 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.814 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Bob Johnson, 7000.00, 35, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.814 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.844 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.844 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Unknown, 10000.00, 30, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.844 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.845 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.845 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Unknown, 10000.00, 30, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.845 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.907 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.907 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 5000.00, 45, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.907 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.909 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.909 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 5000.00, 45, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.909 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.918 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.918 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Bob Johnson, 10000.00, 30, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.918 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.930 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.930 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Bob Johnson, 10000.00, 30, prestamo) already exists.
+postgres  | 2026-10-10 05:20:29.930 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.997 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.997 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 5000.00, 35, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.997 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:29.999 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:29.999 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 5000.00, 35, ahorro) already exists.
+postgres  | 2026-10-10 05:20:29.999 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.051 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.051 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 12000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.051 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.057 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.057 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 12000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.057 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.064 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.064 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 12000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.064 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.066 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.066 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Jane Smith, 12000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.066 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.183 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.183 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 7000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.183 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.193 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.193 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 7000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.193 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.229 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.229 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 5000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.229 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.234 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.234 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Charlie Green, 5000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.234 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.240 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.240 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Bob Johnson, 8000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.240 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.284 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.284 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Steve Rogers, 5000.00, 35, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.284 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.296 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.296 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Steve Rogers, 5000.00, 35, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.296 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.316 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.316 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Unknown, 8000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.316 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.328 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.328 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Unknown, 8000.00, 40, ahorro) already exists.
+postgres  | 2026-10-10 05:20:30.328 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.339 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.339 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(John Doe, 8000.00, 45, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.339 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.341 UTC [270] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.341 UTC [270] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(John Doe, 8000.00, 45, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.341 UTC [270] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.409 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.409 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Diana Prince, 7000.00, 40, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.409 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.411 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.411 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Diana Prince, 7000.00, 40, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.411 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.579 UTC [268] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.579 UTC [268] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Diana Prince, 7000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.579 UTC [268] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:30.587 UTC [269] ERROR:  duplicate key value violates unique constraint "uq_cuenta_interes_natural"
+postgres  | 2026-10-10 05:20:30.587 UTC [269] DETAIL:  Key (nombre, saldo_inicial, edad, tipo)=(Diana Prince, 7000.00, 35, prestamo) already exists.
+postgres  | 2026-10-10 05:20:30.587 UTC [269] STATEMENT:  INSERT INTO cuentas_interes
+postgres  | 	    (cuenta_id, nombre, tipo, edad, saldo_inicial, tasa_interes_mensual, interes_calculado, saldo_final)
+postgres  | 	VALUES
+postgres  | 	    ($1, $2, $3, $4, $5, $6, $7, $8)
+postgres  | 	ON CONFLICT (cuenta_id) DO UPDATE SET
+postgres  | 	    nombre = EXCLUDED.nombre,
+postgres  | 	    tipo = EXCLUDED.tipo,
+postgres  | 	    edad = EXCLUDED.edad,
+postgres  | 	    saldo_inicial = EXCLUDED.saldo_inicial,
+postgres  | 	    tasa_interes_mensual = EXCLUDED.tasa_interes_mensual,
+postgres  | 	    interes_calculado = EXCLUDED.interes_calculado,
+postgres  | 	    saldo_final = EXCLUDED.saldo_final,
+postgres  | 	    fecha_procesamiento = now()
+postgres  | 	
+postgres  | 2026-10-10 05:20:36.791 UTC [287] ERROR:  relation "batch_job_instance" already exists
+postgres  | 2026-10-10 05:20:36.791 UTC [287] STATEMENT:  CREATE TABLE BATCH_JOB_INSTANCE ( JOB_INSTANCE_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT , JOB_NAME VARCHAR(100) NOT NULL, JOB_KEY VARCHAR(32) NOT NULL, constraint JOB_INST_UN unique (JOB_NAME, JOB_KEY) ) 
+postgres  | 2026-10-10 05:20:36.794 UTC [287] ERROR:  relation "batch_job_execution" already exists
+postgres  | 2026-10-10 05:20:36.794 UTC [287] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION ( JOB_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT , JOB_INSTANCE_ID BIGINT NOT NULL, CREATE_TIME TIMESTAMP NOT NULL, START_TIME TIMESTAMP DEFAULT NULL , END_TIME TIMESTAMP DEFAULT NULL , STATUS VARCHAR(10) , EXIT_CODE VARCHAR(2500) , EXIT_MESSAGE VARCHAR(2500) , LAST_UPDATED TIMESTAMP, constraint JOB_INST_EXEC_FK foreign key (JOB_INSTANCE_ID) references BATCH_JOB_INSTANCE(JOB_INSTANCE_ID) ) 
+postgres  | 2026-10-10 05:20:36.795 UTC [287] ERROR:  relation "batch_job_execution_params" already exists
+postgres  | 2026-10-10 05:20:36.795 UTC [287] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION_PARAMS ( JOB_EXECUTION_ID BIGINT NOT NULL , PARAMETER_NAME VARCHAR(100) NOT NULL , PARAMETER_TYPE VARCHAR(100) NOT NULL , PARAMETER_VALUE VARCHAR(2500) , IDENTIFYING CHAR(1) NOT NULL , constraint JOB_EXEC_PARAMS_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:36.796 UTC [287] ERROR:  relation "batch_step_execution" already exists
+postgres  | 2026-10-10 05:20:36.796 UTC [287] STATEMENT:  CREATE TABLE BATCH_STEP_EXECUTION ( STEP_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY , VERSION BIGINT NOT NULL, STEP_NAME VARCHAR(100) NOT NULL, JOB_EXECUTION_ID BIGINT NOT NULL, CREATE_TIME TIMESTAMP NOT NULL, START_TIME TIMESTAMP DEFAULT NULL , END_TIME TIMESTAMP DEFAULT NULL , STATUS VARCHAR(10) , COMMIT_COUNT BIGINT , READ_COUNT BIGINT , FILTER_COUNT BIGINT , WRITE_COUNT BIGINT , READ_SKIP_COUNT BIGINT , WRITE_SKIP_COUNT BIGINT , PROCESS_SKIP_COUNT BIGINT , ROLLBACK_COUNT BIGINT , EXIT_CODE VARCHAR(2500) , EXIT_MESSAGE VARCHAR(2500) , LAST_UPDATED TIMESTAMP, constraint JOB_EXEC_STEP_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:36.797 UTC [287] ERROR:  relation "batch_step_execution_context" already exists
+postgres  | 2026-10-10 05:20:36.797 UTC [287] STATEMENT:  CREATE TABLE BATCH_STEP_EXECUTION_CONTEXT ( STEP_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY, SHORT_CONTEXT VARCHAR(2500) NOT NULL, SERIALIZED_CONTEXT TEXT , constraint STEP_EXEC_CTX_FK foreign key (STEP_EXECUTION_ID) references BATCH_STEP_EXECUTION(STEP_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:36.798 UTC [287] ERROR:  relation "batch_job_execution_context" already exists
+postgres  | 2026-10-10 05:20:36.798 UTC [287] STATEMENT:  CREATE TABLE BATCH_JOB_EXECUTION_CONTEXT ( JOB_EXECUTION_ID BIGINT NOT NULL PRIMARY KEY, SHORT_CONTEXT VARCHAR(2500) NOT NULL, SERIALIZED_CONTEXT TEXT , constraint JOB_EXEC_CTX_FK foreign key (JOB_EXECUTION_ID) references BATCH_JOB_EXECUTION(JOB_EXECUTION_ID) ) 
+postgres  | 2026-10-10 05:20:36.798 UTC [287] ERROR:  relation "batch_step_execution_seq" already exists
+postgres  | 2026-10-10 05:20:36.798 UTC [287] STATEMENT:  CREATE SEQUENCE BATCH_STEP_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:36.799 UTC [287] ERROR:  relation "batch_job_execution_seq" already exists
+postgres  | 2026-10-10 05:20:36.799 UTC [287] STATEMENT:  CREATE SEQUENCE BATCH_JOB_EXECUTION_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:36.799 UTC [287] ERROR:  relation "batch_job_seq" already exists
+postgres  | 2026-10-10 05:20:36.799 UTC [287] STATEMENT:  CREATE SEQUENCE BATCH_JOB_SEQ MAXVALUE 9223372036854775807 NO CYCLE
+postgres  | 2026-10-10 05:20:37.587 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.587 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-08-14, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.587 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.630 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.630 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-08-14, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.630 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.717 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.717 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.717 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.744 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.744 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.744 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.793 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.793 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.793 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.830 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.830 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-06-19, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:37.830 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.833 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.833 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.833 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.843 UTC [288] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.843 UTC [288] DETAIL:  Key (fecha, monto, tipo)=(2024-07-15, -200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.843 UTC [288] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.846 UTC [288] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.846 UTC [288] DETAIL:  Key (fecha, monto, tipo)=(2024-07-15, -200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.846 UTC [288] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.853 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.853 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-06-19, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:37.853 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.920 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.920 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-03-02, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:37.920 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.924 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.924 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-03-02, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:37.924 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.939 UTC [288] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.939 UTC [288] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.939 UTC [288] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.954 UTC [288] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.954 UTC [288] DETAIL:  Key (fecha, monto, tipo)=(2024-04-10, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.954 UTC [288] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.956 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.956 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-09-20, 1000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.956 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.970 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.970 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-09-20, 1000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.970 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.976 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.976 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-01-07, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.976 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.987 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.987 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-01-07, 800.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.987 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:37.991 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:37.991 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-12-17, 1200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:37.991 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.019 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.019 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-12-17, 1200.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:38.019 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.074 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.074 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-03-05, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.074 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.078 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.078 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-03-05, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.078 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.101 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.101 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.101 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.131 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.131 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.131 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.133 UTC [288] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.133 UTC [288] DETAIL:  Key (fecha, monto, tipo)=(2024-04-22, 1200.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.133 UTC [288] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.141 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.141 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-07-22, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.141 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.162 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.162 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.162 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.175 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.175 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-10-05, -200.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.175 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.176 UTC [288] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.176 UTC [288] DETAIL:  Key (fecha, monto, tipo)=(2024-04-22, 1200.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.176 UTC [288] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.177 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.177 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-04-05, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.177 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.183 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.183 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-07-22, 700.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.183 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.188 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.188 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-04-05, 1500.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.188 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.231 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.231 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.231 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.233 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.233 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-10-25, 700.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.233 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.250 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.250 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-04-23, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.250 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.253 UTC [287] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.253 UTC [287] DETAIL:  Key (fecha, monto, tipo)=(2024-04-23, 800.00, INVALIDO) already exists.
+postgres  | 2026-10-10 05:20:38.253 UTC [287] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.268 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.268 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-02-02, 3000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:38.268 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.271 UTC [290] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.271 UTC [290] DETAIL:  Key (fecha, monto, tipo)=(2024-02-02, 3000.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:38.271 UTC [290] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.304 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.304 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-09-14, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:38.304 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.323 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.323 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-09-14, 700.00, DEBITO) already exists.
+postgres  | 2026-10-10 05:20:38.323 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.342 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.342 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-06-05, 800.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.342 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	
+postgres  | 2026-10-10 05:20:38.360 UTC [289] ERROR:  duplicate key value violates unique constraint "uq_transaccion_natural"
+postgres  | 2026-10-10 05:20:38.360 UTC [289] DETAIL:  Key (fecha, monto, tipo)=(2024-06-05, 800.00, CREDITO) already exists.
+postgres  | 2026-10-10 05:20:38.360 UTC [289] STATEMENT:  INSERT INTO transacciones_procesadas (id_origen, fecha, monto, tipo, es_anomalia, motivo_anomalia)
+postgres  | 	VALUES ($1, $2, $3, $4, $5, $6)
+postgres  | 	

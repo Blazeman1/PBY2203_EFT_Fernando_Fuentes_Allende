@@ -1,0 +1,74 @@
+package com.bancoxyz.bff.atm.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
+
+@ConfigurationProperties(prefix = "cuentas-service")
+public class CuentasServiceProperties {
+
+    private String baseUrl = "http://cuentas-service";
+
+    @NestedConfigurationProperty
+    private OAuth2 oauth2 = new OAuth2();
+
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
+    public OAuth2 getOauth2() {
+        return oauth2;
+    }
+
+    public void setOauth2(OAuth2 oauth2) {
+        this.oauth2 = oauth2;
+    }
+
+    /**
+     * Credenciales OAuth2.0 (flujo client_credentials) que este BFF usa para autenticarse ante
+     * cuentas-service: el token lo emite auth-server y se envia como Bearer en cada llamada.
+     * Ver {@link com.bancoxyz.bff.atm.client.CuentasServiceTokenProvider}.
+     */
+    public static class OAuth2 {
+        private String tokenUri = "http://localhost:9000/oauth2/token";
+        private String clientId;
+        private String clientSecret;
+        /** Scopes a solicitar, separados por espacio (los que auth-server otorga a este canal). */
+        private String scope = "cuentas.access";
+
+        public String getTokenUri() {
+            return tokenUri;
+        }
+
+        public void setTokenUri(String tokenUri) {
+            this.tokenUri = tokenUri;
+        }
+
+        public String getClientId() {
+            return clientId;
+        }
+
+        public void setClientId(String clientId) {
+            this.clientId = clientId;
+        }
+
+        public String getClientSecret() {
+            return clientSecret;
+        }
+
+        public void setClientSecret(String clientSecret) {
+            this.clientSecret = clientSecret;
+        }
+
+        public String getScope() {
+            return scope;
+        }
+
+        public void setScope(String scope) {
+            this.scope = scope;
+        }
+    }
+}

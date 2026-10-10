@@ -1,0 +1,454 @@
+clientes-service-1  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+clientes-service-1  | 
+clientes-service-1  |   .   ____          _            __ _ _
+clientes-service-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+clientes-service-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+clientes-service-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+clientes-service-2  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+clientes-service-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+clientes-service-1  |  =========|_|==============|___/=/_/_/_/
+clientes-service-1  | 
+clientes-service-1  |  :: Spring Boot ::               (v3.3.13)
+clientes-service-1  | 
+clientes-service-1  | 2026-10-10 05:18:52.150 [main] INFO  c.b.clientes.ClientesServiceApplication - Starting ClientesServiceApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+clientes-service-2  | 
+clientes-service-2  |   .   ____          _            __ _ _
+clientes-service-2  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+clientes-service-2  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+clientes-service-2  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+clientes-service-2  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+clientes-service-2  |  =========|_|==============|___/=/_/_/_/
+clientes-service-2  | 
+clientes-service-2  |  :: Spring Boot ::               (v3.3.13)
+clientes-service-2  | 
+clientes-service-2  | 2026-10-10 05:21:31.612 [main] INFO  c.b.clientes.ClientesServiceApplication - Starting ClientesServiceApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+clientes-service-1  | 2026-10-10 05:18:52.159 [main] INFO  c.b.clientes.ClientesServiceApplication - The following 1 profile is active: "docker"
+clientes-service-2  | 2026-10-10 05:21:31.617 [main] INFO  c.b.clientes.ClientesServiceApplication - The following 1 profile is active: "docker"
+clientes-service-2  | 2026-10-10 05:21:31.759 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:21:31.759 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-2  | 2026-10-10 05:21:31.760 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@61a5b4ae uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused. Will be trying the next url if available
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@308a6984 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@66b72664 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[docker], label=null, version=null, state=null
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-2  | 2026-10-10 05:21:31.761 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[default], label=null, version=null, state=null
+clientes-service-1  | 2026-10-10 05:18:52.384 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:21:34.762 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+clientes-service-1  | 2026-10-10 05:18:52.385 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-1  | 2026-10-10 05:18:52.385 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@61a5b4ae uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-1  | 2026-10-10 05:18:52.385 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-1  | 2026-10-10 05:18:52.386 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused. Will be trying the next url if available
+clientes-service-1  | 2026-10-10 05:18:52.386 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@308a6984 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused
+clientes-service-1  | 2026-10-10 05:18:52.386 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-1  | 2026-10-10 05:18:52.386 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-1  | 2026-10-10 05:18:52.387 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@66b72664 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-1  | 2026-10-10 05:18:52.387 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-1  | 2026-10-10 05:18:52.387 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[docker], label=null, version=null, state=null
+clientes-service-1  | 2026-10-10 05:18:52.387 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-1  | 2026-10-10 05:18:52.388 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[default], label=null, version=null, state=null
+clientes-service-2  | 2026-10-10 05:21:35.226 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 438 ms. Found 1 JPA repository interface.
+clientes-service-1  | 2026-10-10 05:18:57.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+clientes-service-1  | 2026-10-10 05:18:57.883 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 619 ms. Found 1 JPA repository interface.
+clientes-service-1  | 2026-10-10 05:18:59.809 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=f94848cd-51ca-3cc9-9384-0cae2e3dc2ee
+clientes-service-1  | 2026-10-10 05:19:04.137 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+clientes-service-1  | 2026-10-10 05:19:04.191 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+clientes-service-1  | 2026-10-10 05:19:04.192 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+clientes-service-2  | 2026-10-10 05:21:36.601 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=f94848cd-51ca-3cc9-9384-0cae2e3dc2ee
+clientes-service-2  | 2026-10-10 05:21:39.173 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+clientes-service-1  | 2026-10-10 05:19:04.297 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+clientes-service-2  | 2026-10-10 05:21:39.216 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+clientes-service-1  | 2026-10-10 05:19:04.306 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 11913 ms
+clientes-service-2  | 2026-10-10 05:21:39.216 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+clientes-service-2  | 2026-10-10 05:21:39.305 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+clientes-service-2  | 2026-10-10 05:21:39.308 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7531 ms
+clientes-service-2  | 2026-10-10 05:21:40.979 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+clientes-service-2  | 2026-10-10 05:21:41.144 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+clientes-service-2  | 2026-10-10 05:21:41.207 [main] INFO  o.h.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+clientes-service-2  | 2026-10-10 05:21:41.764 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+clientes-service-2  | 2026-10-10 05:21:41.806 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Starting...
+clientes-service-2  | 2026-10-10 05:21:42.224 [main] INFO  com.zaxxer.hikari.pool.HikariPool - ClientesHikariPool - Added connection org.postgresql.jdbc.PgConnection@c3a1d7f
+clientes-service-2  | 2026-10-10 05:21:42.228 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Start completed.
+clientes-service-2  | 2026-10-10 05:21:44.132 [main] INFO  o.h.e.t.j.p.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+clientes-service-2  | 2026-10-10 05:21:44.142 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+clientes-service-2  | 2026-10-10 05:21:47.792 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+clientes-service-2  | 2026-10-10 05:21:50.278 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+clientes-service-1  | 2026-10-10 05:19:07.005 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+clientes-service-1  | 2026-10-10 05:19:07.642 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+clientes-service-1  | 2026-10-10 05:19:08.011 [main] INFO  o.h.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+clientes-service-1  | 2026-10-10 05:19:09.542 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+clientes-service-1  | 2026-10-10 05:19:09.610 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Starting...
+clientes-service-1  | 2026-10-10 05:19:09.960 [main] INFO  com.zaxxer.hikari.pool.HikariPool - ClientesHikariPool - Added connection org.postgresql.jdbc.PgConnection@8cce9ad
+clientes-service-2  | 2026-10-10 05:21:50.480 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+clientes-service-2  | 2026-10-10 05:21:50.618 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+clientes-service-2  | 2026-10-10 05:21:50.696 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+clientes-service-2  | 2026-10-10 05:21:50.721 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+clientes-service-2  | 2026-10-10 05:21:50.741 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+clientes-service-2  | 2026-10-10 05:21:51.473 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+clientes-service-2  | 2026-10-10 05:21:51.476 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+clientes-service-2  | 2026-10-10 05:21:51.480 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+clientes-service-2  | 2026-10-10 05:21:51.483 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609711482 with initial instances count: 9
+clientes-service-2  | 2026-10-10 05:21:51.502 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CLIENTES-SERVICE with eureka with status UP
+clientes-service-2  | 2026-10-10 05:21:51.503 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609711503, current=UP, previous=STARTING]
+clientes-service-2  | 2026-10-10 05:21:51.507 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/91a85d779591:clientes-service:8086: registering service...
+clientes-service-2  | 2026-10-10 05:21:51.543 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+clientes-service-2  | 2026-10-10 05:21:51.545 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+clientes-service-2  | 2026-10-10 05:21:51.579 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/91a85d779591:clientes-service:8086 - registration status: 204
+clientes-service-2  | 2026-10-10 05:21:51.607 [main] INFO  c.b.clientes.ClientesServiceApplication - Started ClientesServiceApplication in 21.812 seconds (process running for 22.869)
+clientes-service-2  | 2026-10-10 05:21:52.273 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - clientes-service: la base ya contiene 51 clientes; se omite la migracion inicial del legacy.
+clientes-service-2  | 2026-10-10 05:21:54.289 [http-nio-8086-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+clientes-service-2  | 2026-10-10 05:21:54.290 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+clientes-service-2  | 2026-10-10 05:21:54.291 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+clientes-service-2  | 2026-10-10 05:22:13.562 [http-nio-8086-exec-8] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 27 ms)
+clientes-service-2  | 2026-10-10 05:22:14.030 [http-nio-8086-exec-9] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-2  | 2026-10-10 05:22:14.495 [http-nio-8086-exec-10] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-2  | 2026-10-10 05:22:14.964 [http-nio-8086-exec-3] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-2  | 2026-10-10 05:22:15.435 [http-nio-8086-exec-4] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-2  | 2026-10-10 05:22:15.881 [http-nio-8086-exec-5] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-2  | 2026-10-10 05:22:16.343 [http-nio-8086-exec-6] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-2  | 2026-10-10 05:22:16.811 [http-nio-8086-exec-7] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 6 ms)
+clientes-service-2  | 2026-10-10 05:22:34.903 [http-nio-8086-exec-6] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-2  | 2026-10-10 05:22:35.486 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CLIENTES-SERVICE with eureka with status DOWN
+clientes-service-2  | 2026-10-10 05:22:35.486 [SpringApplicationShutdownHook] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609755486, current=DOWN, previous=UP]
+clientes-service-1  | 2026-10-10 05:19:09.964 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Start completed.
+clientes-service-2  | 2026-10-10 05:22:35.486 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/91a85d779591:clientes-service:8086: registering service...
+clientes-service-2  | 2026-10-10 05:22:35.493 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/91a85d779591:clientes-service:8086 - registration status: 204
+clientes-service-2  | 2026-10-10 05:22:35.502 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+clientes-service-2  | 2026-10-10 05:22:35.505 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Shutdown initiated...
+clientes-service-2  | 2026-10-10 05:22:35.511 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Shutdown completed.
+clientes-service-2  | 2026-10-10 05:22:35.512 [SpringApplicationShutdownHook] INFO  com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+clientes-service-2  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+clientes-service-2  | 
+clientes-service-2  |   .   ____          _            __ _ _
+clientes-service-2  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+clientes-service-1  | 2026-10-10 05:19:12.091 [main] INFO  o.h.e.t.j.p.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+clientes-service-1  | 2026-10-10 05:19:12.095 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+clientes-service-1  | 2026-10-10 05:19:15.867 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+clientes-service-1  | 2026-10-10 05:19:18.779 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+clientes-service-2  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+clientes-service-2  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+clientes-service-2  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+clientes-service-1  | 2026-10-10 05:19:19.050 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+clientes-service-1  | 2026-10-10 05:19:19.223 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+clientes-service-1  | 2026-10-10 05:19:19.296 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+clientes-service-2  |  =========|_|==============|___/=/_/_/_/
+clientes-service-2  | 
+clientes-service-2  |  :: Spring Boot ::               (v3.3.13)
+clientes-service-2  | 
+clientes-service-2  | 2026-10-10 05:22:46.822 [main] INFO  c.b.clientes.ClientesServiceApplication - Starting ClientesServiceApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+clientes-service-2  | 2026-10-10 05:22:46.825 [main] INFO  c.b.clientes.ClientesServiceApplication - The following 1 profile is active: "docker"
+clientes-service-2  | 2026-10-10 05:22:46.888 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:22:46.888 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-2  | 2026-10-10 05:22:46.888 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@61a5b4ae uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-2  | 2026-10-10 05:22:46.888 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused. Will be trying the next url if available
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@308a6984 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@66b72664 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[docker], label=null, version=null, state=null
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-2  | 2026-10-10 05:22:46.889 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[default], label=null, version=null, state=null
+clientes-service-2  | 2026-10-10 05:22:48.693 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+clientes-service-2  | 2026-10-10 05:22:49.031 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 329 ms. Found 1 JPA repository interface.
+clientes-service-2  | 2026-10-10 05:22:50.208 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=f94848cd-51ca-3cc9-9384-0cae2e3dc2ee
+clientes-service-2  | 2026-10-10 05:22:51.840 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+clientes-service-2  | 2026-10-10 05:22:51.866 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+clientes-service-2  | 2026-10-10 05:22:51.867 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+clientes-service-2  | 2026-10-10 05:22:51.915 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+clientes-service-2  | 2026-10-10 05:22:51.918 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5023 ms
+clientes-service-2  | 2026-10-10 05:22:53.138 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+clientes-service-2  | 2026-10-10 05:22:53.300 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+clientes-service-2  | 2026-10-10 05:22:53.385 [main] INFO  o.h.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+clientes-service-2  | 2026-10-10 05:22:54.036 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+clientes-service-2  | 2026-10-10 05:22:54.073 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Starting...
+clientes-service-2  | 2026-10-10 05:22:54.314 [main] INFO  com.zaxxer.hikari.pool.HikariPool - ClientesHikariPool - Added connection org.postgresql.jdbc.PgConnection@5ce0f50a
+clientes-service-2  | 2026-10-10 05:22:54.318 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Start completed.
+clientes-service-2  | 2026-10-10 05:22:55.646 [main] INFO  o.h.e.t.j.p.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+clientes-service-2  | 2026-10-10 05:22:55.653 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+clientes-service-2  | 2026-10-10 05:22:59.633 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+clientes-service-2  | 2026-10-10 05:23:02.895 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+clientes-service-2  | 2026-10-10 05:23:03.138 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+clientes-service-2  | 2026-10-10 05:23:03.356 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+clientes-service-2  | 2026-10-10 05:23:03.434 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+clientes-service-2  | 2026-10-10 05:23:03.462 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+clientes-service-2  | 2026-10-10 05:23:03.487 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+clientes-service-2  | 2026-10-10 05:23:03.488 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+clientes-service-2  | 2026-10-10 05:23:03.488 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+clientes-service-2  | 2026-10-10 05:23:03.488 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+clientes-service-2  | 2026-10-10 05:23:03.488 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+clientes-service-2  | 2026-10-10 05:23:03.489 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+clientes-service-2  | 2026-10-10 05:23:03.489 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+clientes-service-2  | 2026-10-10 05:23:04.620 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+clientes-service-2  | 2026-10-10 05:23:04.626 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+clientes-service-2  | 2026-10-10 05:23:04.636 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+clientes-service-2  | 2026-10-10 05:23:04.640 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609784640 with initial instances count: 12
+clientes-service-2  | 2026-10-10 05:23:04.670 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CLIENTES-SERVICE with eureka with status UP
+clientes-service-2  | 2026-10-10 05:23:04.671 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609784671, current=UP, previous=STARTING]
+clientes-service-2  | 2026-10-10 05:23:04.676 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/91a85d779591:clientes-service:8086: registering service...
+clientes-service-2  | 2026-10-10 05:23:04.731 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+clientes-service-2  | 2026-10-10 05:23:04.737 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+clientes-service-2  | 2026-10-10 05:23:04.801 [main] INFO  c.b.clientes.ClientesServiceApplication - Started ClientesServiceApplication in 19.258 seconds (process running for 20.332)
+clientes-service-2  | 2026-10-10 05:23:04.818 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/91a85d779591:clientes-service:8086 - registration status: 204
+clientes-service-2  | 2026-10-10 05:23:05.076 [http-nio-8086-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+clientes-service-2  | 2026-10-10 05:23:05.077 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+clientes-service-2  | 2026-10-10 05:23:05.082 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+clientes-service-2  | 2026-10-10 05:23:05.850 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - clientes-service: la base ya contiene 51 clientes; se omite la migracion inicial del legacy.
+clientes-service-2  | 2026-10-10 05:23:27.023 [http-nio-8086-exec-1] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 28 ms)
+clientes-service-2  | 2026-10-10 05:23:28.000 [http-nio-8086-exec-2] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:19:19.307 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+clientes-service-1  | 2026-10-10 05:19:19.344 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+clientes-service-1  | 2026-10-10 05:19:19.345 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+clientes-service-1  | 2026-10-10 05:19:19.345 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+clientes-service-1  | 2026-10-10 05:19:19.345 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+clientes-service-1  | 2026-10-10 05:19:19.345 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+clientes-service-1  | 2026-10-10 05:19:19.345 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+clientes-service-1  | 2026-10-10 05:19:19.345 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+clientes-service-1  | 2026-10-10 05:19:20.267 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+clientes-service-1  | 2026-10-10 05:19:20.272 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+clientes-service-1  | 2026-10-10 05:19:20.276 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+clientes-service-1  | 2026-10-10 05:19:20.279 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609560278 with initial instances count: 2
+clientes-service-1  | 2026-10-10 05:19:20.300 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CLIENTES-SERVICE with eureka with status UP
+clientes-service-1  | 2026-10-10 05:19:20.301 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609560301, current=UP, previous=STARTING]
+clientes-service-1  | 2026-10-10 05:19:20.305 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/db272060c9a6:clientes-service:8086: registering service...
+clientes-service-1  | 2026-10-10 05:19:20.336 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+clientes-service-1  | 2026-10-10 05:19:20.338 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+clientes-service-1  | 2026-10-10 05:19:20.371 [main] INFO  c.b.clientes.ClientesServiceApplication - Started ClientesServiceApplication in 31.473 seconds (process running for 33.361)
+clientes-service-1  | 2026-10-10 05:19:20.385 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 - registration status: 204
+clientes-service-1  | 2026-10-10 05:19:21.152 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - ############################################################
+clientes-service-1  | 2026-10-10 05:19:21.152 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - clientes-service: migracion inicial del legacy completada.
+clientes-service-1  | 2026-10-10 05:19:21.152 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - Clientes validos cargados: 50 (filas omitidas por datos invalidos: 780)
+clientes-service-1  | 2026-10-10 05:19:21.152 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - ############################################################
+clientes-service-1  | 2026-10-10 05:19:21.983 [http-nio-8086-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+clientes-service-1  | 2026-10-10 05:19:21.983 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+clientes-service-1  | 2026-10-10 05:19:21.986 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+clientes-service-1  | 2026-10-10 05:20:06.175 [http-nio-8086-exec-7] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 40 ms)
+clientes-service-1  | 2026-10-10 05:20:06.708 [http-nio-8086-exec-8] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:20:44.966 [http-nio-8086-exec-9] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:20:45.111 [http-nio-8086-exec-10] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-1  | 2026-10-10 05:20:45.367 [http-nio-8086-exec-1] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-1  | 2026-10-10 05:20:46.362 [http-nio-8086-exec-2] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 8 ms)
+clientes-service-1  | 2026-10-10 05:20:50.032 [http-nio-8086-exec-5] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:20:50.180 [http-nio-8086-exec-6] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:20:50.305 [http-nio-8086-exec-7] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:20:51.307 [http-nio-8086-exec-8] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:20:51.916 [http-nio-8086-exec-10] INFO  com.bancoxyz.clientes.service.ClienteService - Cliente 1001 creado (Camila Rojas)
+clientes-service-1  | 2026-10-10 05:20:51.923 [http-nio-8086-exec-10] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION POST /internal/clientes -> HTTP 201 (cliente=bff-web-client, 85 ms)
+clientes-service-1  | 2026-10-10 05:20:52.549 [http-nio-8086-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.bancoxyz.clientes.dto.ClienteInternalDTO> com.bancoxyz.clientes.controller.ClienteInternalController.crear(com.bancoxyz.clientes.dto.CrearClienteRequest): [Field error in object 'crearClienteRequest' on field 'edad': rejected value [15]; codes [Min.crearClienteRequest.edad,Min.edad,Min.java.lang.Integer,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearClienteRequest.edad,edad]; arguments []; default message [edad],18]; default message [must be greater than or equal to 18]] ]
+clientes-service-1  | 2026-10-10 05:20:52.549 [http-nio-8086-exec-2] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION POST /internal/clientes -> HTTP 400 (cliente=bff-web-client, 15 ms)
+clientes-service-1  | 2026-10-10 05:20:53.080 [http-nio-8086-exec-3] INFO  com.bancoxyz.clientes.service.ClienteService - Cliente 1001: datos de contacto actualizados
+clientes-service-1  | 2026-10-10 05:20:53.168 [http-nio-8086-exec-3] INFO  o.a.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+clientes-service-1  | 	acks = -1
+clientes-service-1  | 	auto.include.jmx.reporter = true
+clientes-service-1  | 	batch.size = 16384
+clientes-service-1  | 	bootstrap.servers = [kafka:9092]
+clientes-service-1  | 	buffer.memory = 33554432
+clientes-service-1  | 	client.dns.lookup = use_all_dns_ips
+clientes-service-1  | 	client.id = clientes-service-producer-1
+clientes-service-1  | 	compression.type = none
+clientes-service-1  | 	connections.max.idle.ms = 540000
+clientes-service-1  | 	delivery.timeout.ms = 120000
+clientes-service-1  | 	enable.idempotence = true
+clientes-service-1  | 	enable.metrics.push = true
+clientes-service-1  | 	interceptor.classes = []
+clientes-service-1  | 	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+clientes-service-1  | 	linger.ms = 0
+clientes-service-1  | 	max.block.ms = 3000
+clientes-service-1  | 	max.in.flight.requests.per.connection = 5
+clientes-service-1  | 	max.request.size = 1048576
+clientes-service-1  | 	metadata.max.age.ms = 300000
+clientes-service-1  | 	metadata.max.idle.ms = 300000
+clientes-service-1  | 	metric.reporters = []
+clientes-service-1  | 	metrics.num.samples = 2
+clientes-service-1  | 	metrics.recording.level = INFO
+clientes-service-1  | 	metrics.sample.window.ms = 30000
+clientes-service-1  | 	partitioner.adaptive.partitioning.enable = true
+clientes-service-1  | 	partitioner.availability.timeout.ms = 0
+clientes-service-1  | 	partitioner.class = null
+clientes-service-1  | 	partitioner.ignore.keys = false
+clientes-service-1  | 	receive.buffer.bytes = 32768
+clientes-service-1  | 	reconnect.backoff.max.ms = 1000
+clientes-service-1  | 	reconnect.backoff.ms = 50
+clientes-service-1  | 	request.timeout.ms = 30000
+clientes-service-1  | 	retries = 2147483647
+clientes-service-1  | 	retry.backoff.max.ms = 1000
+clientes-service-1  | 	retry.backoff.ms = 100
+clientes-service-1  | 	sasl.client.callback.handler.class = null
+clientes-service-1  | 	sasl.jaas.config = null
+clientes-service-1  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+clientes-service-1  | 	sasl.kerberos.min.time.before.relogin = 60000
+clientes-service-1  | 	sasl.kerberos.service.name = null
+clientes-service-1  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+clientes-service-1  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+clientes-service-1  | 	sasl.login.callback.handler.class = null
+clientes-service-1  | 	sasl.login.class = null
+clientes-service-1  | 	sasl.login.connect.timeout.ms = null
+clientes-service-1  | 	sasl.login.read.timeout.ms = null
+clientes-service-1  | 	sasl.login.refresh.buffer.seconds = 300
+clientes-service-1  | 	sasl.login.refresh.min.period.seconds = 60
+clientes-service-1  | 	sasl.login.refresh.window.factor = 0.8
+clientes-service-1  | 	sasl.login.refresh.window.jitter = 0.05
+clientes-service-1  | 	sasl.login.retry.backoff.max.ms = 10000
+clientes-service-1  | 	sasl.login.retry.backoff.ms = 100
+clientes-service-1  | 	sasl.mechanism = GSSAPI
+clientes-service-1  | 	sasl.oauthbearer.clock.skew.seconds = 30
+clientes-service-1  | 	sasl.oauthbearer.expected.audience = null
+clientes-service-1  | 	sasl.oauthbearer.expected.issuer = null
+clientes-service-1  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+clientes-service-1  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+clientes-service-1  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+clientes-service-1  | 	sasl.oauthbearer.jwks.endpoint.url = null
+clientes-service-1  | 	sasl.oauthbearer.scope.claim.name = scope
+clientes-service-1  | 	sasl.oauthbearer.sub.claim.name = sub
+clientes-service-1  | 	sasl.oauthbearer.token.endpoint.url = null
+clientes-service-1  | 	security.protocol = PLAINTEXT
+clientes-service-1  | 	security.providers = null
+clientes-service-1  | 	send.buffer.bytes = 131072
+clientes-service-1  | 	socket.connection.setup.timeout.max.ms = 30000
+clientes-service-1  | 	socket.connection.setup.timeout.ms = 10000
+clientes-service-1  | 	ssl.cipher.suites = null
+clientes-service-1  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+clientes-service-1  | 	ssl.endpoint.identification.algorithm = https
+clientes-service-1  | 	ssl.engine.factory.class = null
+clientes-service-1  | 	ssl.key.password = null
+clientes-service-1  | 	ssl.keymanager.algorithm = SunX509
+clientes-service-1  | 	ssl.keystore.certificate.chain = null
+clientes-service-1  | 	ssl.keystore.key = null
+clientes-service-1  | 	ssl.keystore.location = null
+clientes-service-1  | 	ssl.keystore.password = null
+clientes-service-1  | 	ssl.keystore.type = JKS
+clientes-service-1  | 	ssl.protocol = TLSv1.3
+clientes-service-1  | 	ssl.provider = null
+clientes-service-1  | 	ssl.secure.random.implementation = null
+clientes-service-1  | 	ssl.trustmanager.algorithm = PKIX
+clientes-service-1  | 	ssl.truststore.certificates = null
+clientes-service-1  | 	ssl.truststore.location = null
+clientes-service-1  | 	ssl.truststore.password = null
+clientes-service-1  | 	ssl.truststore.type = JKS
+clientes-service-1  | 	transaction.timeout.ms = 60000
+clientes-service-1  | 	transactional.id = null
+clientes-service-1  | 	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+clientes-service-1  | 
+clientes-service-1  | 2026-10-10 05:20:53.249 [http-nio-8086-exec-3] INFO  o.a.k.c.t.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+clientes-service-1  | 2026-10-10 05:20:53.271 [http-nio-8086-exec-3] INFO  o.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=clientes-service-producer-1] Instantiated an idempotent producer.
+clientes-service-1  | 2026-10-10 05:20:53.343 [http-nio-8086-exec-3] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.2
+clientes-service-1  | 2026-10-10 05:20:53.343 [http-nio-8086-exec-3] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 79a8f2b5f44f9d5a
+clientes-service-1  | 2026-10-10 05:20:53.344 [http-nio-8086-exec-3] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1791609653338
+clientes-service-1  | 2026-10-10 05:20:53.841 [kafka-producer-network-thread | clientes-service-producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=clientes-service-producer-1] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+clientes-service-1  | 2026-10-10 05:20:53.842 [kafka-producer-network-thread | clientes-service-producer-1] INFO  o.a.k.c.producer.internals.TransactionManager - [Producer clientId=clientes-service-producer-1] ProducerId set to 1 with epoch 0
+clientes-service-1  | 2026-10-10 05:20:53.877 [http-nio-8086-exec-3] INFO  c.b.clientes.evento.AlertaSeguridadPublisher - Alerta de seguridad publicada: tipo=CAMBIO_DATOS_CONTACTO clienteId=1001
+clientes-service-1  | 2026-10-10 05:20:53.880 [http-nio-8086-exec-3] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION PUT /internal/clientes/1001 -> HTTP 200 (cliente=bff-web-client, 808 ms)
+clientes-service-1  | 2026-10-10 05:20:54.482 [http-nio-8086-exec-7] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/999999 -> HTTP 404 (cliente=bff-web-client, 7 ms)
+clientes-service-1  | 2026-10-10 05:20:55.247 [http-nio-8086-exec-9] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/1001 -> HTTP 200 (cliente=cuentas-service-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:20:55.892 [http-nio-8086-exec-10] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/999999 -> HTTP 404 (cliente=cuentas-service-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:21:04.911 [http-nio-8086-exec-3] INFO  com.bancoxyz.clientes.service.ClienteService - Cliente 1001: estado cambiado a INACTIVO
+clientes-service-1  | 2026-10-10 05:21:04.920 [http-nio-8086-exec-3] INFO  c.b.clientes.evento.AlertaSeguridadPublisher - Alerta de seguridad publicada: tipo=CLIENTE_DESACTIVADO clienteId=1001
+clientes-service-1  | 2026-10-10 05:21:04.921 [http-nio-8086-exec-3] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION POST /internal/clientes/1001/desactivar -> HTTP 200 (cliente=bff-web-client, 12 ms)
+clientes-service-1  | 2026-10-10 05:21:05.433 [http-nio-8086-exec-7] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/1001 -> HTTP 200 (cliente=cuentas-service-client, 3 ms)
+clientes-service-1  | 2026-10-10 05:21:05.969 [http-nio-8086-exec-8] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:22:12.815 [http-nio-8086-exec-6] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 5 ms)
+clientes-service-1  | 2026-10-10 05:22:13.799 [http-nio-8086-exec-7] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:22:14.262 [http-nio-8086-exec-8] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-1  | 2026-10-10 05:22:14.708 [http-nio-8086-exec-1] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-1  | 2026-10-10 05:22:15.211 [http-nio-8086-exec-2] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:22:15.649 [http-nio-8086-exec-4] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:22:16.129 [http-nio-8086-exec-5] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+clientes-service-1  | 2026-10-10 05:22:16.569 [http-nio-8086-exec-3] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:22:34.613 [http-nio-8086-exec-5] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+clientes-service-1  | 2026-10-10 05:22:35.479 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CLIENTES-SERVICE with eureka with status DOWN
+clientes-service-1  | 2026-10-10 05:22:35.479 [SpringApplicationShutdownHook] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609755479, current=DOWN, previous=UP]
+clientes-service-1  | 2026-10-10 05:22:35.479 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/db272060c9a6:clientes-service:8086: registering service...
+clientes-service-1  | 2026-10-10 05:22:35.486 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 - registration status: 204
+clientes-service-1  | 2026-10-10 05:22:35.488 [SpringApplicationShutdownHook] INFO  o.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=clientes-service-producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+clientes-service-1  | 2026-10-10 05:22:35.499 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+clientes-service-1  | 2026-10-10 05:22:35.499 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+clientes-service-1  | 2026-10-10 05:22:35.499 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+clientes-service-1  | 2026-10-10 05:22:35.499 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+clientes-service-1  | 2026-10-10 05:22:35.500 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.producer for clientes-service-producer-1 unregistered
+clientes-service-1  | 2026-10-10 05:22:35.510 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+clientes-service-1  | 2026-10-10 05:22:35.513 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Shutdown initiated...
+clientes-service-1  | 2026-10-10 05:22:35.520 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Shutdown completed.
+clientes-service-1  | 2026-10-10 05:22:35.521 [SpringApplicationShutdownHook] INFO  com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+clientes-service-1  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+clientes-service-1  | 
+clientes-service-1  |   .   ____          _            __ _ _
+clientes-service-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+clientes-service-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+clientes-service-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+clientes-service-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+clientes-service-1  |  =========|_|==============|___/=/_/_/_/
+clientes-service-1  | 
+clientes-service-1  |  :: Spring Boot ::               (v3.3.13)
+clientes-service-1  | 
+clientes-service-1  | 2026-10-10 05:22:47.173 [main] INFO  c.b.clientes.ClientesServiceApplication - Starting ClientesServiceApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+clientes-service-1  | 2026-10-10 05:22:47.178 [main] INFO  c.b.clientes.ClientesServiceApplication - The following 1 profile is active: "docker"
+clientes-service-1  | 2026-10-10 05:22:47.282 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-1  | 2026-10-10 05:22:47.282 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-1  | 2026-10-10 05:22:47.282 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@61a5b4ae uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-1  | 2026-10-10 05:22:47.282 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-1  | 2026-10-10 05:22:47.282 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused. Will be trying the next url if available
+clientes-service-1  | 2026-10-10 05:22:47.282 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@308a6984 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/clientes-service/docker": Connection refused
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused. Will be trying the next url if available
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@66b72664 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/clientes-service/default": Connection refused
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[docker], label=null, version=null, state=null
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+clientes-service-1  | 2026-10-10 05:22:47.283 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=clientes-service, profiles=[default], label=null, version=null, state=null
+clientes-service-1  | 2026-10-10 05:22:49.188 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+clientes-service-1  | 2026-10-10 05:22:49.681 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 476 ms. Found 1 JPA repository interface.
+clientes-service-1  | 2026-10-10 05:22:50.826 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=f94848cd-51ca-3cc9-9384-0cae2e3dc2ee
+clientes-service-1  | 2026-10-10 05:22:52.446 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+clientes-service-1  | 2026-10-10 05:22:52.476 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+clientes-service-1  | 2026-10-10 05:22:52.476 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+clientes-service-1  | 2026-10-10 05:22:52.539 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+clientes-service-1  | 2026-10-10 05:22:52.541 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5254 ms
+clientes-service-1  | 2026-10-10 05:22:53.792 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+clientes-service-1  | 2026-10-10 05:22:53.928 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+clientes-service-1  | 2026-10-10 05:22:54.007 [main] INFO  o.h.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+clientes-service-1  | 2026-10-10 05:22:54.482 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+clientes-service-1  | 2026-10-10 05:22:54.522 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Starting...
+clientes-service-1  | 2026-10-10 05:22:54.820 [main] INFO  com.zaxxer.hikari.pool.HikariPool - ClientesHikariPool - Added connection org.postgresql.jdbc.PgConnection@6a8ab98f
+clientes-service-1  | 2026-10-10 05:22:54.823 [main] INFO  com.zaxxer.hikari.HikariDataSource - ClientesHikariPool - Start completed.
+clientes-service-1  | 2026-10-10 05:22:56.150 [main] INFO  o.h.e.t.j.p.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+clientes-service-1  | 2026-10-10 05:22:56.156 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+clientes-service-1  | 2026-10-10 05:23:00.944 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+clientes-service-1  | 2026-10-10 05:23:03.655 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+clientes-service-1  | 2026-10-10 05:23:03.968 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+clientes-service-1  | 2026-10-10 05:23:04.193 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+clientes-service-1  | 2026-10-10 05:23:04.277 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+clientes-service-1  | 2026-10-10 05:23:04.290 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+clientes-service-1  | 2026-10-10 05:23:04.333 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+clientes-service-1  | 2026-10-10 05:23:04.333 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+clientes-service-1  | 2026-10-10 05:23:04.333 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+clientes-service-1  | 2026-10-10 05:23:04.333 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+clientes-service-1  | 2026-10-10 05:23:04.334 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+clientes-service-1  | 2026-10-10 05:23:04.334 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+clientes-service-1  | 2026-10-10 05:23:04.334 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+clientes-service-1  | 2026-10-10 05:23:05.401 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+clientes-service-1  | 2026-10-10 05:23:05.405 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+clientes-service-1  | 2026-10-10 05:23:05.410 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+clientes-service-1  | 2026-10-10 05:23:05.413 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609785413 with initial instances count: 12
+clientes-service-1  | 2026-10-10 05:23:05.452 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CLIENTES-SERVICE with eureka with status UP
+clientes-service-1  | 2026-10-10 05:23:05.453 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609785453, current=UP, previous=STARTING]
+clientes-service-1  | 2026-10-10 05:23:05.459 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/db272060c9a6:clientes-service:8086: registering service...
+clientes-service-1  | 2026-10-10 05:23:05.542 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+clientes-service-1  | 2026-10-10 05:23:05.544 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8086
+clientes-service-1  | 2026-10-10 05:23:05.576 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 - registration status: 204
+clientes-service-1  | 2026-10-10 05:23:05.589 [main] INFO  c.b.clientes.ClientesServiceApplication - Started ClientesServiceApplication in 19.786 seconds (process running for 20.827)
+clientes-service-1  | 2026-10-10 05:23:06.490 [main] INFO  c.bancoxyz.clientes.service.CargaDatosLegacy - clientes-service: la base ya contiene 51 clientes; se omite la migracion inicial del legacy.
+clientes-service-1  | 2026-10-10 05:23:10.359 [http-nio-8086-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+clientes-service-1  | 2026-10-10 05:23:10.360 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+clientes-service-1  | 2026-10-10 05:23:10.363 [http-nio-8086-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+clientes-service-1  | 2026-10-10 05:23:27.733 [http-nio-8086-exec-9] INFO  c.b.clientes.config.RegistroPeticionesFilter - PETICION GET /internal/clientes/101 -> HTTP 200 (cliente=bff-web-client, 30 ms)

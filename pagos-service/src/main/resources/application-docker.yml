@@ -1,0 +1,19 @@
+# Activado con SPRING_PROFILES_ACTIVE=docker (ver docker-compose.yaml): config-server,
+# eureka-server, kafka y postgres dejan de ser "localhost" y se resuelven por el nombre de su
+# servicio en la red de docker-compose.
+spring:
+  config:
+    import: "optional:configserver:http://config-server:8888"
+  datasource:
+    url: jdbc:postgresql://postgres:5432/pagos_db
+  kafka:
+    bootstrap-servers: kafka:9092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    # Cada replica se registra con su IP dentro de la red de Docker: necesario para que el
+    # balanceador del lado del cliente distinga y alcance a cada instancia al escalar.
+    prefer-ip-address: true

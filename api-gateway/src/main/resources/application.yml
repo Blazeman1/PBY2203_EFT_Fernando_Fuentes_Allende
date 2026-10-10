@@ -1,0 +1,77 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:api-gateway-keystore.p12
+    key-store-type: PKCS12
+    # Certificado autofirmado de uso academico. En AWS, el certificado real lo entregaria un
+    # Application Load Balancer con AWS Certificate Manager delante de este gateway.
+    key-store-password: "keystore-api-gateway-banco-xyz-no-usar-en-produccion-2026"
+    key-alias: apigateway
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    loadbalancer:
+      cache:
+        ttl: 5s
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 15s
+        ssl:
+          # Los BFF usan certificados autofirmados (uso academico): el gateway no puede validar su
+          # cadena de confianza. En produccion se reemplaza por "trusted-x509-certificates" con
+          # la CA interna del banco.
+          use-insecure-trust-manager: true
+      default-filters:
+        # Deja evidencia, en cada respuesta, de que la peticion paso por el gateway.
+        - AddResponseHeader=X-Banco-XYZ-Gateway, api-gateway
+      routes:
+        # Un prefijo de ruta por canal. "lb://" = resolver por Eureka y balancear entre las
+        # instancias registradas de ese servicio (Spring Cloud LoadBalancer, round-robin).
+        - id: canal-web
+          uri: lb://bff-web
+          predicates:
+            - Path=/api/web/**
+        - id: canal-movil
+          uri: lb://bff-mobile
+          predicates:
+            - Path=/api/mobile/**
+        - id: canal-cajero
+          uri: lb://bff-atm
+          predicates:
+            - Path=/api/atm/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    # Refresca su copia del registro cada 5 s (30 s por defecto): una replica nueva de un BFF
+    # empieza a recibir trafico, y una caida deja de recibirlo, en pocos segundos.
+    registry-fetch-interval-seconds: 5
+  instance:
+    # Latido cada 5 s y expiracion a los 15 s: Eureka retira rapido una instancia que dejo de responder.
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+    secure-port-enabled: true
+    secure-port: ${server.port}
+    non-secure-port-enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # "gateway" expone /actuator/gateway/routes: la tabla de rutas vigente, util como evidencia.
+        include: health,info,gateway
+  endpoint:
+    gateway:
+      enabled: true
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{45} - %msg%n"
+  level:
+    root: INFO
+    com.bancoxyz.gateway: INFO

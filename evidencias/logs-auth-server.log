@@ -1,0 +1,24 @@
+auth-server  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+auth-server  | 
+auth-server  |   .   ____          _            __ _ _
+auth-server  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+auth-server  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+auth-server  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+auth-server  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+auth-server  |  =========|_|==============|___/=/_/_/_/
+auth-server  | 
+auth-server  |  :: Spring Boot ::               (v3.3.13)
+auth-server  | 
+auth-server  | 2026-10-10 05:18:34.180 [main] INFO  com.bancoxyz.bff.auth.AuthServerApplication - Starting AuthServerApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+auth-server  | 2026-10-10 05:18:34.185 [main] INFO  com.bancoxyz.bff.auth.AuthServerApplication - The following 1 profile is active: "docker"
+auth-server  | 2026-10-10 05:18:38.721 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 9000 (http)
+auth-server  | 2026-10-10 05:18:38.770 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+auth-server  | 2026-10-10 05:18:38.771 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+auth-server  | 2026-10-10 05:18:38.845 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+auth-server  | 2026-10-10 05:18:38.847 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4513 ms
+auth-server  | 2026-10-10 05:18:41.694 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+auth-server  | 2026-10-10 05:18:42.461 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 9000 (http) with context path '/'
+auth-server  | 2026-10-10 05:18:42.484 [main] INFO  com.bancoxyz.bff.auth.AuthServerApplication - Started AuthServerApplication in 11.003 seconds (process running for 12.388)
+auth-server  | 2026-10-10 05:18:45.363 [http-nio-9000-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+auth-server  | 2026-10-10 05:18:45.364 [http-nio-9000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+auth-server  | 2026-10-10 05:18:45.365 [http-nio-9000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms

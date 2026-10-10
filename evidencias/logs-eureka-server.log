@@ -1,0 +1,154 @@
+eureka-server  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+eureka-server  | 
+eureka-server  |   .   ____          _            __ _ _
+eureka-server  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+eureka-server  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+eureka-server  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+eureka-server  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+eureka-server  |  =========|_|==============|___/=/_/_/_/
+eureka-server  | 
+eureka-server  |  :: Spring Boot ::               (v3.3.13)
+eureka-server  | 
+eureka-server  | 2026-10-10T05:18:34.293Z  INFO 1 --- [eureka-server] [           main] c.b.discovery.EurekaServerApplication    : Starting EurekaServerApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+eureka-server  | 2026-10-10T05:18:34.308Z  INFO 1 --- [eureka-server] [           main] c.b.discovery.EurekaServerApplication    : No active profile set, falling back to 1 default profile: "default"
+eureka-server  | 2026-10-10T05:18:38.435Z  INFO 1 --- [eureka-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3cbe52d5-3858-3fbf-a130-83fe55951f6c
+eureka-server  | 2026-10-10T05:18:39.258Z  INFO 1 --- [eureka-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8761 (http)
+eureka-server  | 2026-10-10T05:18:39.293Z  INFO 1 --- [eureka-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+eureka-server  | 2026-10-10T05:18:39.294Z  INFO 1 --- [eureka-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+eureka-server  | 2026-10-10T05:18:39.380Z  INFO 1 --- [eureka-server] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+eureka-server  | 2026-10-10T05:18:39.385Z  INFO 1 --- [eureka-server] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4941 ms
+eureka-server  | 2026-10-10T05:18:42.225Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+eureka-server  | 2026-10-10T05:18:42.227Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+eureka-server  | 2026-10-10T05:18:42.615Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+eureka-server  | 2026-10-10T05:18:42.615Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+eureka-server  | 2026-10-10T05:18:42.812Z  INFO 1 --- [eureka-server] [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+eureka-server  | 2026-10-10T05:18:43.705Z  WARN 1 --- [eureka-server] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+eureka-server  | 2026-10-10T05:18:43.735Z  INFO 1 --- [eureka-server] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+eureka-server  | 2026-10-10T05:18:43.760Z  INFO 1 --- [eureka-server] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+eureka-server  | 2026-10-10T05:18:43.760Z  INFO 1 --- [eureka-server] [           main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+eureka-server  | 2026-10-10T05:18:43.763Z  INFO 1 --- [eureka-server] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1791609523761 with initial instances count: 0
+eureka-server  | 2026-10-10T05:18:43.807Z  INFO 1 --- [eureka-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+eureka-server  | 2026-10-10T05:18:43.808Z  INFO 1 --- [eureka-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
+eureka-server  | 2026-10-10T05:18:43.958Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+eureka-server  | 2026-10-10T05:18:43.958Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+eureka-server  | 2026-10-10T05:18:43.958Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+eureka-server  | 2026-10-10T05:18:43.958Z  INFO 1 --- [eureka-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+eureka-server  | 2026-10-10T05:18:44.002Z  INFO 1 --- [eureka-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
+eureka-server  | 2026-10-10T05:18:44.014Z  INFO 1 --- [eureka-server] [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+eureka-server  | 2026-10-10T05:18:44.014Z  INFO 1 --- [eureka-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+eureka-server  | 2026-10-10T05:18:44.026Z  INFO 1 --- [eureka-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+eureka-server  | 2026-10-10T05:18:44.078Z  INFO 1 --- [eureka-server] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EUREKA-SERVER with eureka with status UP
+eureka-server  | 2026-10-10T05:18:44.087Z  INFO 1 --- [eureka-server] [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+eureka-server  | 2026-10-10T05:18:44.088Z  INFO 1 --- [eureka-server] [       Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+eureka-server  | 2026-10-10T05:18:44.088Z  INFO 1 --- [eureka-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+eureka-server  | 2026-10-10T05:18:44.088Z  INFO 1 --- [eureka-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+eureka-server  | 2026-10-10T05:18:44.088Z  INFO 1 --- [eureka-server] [       Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+eureka-server  | 2026-10-10T05:18:44.090Z  INFO 1 --- [eureka-server] [       Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+eureka-server  | 2026-10-10T05:18:44.103Z  INFO 1 --- [eureka-server] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8761 (http) with context path '/'
+eureka-server  | 2026-10-10T05:18:44.105Z  INFO 1 --- [eureka-server] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+eureka-server  | 2026-10-10T05:18:44.130Z  INFO 1 --- [eureka-server] [           main] c.b.discovery.EurekaServerApplication    : Started EurekaServerApplication in 12.852 seconds (process running for 14.813)
+eureka-server  | 2026-10-10T05:18:44.598Z  INFO 1 --- [eureka-server] [nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+eureka-server  | 2026-10-10T05:18:44.598Z  INFO 1 --- [eureka-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+eureka-server  | 2026-10-10T05:18:44.599Z  INFO 1 --- [eureka-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+eureka-server  | 2026-10-10T05:18:49.089Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:18:54.101Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 11ms
+eureka-server  | 2026-10-10T05:18:59.101Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:03.632Z  INFO 1 --- [eureka-server] [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance NOTIFICACIONES-SERVICE/01d3627f1514:notificaciones-service:8084 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:03.632Z  INFO 1 --- [eureka-server] [nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance NOTIFICACIONES-SERVICE/98f299304454:notificaciones-service:8084 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:04.101Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:04.849Z  INFO 1 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance NOTIFICACIONES-SERVICE/01d3627f1514:notificaciones-service:8084 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:04.858Z  INFO 1 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance NOTIFICACIONES-SERVICE/98f299304454:notificaciones-service:8084 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:09.101Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:14.101Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:19:19.102Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:19:20.381Z  INFO 1 --- [eureka-server] [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:20.897Z  INFO 1 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:21.811Z  INFO 1 --- [eureka-server] [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:21.910Z  INFO 1 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance PAGOS-SERVICE/73f525a0b846:pagos-service:8087 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:22.327Z  INFO 1 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:22.328Z  INFO 1 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance PAGOS-SERVICE/73f525a0b846:pagos-service:8087 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:24.105Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
+eureka-server  | 2026-10-10T05:19:29.106Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:34.107Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:39.106Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:44.107Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:19:44.116Z  INFO 1 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BFF-MOBILE/987f385cfb51:bff-mobile:8082 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:44.632Z  INFO 1 --- [eureka-server] [nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BFF-MOBILE/987f385cfb51:bff-mobile:8082 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:44.919Z  INFO 1 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BFF-ATM/120d2904ed10:bff-atm:8083 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:44.980Z  INFO 1 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BFF-WEB/0c94457039f6:bff-web:8081 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:45.428Z  INFO 1 --- [eureka-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BFF-ATM/120d2904ed10:bff-atm:8083 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:45.429Z  INFO 1 --- [eureka-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance BFF-WEB/0c94457039f6:bff-web:8081 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:49.107Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:19:54.108Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:19:56.627Z  INFO 1 --- [eureka-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance API-GATEWAY/e2d38a41c281:api-gateway:8443 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:19:57.139Z  INFO 1 --- [eureka-server] [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance API-GATEWAY/e2d38a41c281:api-gateway:8443 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:19:59.108Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:04.108Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:09.108Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:14.108Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:20:19.109Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:24.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:20:29.110Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:34.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:39.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:44.112Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:20:49.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:54.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:20:59.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:04.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:09.111Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:14.112Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
+eureka-server  | 2026-10-10T05:21:19.112Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:24.112Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:29.112Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:34.115Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
+eureka-server  | 2026-10-10T05:21:39.116Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:21:44.117Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
+eureka-server  | 2026-10-10T05:21:49.117Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:51.576Z  INFO 1 --- [eureka-server] [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/91a85d779591:clientes-service:8086 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:21:52.090Z  INFO 1 --- [eureka-server] [nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/91a85d779591:clientes-service:8086 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:21:52.408Z  INFO 1 --- [eureka-server] [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance PAGOS-SERVICE/0360d9069b9b:pagos-service:8087 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:21:52.533Z  INFO 1 --- [eureka-server] [nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:21:52.611Z  INFO 1 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance PAGOS-SERVICE/0360d9069b9b:pagos-service:8087 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:21:52.612Z  INFO 1 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:21:54.117Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:21:59.118Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:04.118Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:09.119Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:14.118Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:19.118Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:24.118Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:29.119Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:34.119Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:35.484Z  INFO 1 --- [eureka-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 with status DOWN (replication=false)
+eureka-server  | 2026-10-10T05:22:35.491Z  INFO 1 --- [eureka-server] [nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/91a85d779591:clientes-service:8086 with status DOWN (replication=false)
+eureka-server  | 2026-10-10T05:22:35.569Z  INFO 1 --- [eureka-server] [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 with status DOWN (replication=true)
+eureka-server  | 2026-10-10T05:22:35.569Z  INFO 1 --- [eureka-server] [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/91a85d779591:clientes-service:8086 with status DOWN (replication=true)
+eureka-server  | 2026-10-10T05:22:39.119Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:44.120Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
+eureka-server  | 2026-10-10T05:22:45.466Z  INFO 1 --- [eureka-server] [nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 with status DOWN (replication=false)
+eureka-server  | 2026-10-10T05:22:45.470Z  INFO 1 --- [eureka-server] [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 with status DOWN (replication=false)
+eureka-server  | 2026-10-10T05:22:45.580Z  INFO 1 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 with status DOWN (replication=true)
+eureka-server  | 2026-10-10T05:22:45.580Z  INFO 1 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 with status DOWN (replication=true)
+eureka-server  | 2026-10-10T05:22:49.120Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:54.120Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:22:59.120Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:23:04.120Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:23:04.815Z  INFO 1 --- [eureka-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/91a85d779591:clientes-service:8086 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:23:05.328Z  INFO 1 --- [eureka-server] [nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/91a85d779591:clientes-service:8086 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:23:05.572Z  INFO 1 --- [eureka-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:23:06.083Z  INFO 1 --- [eureka-server] [nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLIENTES-SERVICE/db272060c9a6:clientes-service:8086 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:23:09.121Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:23:14.121Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
+eureka-server  | 2026-10-10T05:23:19.121Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:23:19.121Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Evicting 2 items (expired=2, evictionLimit=2)
+eureka-server  | 2026-10-10T05:23:19.121Z  WARN 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: expired lease for CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080
+eureka-server  | 2026-10-10T05:23:19.122Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 (replication=false)
+eureka-server  | 2026-10-10T05:23:19.123Z  WARN 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: expired lease for CUENTAS-SERVICE/6362b110571a:cuentas-service:8080
+eureka-server  | 2026-10-10T05:23:19.123Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 (replication=false)
+eureka-server  | 2026-10-10T05:23:21.126Z  INFO 1 --- [eureka-server] [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:23:21.193Z  INFO 1 --- [eureka-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 with status UP (replication=false)
+eureka-server  | 2026-10-10T05:23:21.633Z  INFO 1 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/123831dd36c9:cuentas-service:8080 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:23:21.634Z  INFO 1 --- [eureka-server] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUENTAS-SERVICE/6362b110571a:cuentas-service:8080 with status UP (replication=true)
+eureka-server  | 2026-10-10T05:23:24.122Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+eureka-server  | 2026-10-10T05:23:29.122Z  INFO 1 --- [eureka-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms

@@ -1,0 +1,312 @@
+
+=== A. GESTION DE CLIENTES (clientes-service) ===
+--- A.1 Cliente migrado del legacy (id 101) ---
+{
+  "clienteId": 101,
+  "nombre": "John Doe",
+  "edad": 40,
+  "email": "john.doe.101@clientes.bancoxyz.example",
+  "telefono": null,
+  "direccion": null,
+  "estado": "ACTIVO"
+}
+-> GET clientes-service:8086/internal/clientes/101 : HTTP 200
+--- A.2 Alta de un cliente nuevo ---
+{
+  "clienteId": 1001,
+  "nombre": "Camila Rojas",
+  "edad": 34,
+  "email": "camila.rojas@correo.example",
+  "telefono": "+56 9 5555 0101",
+  "direccion": "Av. Providencia 1234, Santiago",
+  "estado": "ACTIVO"
+}
+-> POST clientes-service:8086/internal/clientes : HTTP 201
+--- A.3 Validacion: un cliente menor de edad se rechaza (se espera 400) ---
+{
+  "timestamp": "2026-10-10T05:20:52.555+00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "path": "/internal/clientes"
+}
+-> POST clientes-service:8086/internal/clientes : HTTP 400
+--- A.4 Actualizacion del perfil (datos de contacto): publica una alerta de seguridad en Kafka ---
+{
+  "clienteId": 1001,
+  "nombre": "Camila Rojas",
+  "edad": 34,
+  "email": "camila.rojas@correo.example",
+  "telefono": "+56 9 5555 0202",
+  "direccion": "Los Leones 456, Providencia",
+  "estado": "ACTIVO"
+}
+-> PUT clientes-service:8086/internal/clientes/1001 : HTTP 200
+--- A.5 Cliente inexistente (se espera 404) ---
+{
+  "error": "No existe un cliente con id=999999"
+}
+-> GET clientes-service:8086/internal/clientes/999999 : HTTP 404
+
+=== B. GESTION DE CUENTAS (cuentas-service): apertura, mantenimiento y cierre ===
+--- B.1 Apertura de una cuenta de ahorro para el cliente 1001 (cuentas-service valida al cliente en clientes-service) ---
+{
+  "cuentaId": 1001,
+  "clienteId": 1001,
+  "tipo": "ahorro",
+  "estado": "ACTIVA",
+  "saldo": 50000.0,
+  "fechaApertura": "2026-10-10",
+  "movimientos": [
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "deposito",
+      "monto": 50000.0,
+      "descripcion": "Deposito inicial de apertura"
+    }
+  ]
+}
+-> POST cuentas-service:8080/internal/cuentas : HTTP 201
+--- B.2 Apertura para un cliente que no existe (se espera 422) ---
+{
+  "error": "No existe un cliente con id=999999"
+}
+-> POST cuentas-service:8080/internal/cuentas : HTTP 422
+--- B.3 Mantenimiento: cambio de tipo de producto (ahorro -> corriente) ---
+{
+  "cuentaId": 1001,
+  "clienteId": 1001,
+  "tipo": "corriente",
+  "estado": "ACTIVA",
+  "saldo": 50000.0,
+  "fechaApertura": "2026-10-10",
+  "movimientos": [
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "deposito",
+      "monto": 50000.0,
+      "descripcion": "Deposito inicial de apertura"
+    }
+  ]
+}
+-> PUT cuentas-service:8080/internal/cuentas/1001 : HTTP 200
+--- B.4 Cuentas del cliente 1001 ---
+[
+  {
+    "cuentaId": 1001,
+    "clienteId": 1001,
+    "tipo": "corriente",
+    "estado": "ACTIVA",
+    "saldo": 50000.0,
+    "fechaApertura": "2026-10-10",
+    "movimientos": []
+  }
+]
+-> GET cuentas-service:8080/internal/cuentas?clienteId=1001 : HTTP 200
+--- B.5 Idempotencia: el MISMO credito (mismo idOperacion) enviado dos veces se aplica una sola vez ---
+{
+  "cuentaId": 1001,
+  "saldo": 51000.0
+}
+{
+  "cuentaId": 1001,
+  "saldo": 51000.0
+}
+(ambas respuestas muestran el mismo saldo, 51000: el segundo envio se reconocio como repetido)
+
+=== C. PROCESAMIENTO DE PAGOS (pagos-service): depositos, pagos y transferencias ===
+--- C.1 Deposito de $10.000 en la cuenta 1001 (REST sincronico hacia cuentas-service) ---
+{
+  "pagoId": "13797bec-f8c8-4db1-bbb0-2b93cb0c7299",
+  "tipo": "DEPOSITO",
+  "cuentaOrigen": null,
+  "cuentaDestino": 1001,
+  "monto": 10000.0,
+  "estado": "COMPLETADA",
+  "detalle": null,
+  "glosa": "Deposito en sucursal",
+  "creadoEn": "2026-10-10T05:20:58.303096",
+  "actualizadoEn": "2026-10-10T05:20:58.336474405"
+}
+-> POST pagos-service:8087/internal/pagos/depositos : HTTP 201
+--- C.2 Pago de un servicio por $25.000 ---
+{
+  "pagoId": "93e2d6d0-32e5-43c4-89cc-79b464be7620",
+  "tipo": "PAGO_SERVICIO",
+  "cuentaOrigen": 1001,
+  "cuentaDestino": null,
+  "monto": 25000.0,
+  "estado": "COMPLETADA",
+  "detalle": null,
+  "glosa": "Pago de servicio: Compania de Electricidad",
+  "creadoEn": "2026-10-10T05:20:58.853465",
+  "actualizadoEn": "2026-10-10T05:20:58.889670994"
+}
+-> POST pagos-service:8087/internal/pagos/servicios : HTTP 201
+--- C.3 Pago que excede el saldo: queda registrado como RECHAZADA, con su motivo ---
+{
+  "pagoId": "1fefee60-a79e-4a9b-8af8-930d7d6ec9e5",
+  "tipo": "PAGO_SERVICIO",
+  "cuentaOrigen": 1001,
+  "cuentaDestino": null,
+  "monto": 99999999,
+  "estado": "RECHAZADA",
+  "detalle": "Saldo insuficiente en la cuenta 1001.",
+  "glosa": "Pago de servicio: Automotora",
+  "creadoEn": "2026-10-10T05:20:59.399145",
+  "actualizadoEn": "2026-10-10T05:20:59.422948199"
+}
+-> POST pagos-service:8087/internal/pagos/servicios : HTTP 201
+--- C.4 Transferencia de $6.000 a la cuenta 101 (asincrona: saga por eventos Kafka; responde 202) ---
+{
+  "pagoId": "df276489-bb7e-4ce5-bbe3-2c2df4a28f00",
+  "tipo": "TRANSFERENCIA",
+  "cuentaOrigen": 1001,
+  "cuentaDestino": 101,
+  "monto": 6000.0,
+  "estado": "EN_PROCESO",
+  "detalle": null,
+  "glosa": "Transferencia entre cuentas",
+  "creadoEn": "2026-10-10T05:21:00.020049161",
+  "actualizadoEn": "2026-10-10T05:21:00.020049161"
+}
+-> POST pagos-service:8087/internal/pagos/transferencias : HTTP 202
+Esperando el resultado de la saga...
+{
+  "transferenciaId": "df276489-bb7e-4ce5-bbe3-2c2df4a28f00",
+  "cuentaOrigen": 1001,
+  "cuentaDestino": 101,
+  "monto": 6000.0,
+  "estado": "COMPLETADA",
+  "detalle": null
+}
+-> GET pagos-service:8087/internal/transferencias/df276489-bb7e-4ce5-bbe3-2c2df4a28f00 : HTTP 200
+--- C.5 Historial de pagos de la cuenta 1001 ---
+{"tipo":"TRANSFERENCIA","monto":6000.0,"estado":"COMPLETADA","glosa":"Transferencia entre cuentas","detalle":null}
+{"tipo":"PAGO_SERVICIO","monto":99999999,"estado":"RECHAZADA","glosa":"Pago de servicio: Automotora","detalle":"Saldo insuficiente en la cuenta 1001."}
+{"tipo":"PAGO_SERVICIO","monto":25000.0,"estado":"COMPLETADA","glosa":"Pago de servicio: Compania de Electricidad","detalle":null}
+{"tipo":"DEPOSITO","monto":10000.0,"estado":"COMPLETADA","glosa":"Deposito en sucursal","detalle":null}
+--- C.6 Saldo y movimientos resultantes (50000 + 1000 + 10000 - 25000 - 6000 = 30000) ---
+{
+  "cuentaId": 1001,
+  "tipo": "corriente",
+  "estado": "ACTIVA",
+  "saldo": 30000.0,
+  "movimientos": [
+    {
+      "tipoMovimiento": "deposito",
+      "monto": 50000.0,
+      "descripcion": "Deposito inicial de apertura"
+    },
+    {
+      "tipoMovimiento": "deposito",
+      "monto": 1000.0,
+      "descripcion": "Abono de prueba"
+    },
+    {
+      "tipoMovimiento": "deposito",
+      "monto": 10000.0,
+      "descripcion": "Deposito en sucursal"
+    },
+    {
+      "tipoMovimiento": "pago",
+      "monto": 25000.0,
+      "descripcion": "Pago de servicio: Compania de Electricidad"
+    },
+    {
+      "tipoMovimiento": "transferencia_enviada",
+      "monto": 6000.0,
+      "descripcion": "Transferencia a la cuenta 101"
+    }
+  ]
+}
+
+=== D. CIERRE DE CUENTA Y BAJA DE CLIENTE ===
+--- D.1 Cierre con saldo pendiente: se rechaza (se espera 422) ---
+{
+  "error": "La cuenta 1001 tiene saldo pendiente (30000.0): debe quedar en cero antes de cerrarla."
+}
+-> POST cuentas-service:8080/internal/cuentas/1001/cierre : HTTP 422
+--- D.2 Se retira el saldo restante y se cierra la cuenta ---
+{
+  "cuentaId": 1001,
+  "saldo": 0.0
+}
+{
+  "cuentaId": 1001,
+  "clienteId": 1001,
+  "tipo": "corriente",
+  "estado": "CERRADA",
+  "saldo": 0.0,
+  "fechaApertura": "2026-10-10",
+  "movimientos": [
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "deposito",
+      "monto": 50000.0,
+      "descripcion": "Deposito inicial de apertura"
+    },
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "deposito",
+      "monto": 1000.0,
+      "descripcion": "Abono de prueba"
+    },
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "deposito",
+      "monto": 10000.0,
+      "descripcion": "Deposito en sucursal"
+    },
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "pago",
+      "monto": 25000.0,
+      "descripcion": "Pago de servicio: Compania de Electricidad"
+    },
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "transferencia_enviada",
+      "monto": 6000.0,
+      "descripcion": "Transferencia a la cuenta 101"
+    },
+    {
+      "fecha": "2026-10-10",
+      "tipoMovimiento": "retiro",
+      "monto": 30000.0,
+      "descripcion": "Retiro por cierre de cuenta"
+    }
+  ]
+}
+-> POST cuentas-service:8080/internal/cuentas/1001/cierre : HTTP 200
+--- D.3 Una cuenta cerrada no admite operaciones: el deposito queda RECHAZADA ---
+{
+  "pagoId": "52b8c2e1-c50f-4f7c-9ad2-f6250255cc77",
+  "tipo": "DEPOSITO",
+  "cuentaOrigen": null,
+  "cuentaDestino": 1001,
+  "monto": 500.0,
+  "estado": "RECHAZADA",
+  "detalle": "La cuenta 1001 no admite la operacion (cuenta cerrada).",
+  "glosa": "Deposito",
+  "creadoEn": "2026-10-10T05:21:04.368875",
+  "actualizadoEn": "2026-10-10T05:21:04.388889084"
+}
+-> POST pagos-service:8087/internal/pagos/depositos : HTTP 201
+--- D.4 Desactivacion del cliente (publica una alerta de seguridad de severidad ALTA) ---
+{
+  "clienteId": 1001,
+  "nombre": "Camila Rojas",
+  "edad": 34,
+  "email": "camila.rojas@correo.example",
+  "telefono": "+56 9 5555 0202",
+  "direccion": "Los Leones 456, Providencia",
+  "estado": "INACTIVO"
+}
+-> POST clientes-service:8086/internal/clientes/1001/desactivar : HTTP 200
+--- D.5 A un cliente inactivo no se le puede abrir una cuenta (se espera 422) ---
+{
+  "error": "El cliente 1001 no esta activo: no se le puede abrir una cuenta."
+}
+-> POST cuentas-service:8080/internal/cuentas : HTTP 422
+
+=== Fin de las pruebas de microservicios (Parte 3) ===

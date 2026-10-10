@@ -1,0 +1,20 @@
+digraph batch {
+  rankdir=TB; nodesep=0.35; ranksep=0.4; fontname="Helvetica"; fontsize=12; bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", fillcolor="#FFFFF0", color="#B7791F", margin="0.13,0.08"];
+  edge [fontname="Helvetica", fontsize=9, color="#4A5568", arrowsize=0.7];
+  csv [label="CSV legacy\n1.000 filas", shape=note, fillcolor="#F7FAFC", color="#4A5568"];
+  purga [label="Step purga\n(Tasklet)"];
+  subgraph cluster_carga { label="Step de carga orientado a chunks (chunk = 5), tolerante a fallos"; style="rounded,filled"; fillcolor="#FFFAF0"; color="#DD6B20"; fontcolor="#9C4221";
+    reader [label="Reader sincronizado\n(FlatFileItemReader)"]; proc [label="Processor\nvalida, corrige y clasifica"]; writer [label="Writer JDBC\n(PostgreSQL)"];
+    pol [label="SkipPolicy: registro invalido o duplicado\nRetryPolicy: falla transitoria de conexion\nListeners: omisiones y rendimiento", shape=box, style="rounded,dashed,filled", fillcolor="#FFFFFF"];
+  }
+  par [label="Paralelismo\n3 hilos (TaskExecutor)\no 4 particiones (Partitioner)", shape=component, fillcolor="#EBF8FF", color="#3182CE"];
+  decider [label="ControlCalidadDecider\n% de omisiones vs umbral", shape=diamond, fillcolor="#FFFFFF"];
+  reporte [label="Step reporte final\n(resumen / agregacion)", fillcolor="#F0FFF4", color="#38A169"];
+  revision [label="Step revision manual\n(sin reporte)", fillcolor="#FFF5F5", color="#C53030"];
+  meta [label="JobRepository (tablas BATCH_*)\nestado, reinicio y reejecucion automatica", shape=cylinder, fillcolor="#FAF5FF", color="#805AD5"];
+  csv -> purga -> reader -> proc -> writer -> decider;
+  par -> proc [style=dashed, arrowhead=none];
+  decider -> reporte [label="CALIDAD_OK"]; decider -> revision [label="REVISION_REQUERIDA"];
+  writer -> meta [style=dotted]; reader -> pol [style=invis];
+}

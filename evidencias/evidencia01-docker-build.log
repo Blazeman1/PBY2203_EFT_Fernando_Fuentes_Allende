@@ -1,0 +1,560 @@
+ Image pby2203_eft_fernando_fuentes_allende-notificaciones-service Building 
+ Image pby2203_eft_fernando_fuentes_allende-clientes-service Building 
+ Image pby2203_eft_fernando_fuentes_allende-batch Building 
+ Image pby2203_eft_fernando_fuentes_allende-bff-mobile Building 
+ Image pby2203_eft_fernando_fuentes_allende-auth-server Building 
+ Image pby2203_eft_fernando_fuentes_allende-bff-atm Building 
+ Image pby2203_eft_fernando_fuentes_allende-eureka-server Building 
+ Image pby2203_eft_fernando_fuentes_allende-config-server Building 
+ Image pby2203_eft_fernando_fuentes_allende-pagos-service Building 
+ Image pby2203_eft_fernando_fuentes_allende-bff-web Building 
+ Image pby2203_eft_fernando_fuentes_allende-cuentas-service Building 
+ Image pby2203_eft_fernando_fuentes_allende-api-gateway Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 7.30kB 0.0s done
+#1 DONE 0.0s
+
+#2 [notificaciones-service internal] load build definition from Dockerfile
+#2 transferring dockerfile: 866B done
+#2 DONE 0.1s
+
+#3 [cuentas-service internal] load build definition from Dockerfile
+#3 transferring dockerfile: 859B done
+#3 DONE 0.1s
+
+#4 [bff-web internal] load build definition from Dockerfile
+#4 transferring dockerfile: 851B done
+#4 DONE 0.1s
+
+#5 [notificaciones-service] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#5 ...
+
+#6 [eureka-server internal] load build definition from Dockerfile
+#6 transferring dockerfile: 857B done
+#6 DONE 0.1s
+
+#7 [batch internal] load build definition from Dockerfile
+#7 transferring dockerfile: 806B done
+#7 DONE 0.1s
+
+#8 [auth-server internal] load build definition from Dockerfile
+#8 transferring dockerfile: 855B done
+#8 DONE 0.2s
+
+#5 [auth-server] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#5 ...
+
+#9 [clientes-service internal] load build definition from Dockerfile
+#9 transferring dockerfile: 860B done
+#9 DONE 0.2s
+
+#10 [pagos-service internal] load build definition from Dockerfile
+#10 transferring dockerfile: 857B done
+#10 DONE 0.3s
+
+#11 [api-gateway internal] load build definition from Dockerfile
+#11 transferring dockerfile: 855B done
+#11 DONE 0.3s
+
+#12 [bff-atm internal] load build definition from Dockerfile
+#12 transferring dockerfile: 851B done
+#12 DONE 0.3s
+
+#13 [config-server internal] load build definition from Dockerfile
+#13 transferring dockerfile: 857B done
+#13 DONE 0.3s
+
+#14 [bff-mobile internal] load build definition from Dockerfile
+#14 transferring dockerfile: 854B done
+#14 DONE 0.3s
+
+#5 [config-server] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#5 DONE 1.0s
+
+#15 [auth-server] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#15 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#15 CACHED
+
+#16 [bff-atm internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21
+#16 DONE 0.9s
+
+#17 [config-server internal] load metadata for docker.io/library/eclipse-temurin:21-jre-alpine
+#17 DONE 0.9s
+
+#18 [notificaciones-service internal] load .dockerignore
+#18 transferring context: 47B 0.0s done
+#18 ...
+
+#19 [pagos-service internal] load .dockerignore
+#19 transferring context: 47B done
+#19 DONE 0.2s
+
+#20 [eureka-server internal] load .dockerignore
+#20 transferring context: 47B done
+#20 DONE 0.2s
+
+#21 [bff-web internal] load .dockerignore
+#21 transferring context: 47B done
+#21 DONE 0.2s
+
+#22 [clientes-service internal] load .dockerignore
+#22 transferring context: 47B done
+#22 DONE 0.3s
+
+#23 [auth-server internal] load .dockerignore
+#23 transferring context: 47B done
+#23 DONE 0.3s
+
+#24 [bff-atm internal] load .dockerignore
+#24 transferring context: 47B done
+#24 DONE 0.3s
+
+#25 [api-gateway internal] load .dockerignore
+#25 transferring context: 47B done
+#25 DONE 0.4s
+
+#26 [config-server internal] load .dockerignore
+#26 transferring context: 47B done
+#26 DONE 0.4s
+
+#27 [cuentas-service internal] load .dockerignore
+#27 transferring context: 47B done
+#27 DONE 0.4s
+
+#18 [notificaciones-service internal] load .dockerignore
+#18 DONE 0.4s
+
+#28 [bff-mobile internal] load .dockerignore
+#28 transferring context: 47B done
+#28 DONE 0.4s
+
+#29 [batch internal] load .dockerignore
+#29 transferring context: 47B done
+#29 DONE 0.5s
+
+#30 [pagos-service internal] load build context
+#30 DONE 0.0s
+
+#31 [pagos-service build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#31 ...
+
+#32 [eureka-server internal] load build context
+#32 DONE 0.0s
+
+#33 [clientes-service internal] load build context
+#33 DONE 0.0s
+
+#31 [bff-web build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#31 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#31 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.2s done
+#31 DONE 0.2s
+
+#34 [bff-web internal] load build context
+#34 DONE 0.0s
+
+#35 [cuentas-service stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-alpine@sha256:51ab5e3302e7141ce665ca3ea85e8b5cd648eafbc3c0c90dd79d6537684e4555
+#35 resolve docker.io/library/eclipse-temurin:21-jre-alpine@sha256:51ab5e3302e7141ce665ca3ea85e8b5cd648eafbc3c0c90dd79d6537684e4555 0.1s done
+#35 DONE 0.2s
+
+#35 [bff-mobile stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-alpine@sha256:51ab5e3302e7141ce665ca3ea85e8b5cd648eafbc3c0c90dd79d6537684e4555
+#35 resolve docker.io/library/eclipse-temurin:21-jre-alpine@sha256:51ab5e3302e7141ce665ca3ea85e8b5cd648eafbc3c0c90dd79d6537684e4555 0.1s done
+#35 DONE 0.2s
+
+#31 [bff-mobile build 1/5] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320
+#31 resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 0.2s done
+#31 DONE 0.2s
+
+#36 [batch internal] load build context
+#36 transferring context: 3.76kB 0.0s done
+#36 ...
+
+#37 [api-gateway internal] load build context
+#37 transferring context: 547B 0.0s done
+#37 DONE 0.1s
+
+#30 [pagos-service internal] load build context
+#30 transferring context: 3.69kB 0.0s done
+#30 DONE 0.2s
+
+#34 [bff-web internal] load build context
+#34 transferring context: 4.54kB 0.0s done
+#34 DONE 0.2s
+
+#32 [eureka-server internal] load build context
+#32 transferring context: 429B 0.0s done
+#32 DONE 0.2s
+
+#33 [clientes-service internal] load build context
+#33 transferring context: 2.51kB 0.0s done
+#33 DONE 0.2s
+
+#36 [batch internal] load build context
+#36 DONE 0.3s
+
+#38 [notificaciones-service internal] load build context
+#38 transferring context: 1.58kB 0.0s done
+#38 DONE 0.3s
+
+#39 [auth-server internal] load build context
+#39 transferring context: 691B 0.0s done
+#39 DONE 0.3s
+
+#40 [bff-mobile internal] load build context
+#40 transferring context: 2.73kB 0.0s done
+#40 DONE 0.4s
+
+#41 [cuentas-service internal] load build context
+#41 transferring context: 4.35kB 0.0s done
+#41 DONE 0.3s
+
+#42 [bff-atm internal] load build context
+#42 transferring context: 3.51kB 0.0s done
+#42 DONE 0.3s
+
+#43 [config-server internal] load build context
+#43 transferring context: 1.09kB 0.0s done
+#43 DONE 0.3s
+
+#44 [api-gateway build 3/5] COPY pom.xml .
+#44 CACHED
+
+#45 [api-gateway stage-1 2/4] RUN apk add --no-cache curl
+#45 CACHED
+
+#46 [api-gateway build 2/5] WORKDIR /build
+#46 CACHED
+
+#47 [api-gateway build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#47 CACHED
+
+#48 [api-gateway stage-1 3/4] WORKDIR /app
+#48 CACHED
+
+#49 [api-gateway build 4/5] COPY src ./src
+#49 CACHED
+
+#50 [api-gateway stage-1 4/4] COPY --from=build /build/target/api-gateway.jar app.jar
+#50 CACHED
+
+#51 [api-gateway] exporting to image
+#51 exporting layers
+#51 ...
+
+#52 [batch build 4/5] COPY src ./src
+#52 CACHED
+
+#53 [batch stage-1 2/3] WORKDIR /app
+#53 CACHED
+
+#54 [batch build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#54 CACHED
+
+#55 [batch build 3/5] COPY pom.xml .
+#55 CACHED
+
+#56 [batch stage-1 3/3] COPY --from=build /build/target/banco-xyz-batch.jar app.jar
+#56 CACHED
+
+#57 [config-server build 3/5] COPY pom.xml .
+#57 CACHED
+
+#58 [config-server build 4/5] COPY src ./src
+#58 CACHED
+
+#59 [config-server build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#59 CACHED
+
+#60 [config-server stage-1 4/4] COPY --from=build /build/target/config-server.jar app.jar
+#60 CACHED
+
+#61 [eureka-server build 3/5] COPY pom.xml .
+#61 CACHED
+
+#62 [eureka-server build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#62 CACHED
+
+#63 [eureka-server build 4/5] COPY src ./src
+#63 CACHED
+
+#64 [eureka-server stage-1 4/4] COPY --from=build /build/target/eureka-server.jar app.jar
+#64 CACHED
+
+#65 [bff-mobile build 3/5] COPY pom.xml .
+#65 CACHED
+
+#66 [bff-mobile build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#66 CACHED
+
+#67 [bff-mobile build 4/5] COPY src ./src
+#67 CACHED
+
+#68 [bff-mobile stage-1 4/4] COPY --from=build /build/target/bff-mobile.jar app.jar
+#68 CACHED
+
+#69 [notificaciones-service build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#69 CACHED
+
+#70 [notificaciones-service build 3/5] COPY pom.xml .
+#70 CACHED
+
+#71 [notificaciones-service build 4/5] COPY src ./src
+#71 CACHED
+
+#72 [cuentas-service build 3/5] COPY pom.xml .
+#72 CACHED
+
+#73 [cuentas-service build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#73 CACHED
+
+#74 [cuentas-service build 4/5] COPY src ./src
+#74 CACHED
+
+#75 [notificaciones-service stage-1 4/4] COPY --from=build /build/target/notificaciones-service.jar app.jar
+#75 CACHED
+
+#76 [cuentas-service stage-1 4/4] COPY --from=build /build/target/cuentas-service.jar app.jar
+#76 CACHED
+
+#77 [pagos-service build 4/5] COPY src ./src
+#77 CACHED
+
+#78 [pagos-service build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#78 CACHED
+
+#79 [pagos-service build 3/5] COPY pom.xml .
+#79 CACHED
+
+#80 [pagos-service stage-1 4/4] COPY --from=build /build/target/pagos-service.jar app.jar
+#80 CACHED
+
+#81 [bff-atm build 3/5] COPY pom.xml .
+#81 CACHED
+
+#82 [bff-atm build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#82 CACHED
+
+#83 [bff-atm build 4/5] COPY src ./src
+#83 CACHED
+
+#84 [auth-server build 4/5] COPY src ./src
+#84 CACHED
+
+#85 [auth-server build 3/5] COPY pom.xml .
+#85 CACHED
+
+#86 [auth-server build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#86 CACHED
+
+#87 [auth-server stage-1 4/4] COPY --from=build /build/target/auth-server.jar app.jar
+#87 CACHED
+
+#88 [bff-web build 4/5] COPY src ./src
+#88 CACHED
+
+#89 [bff-web build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#89 CACHED
+
+#90 [bff-web build 3/5] COPY pom.xml .
+#90 CACHED
+
+#91 [bff-atm stage-1 4/4] COPY --from=build /build/target/bff-atm.jar app.jar
+#91 CACHED
+
+#92 [clientes-service build 4/5] COPY src ./src
+#92 CACHED
+
+#48 [bff-atm stage-1 3/4] WORKDIR /app
+#48 CACHED
+
+#45 [bff-atm stage-1 2/4] RUN apk add --no-cache curl
+#45 CACHED
+
+#93 [clientes-service build 5/5] RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn -B -DskipTests package
+#93 CACHED
+
+#46 [bff-atm build 2/5] WORKDIR /build
+#46 CACHED
+
+#94 [clientes-service build 3/5] COPY pom.xml .
+#94 CACHED
+
+#95 [bff-web stage-1 4/4] COPY --from=build /build/target/bff-web.jar app.jar
+#95 CACHED
+
+#96 [clientes-service stage-1 4/4] COPY --from=build /build/target/clientes-service.jar app.jar
+#96 CACHED
+
+#51 [api-gateway] exporting to image
+#51 exporting layers done
+#51 exporting manifest sha256:f991bebdca47afca3500e0e8d1c8c893eaa3a508cb735af9382f370897e4b11a done
+#51 exporting config sha256:8714822f734ae5c4fff65f601e986772e17e9d159aaeacd938f1eda7544b147a done
+#51 exporting attestation manifest sha256:c5d4dcdfe3341d0bcb7019241ef5ca978d7e0474ecec01683ae8037684e68e9b
+#51 exporting attestation manifest sha256:c5d4dcdfe3341d0bcb7019241ef5ca978d7e0474ecec01683ae8037684e68e9b 0.6s done
+#51 exporting manifest list sha256:195c8325acb037042eb9608b11bb2512eab908fcc03c95ab5269c0a15f50734c
+#51 exporting manifest list sha256:195c8325acb037042eb9608b11bb2512eab908fcc03c95ab5269c0a15f50734c 0.4s done
+#51 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-api-gateway:latest 0.1s done
+#51 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-api-gateway:latest
+#51 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-api-gateway:latest 0.4s done
+#51 DONE 1.9s
+
+#97 [bff-atm] exporting to image
+#97 exporting layers done
+#97 exporting manifest sha256:e5ed85ee667c0a988454c34fee6cca1acaa7c5bd790d3bb0c5dd5dc0d5e656bd 0.1s done
+#97 exporting config sha256:827dbf273eaa4d4c0f4bd804990b7985fe25bab8ae77f09044bcb2c133aedcf4 0.0s done
+#97 exporting attestation manifest sha256:b98fb95e3669924b0945d4379eebd1845b3a984488b76590f39bfeeca9f277b4 0.6s done
+#97 exporting manifest list sha256:97b1aa41232835bf070f2a14e7d4900feb32ff6f78cb92ed5ff9557a413330e0 0.4s done
+#97 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-atm:latest 0.1s done
+#97 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-atm:latest
+#97 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-atm:latest 0.2s done
+#97 DONE 2.0s
+
+#98 [eureka-server] exporting to image
+#98 exporting layers done
+#98 exporting manifest sha256:6bc018501e3fcb4df5268c347e7a5b1538eee773a5ac9a3e8c2506594c4b0d8b 0.1s done
+#98 exporting config sha256:920c4c409aedef911b7c992a8cf86959e817988750289081abb42337234c40c9 0.2s done
+#98 exporting attestation manifest sha256:a83ae3fde2d4f2ae8331af6ba494e9e2b4a8afdcaa8e500c8202dcae54bb0c26 0.6s done
+#98 exporting manifest list sha256:a1e23f255270671208ab82347f3bb87474744cd166a0437cdbe58758344ac394 0.4s done
+#98 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-eureka-server:latest 0.1s done
+#98 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-eureka-server:latest 0.1s done
+#98 DONE 2.0s
+
+#99 [notificaciones-service] exporting to image
+#99 exporting layers done
+#99 exporting manifest sha256:e89c133e48834dec414dbf6ce0810b82b903274f4f747cb904aa840d16035fe1 0.1s done
+#99 exporting config sha256:22a9cc4db7f2266a97c88c12aa662c0b97c1a3f6b5e81ab7fe2a50c77fb51c5f 0.1s done
+#99 exporting attestation manifest sha256:010f98e7b2e50e44357260d197e48a08ea4b8ff9d9dc29d37484014f1d86ea5b 0.6s done
+#99 exporting manifest list sha256:7e3ffa901fa53e3f74f5613137273132e8591f57dc998c9db9f2e6f6fb14d569 0.4s done
+#99 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-notificaciones-service:latest 0.1s done
+#99 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-notificaciones-service:latest 0.2s done
+#99 DONE 2.1s
+
+#100 [bff-mobile] exporting to image
+#100 exporting layers done
+#100 exporting manifest sha256:5a43319169e0be8a835b8c749afa752d5663a793f2f3965abc1f46d1ab2c1b02 0.1s done
+#100 exporting config sha256:0f04e148d219cc9d6fcee9e646acfdae5052a4554faaaa934fbf0916d18f8806 0.1s done
+#100 exporting attestation manifest sha256:358fd68642fbeb230c609a095028e01399299a42e7c82c284456d962b6588c28 0.6s done
+#100 exporting manifest list sha256:0513b849c8b757cc5d0021dd90cdc31eefceb2251f970e1e77aed37a6b5986b3 0.4s done
+#100 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-mobile:latest 0.1s done
+#100 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-mobile:latest 0.2s done
+#100 DONE 2.1s
+
+#101 [cuentas-service] exporting to image
+#101 exporting layers done
+#101 exporting manifest sha256:980ea88d1c6605f2eadef20e5d99b98fd55378a816c7eb47de4d4833c535fd8c 0.1s done
+#101 exporting config sha256:caebbd0a9a09dd7b47eadf4ee722c2959da7046353210fab580b11d1e6e89418 0.2s done
+#101 exporting attestation manifest sha256:c837417ea20d2b895079bdbe714b5472c54bdf022727bb4e8c6761d4953fb853 0.6s done
+#101 exporting manifest list sha256:27a30ff5e24f79f070b0b04a4028b2454219c09071cfcb4cf5daf7c41347ce7a 0.4s done
+#101 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-cuentas-service:latest 0.1s done
+#101 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-cuentas-service:latest 0.2s done
+#101 DONE 2.1s
+
+#102 [auth-server] exporting to image
+#102 exporting layers done
+#102 exporting manifest sha256:016c8c8578d8afdd1a1f5d67dbd7f986827ca87d7a96c83b1e1430e7177eb4e8 0.1s done
+#102 exporting config sha256:33ef6d86eb7a9f5c1c573f8ce59c961512799070afa3b3790fe87941d69b8f3a 0.1s done
+#102 exporting attestation manifest sha256:d8c6905ecb368ab44c634f18e4c142d75dc57955cc11c558ffd99577e8fdd52e 0.6s done
+#102 exporting manifest list sha256:fdb93cba1686b588ac10e03a5f03a5d8d83a531492ebd347b0adf38fdff28eac 0.4s done
+#102 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-auth-server:latest 0.1s done
+#102 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-auth-server:latest 0.2s done
+#102 DONE 2.1s
+
+#103 [bff-web] exporting to image
+#103 exporting layers done
+#103 exporting manifest sha256:7d5174ff4cd3a37a1c927b533f41e814f4f840db256b49a4e782179e292d11f8 0.1s done
+#103 exporting config sha256:d5a7a62c5a9fbf4040e6ba1f3e04373ab363fc199269314d15606d474a2187e5 0.1s done
+#103 exporting attestation manifest sha256:3a9dabd77ad3d7725c37f6a2ccd6392afff04b6c64c88c0d6ae7281aa5772f36 0.6s done
+#103 exporting manifest list sha256:7926465de0f71c8061ab65e330ce2afa0f78f011908c72d9bffeb58052ee2db2 0.4s done
+#103 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-web:latest 0.1s done
+#103 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-bff-web:latest 0.2s done
+#103 DONE 2.1s
+
+#104 [config-server] exporting to image
+#104 exporting layers done
+#104 exporting manifest sha256:884f290f39a2bf5eb68c19a6b67ae5c5064870cd8297cb9d3211fcba8fbd24ea 0.1s done
+#104 exporting config sha256:94f35c04206b9c2394b8046228e57cb6003c03bfa4b5b31cc584b30beeb0eb36 0.1s done
+#104 exporting attestation manifest sha256:7c6d42988f82695827966c5852b44ea6a888e51ffb873c47fe7b2c0fcce09aa5 0.6s done
+#104 exporting manifest list sha256:a9d147a5d8b140b22a326d5de8a63ec1696b637c0cbd2544577ad303ab71abdc 0.4s done
+#104 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-config-server:latest 0.1s done
+#104 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-config-server:latest 0.2s done
+#104 DONE 2.1s
+
+#105 [pagos-service] exporting to image
+#105 exporting layers done
+#105 exporting manifest sha256:c961ed3e67666d76a9dc261e90e6ecc3b97721fb681c10802e491f9aaa815ac8 0.1s done
+#105 exporting config sha256:3babccca20d95fd9ce52156788cfb8fc94ac9fa7bd24b226e9449e2f9dd6ff56 0.2s done
+#105 exporting attestation manifest sha256:f6313024a922349c19022869392b13322fe4542a78757522b0359cec754f9807 0.6s done
+#105 exporting manifest list sha256:b8db1b2864a0221644ccfa8ae4161cb3eb8833ffc6d7b169df434be8cd0c5702 0.4s done
+#105 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-pagos-service:latest 0.1s done
+#105 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-pagos-service:latest 0.2s done
+#105 DONE 2.1s
+
+#106 [batch] exporting to image
+#106 exporting layers done
+#106 exporting manifest sha256:c543856bbccee6e47c9dbbeae6495e44949272899127802453fe7fa7461c9354 0.1s done
+#106 exporting config sha256:75804a338bde287a5a263155cf4f18bcc8bb9dd5c09c81a59f54992c90c78d4c 0.2s done
+#106 exporting attestation manifest sha256:e06a372447d9a2eae5303a7cdd6591b14544dd1fca28a27fbdad842e840e7a69 0.6s done
+#106 exporting manifest list sha256:0c171ebe724188c7823a8b0601b1dc1a69b1cb0d28642e538f45e67fb30d1921 0.4s done
+#106 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-batch:latest 0.1s done
+#106 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-batch:latest 0.2s done
+#106 DONE 2.1s
+
+#107 [clientes-service] exporting to image
+#107 exporting layers done
+#107 exporting manifest sha256:be4187882af4209138516c6f2a3c024a0c9f8709d49c105367bd99b2f7626fd6 0.1s done
+#107 exporting config sha256:6455854163122140998a177299f670a3c46f717b24447176428f02a24e10b778 0.2s done
+#107 exporting attestation manifest sha256:656b0ce97e038302faa4b7eeb73dbe472b713fa3ea8bf547c24571e50c6c3c50 0.6s done
+#107 exporting manifest list sha256:c1eac35ea2b9ada0edd462b3a3e4a89b1feb283ddc7f0969a6ac14001f9dad7e 0.4s done
+#107 naming to docker.io/library/pby2203_eft_fernando_fuentes_allende-clientes-service:latest 0.1s done
+#107 unpacking to docker.io/library/pby2203_eft_fernando_fuentes_allende-clientes-service:latest 0.2s done
+#107 DONE 2.1s
+
+#108 [api-gateway] resolving provenance for metadata file
+#108 ...
+
+#109 [config-server] resolving provenance for metadata file
+#109 DONE 1.1s
+
+#110 [bff-mobile] resolving provenance for metadata file
+#110 DONE 1.3s
+
+#108 [api-gateway] resolving provenance for metadata file
+#108 DONE 1.3s
+
+#111 [notificaciones-service] resolving provenance for metadata file
+#111 DONE 1.0s
+
+#112 [auth-server] resolving provenance for metadata file
+#112 DONE 0.5s
+
+#113 [bff-atm] resolving provenance for metadata file
+#113 DONE 0.6s
+
+#114 [batch] resolving provenance for metadata file
+#114 DONE 0.1s
+
+#115 [pagos-service] resolving provenance for metadata file
+#115 DONE 0.9s
+
+#116 [clientes-service] resolving provenance for metadata file
+#116 DONE 0.3s
+
+#117 [eureka-server] resolving provenance for metadata file
+#117 DONE 0.8s
+
+#118 [bff-web] resolving provenance for metadata file
+#118 DONE 0.4s
+
+#119 [cuentas-service] resolving provenance for metadata file
+#119 DONE 0.0s
+ Image pby2203_eft_fernando_fuentes_allende-eureka-server Built 
+ Image pby2203_eft_fernando_fuentes_allende-batch Built 
+ Image pby2203_eft_fernando_fuentes_allende-bff-mobile Built 
+ Image pby2203_eft_fernando_fuentes_allende-notificaciones-service Built 
+ Image pby2203_eft_fernando_fuentes_allende-pagos-service Built 
+ Image pby2203_eft_fernando_fuentes_allende-auth-server Built 
+ Image pby2203_eft_fernando_fuentes_allende-api-gateway Built 
+ Image pby2203_eft_fernando_fuentes_allende-bff-atm Built 
+ Image pby2203_eft_fernando_fuentes_allende-bff-web Built 
+ Image pby2203_eft_fernando_fuentes_allende-clientes-service Built 
+ Image pby2203_eft_fernando_fuentes_allende-cuentas-service Built 
+ Image pby2203_eft_fernando_fuentes_allende-config-server Built 

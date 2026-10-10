@@ -1,0 +1,191 @@
+
+=== 0. Seguridad distribuida: un microservicio NO responde sin un token OAuth2 valido ===
+GET cuentas-service/internal/cuentas SIN token -> HTTP 401 (se espera 401)
+GET clientes-service/internal/clientes SIN token -> HTTP 401 (se espera 401)
+GET pagos-service/internal/pagos?cuentaId=101 SIN token -> HTTP 401 (se espera 401)
+
+=== 0.1 auth-server emite un access token via client_credentials (flujo maquina-a-maquina) ===
+Token obtenido para bff-web-client: eyJraWQiOiI5YjFjOGQ3Yi00...
+Scopes del token (claim 'scope' del JWT):
+{"sub":"bff-web-client","scope":["clientes.access","cuentas.access","pagos.access"],"iss":"http://auth-server:9000"}
+
+=== 0.2 Con ese token, cuentas-service SI responde ===
+{
+  "cuentaId": 101,
+  "clienteId": 101,
+  "tipo": "prestamo",
+  "estado": "ACTIVA",
+  "saldo": 5000.0,
+  "fechaApertura": null
+}
+
+=== 0.3 Minimo privilegio: el token del canal MOVIL solo tiene el scope cuentas.access ===
+Token movil -> cuentas-service  -> HTTP 200 (se espera 200)
+Token movil -> clientes-service -> HTTP 403 (se espera 403: scope insuficiente)
+Token movil -> pagos-service    -> HTTP 403 (se espera 403: scope insuficiente)
+auth-server ni siquiera emite un scope que el cliente no tiene registrado:
+{"error":"invalid_scope"}
+
+=== 1. BFF WEB: login (cuenta 101, titular 'John Doe') y vista COMPLETA de la cuenta ===
+Token web obtenido: eyJhbGciOiJIUzI1NiJ9.eyJ...
+(respuesta compuesta por el BFF a partir de cuentas-service + clientes-service; se muestran los
+ agregados y solo los 3 primeros movimientos del historial completo)
+{
+  "cuentaId": 101,
+  "titular": "John Doe",
+  "tipoCuenta": "prestamo",
+  "edadTitular": 40,
+  "saldoActual": 5000.0,
+  "tasaInteresMensual": 0.025,
+  "interesProyectadoMensual": 125.0,
+  "totalMovimientos": 46,
+  "totalDepositos": 20100.0,
+  "totalRetiros": 23000.0,
+  "totalCompras": 29300.0,
+  "movimientos": [
+    {
+      "fecha": "2024-04-30",
+      "tipoMovimiento": "compra",
+      "monto": 2500.0,
+      "descripcion": "Ingreso navideño"
+    },
+    {
+      "fecha": "2024-11-05",
+      "tipoMovimiento": "compra",
+      "monto": 2000.0,
+      "descripcion": "Movimiento sin descripcion registrada"
+    },
+    {
+      "fecha": "2024-05-09",
+      "tipoMovimiento": "retiro",
+      "monto": 1500.0,
+      "descripcion": "Ingreso extra"
+    }
+  ]
+}
+
+=== 1.1 BFF WEB: historial filtrado por tipo=deposito (interfaz compleja; se muestran 5) ===
+[
+  {
+    "fecha": "2024-04-28",
+    "tipoMovimiento": "deposito",
+    "monto": 1000.0,
+    "descripcion": "Ingreso de fin de año"
+  },
+  {
+    "fecha": "2024-06-19",
+    "tipoMovimiento": "deposito",
+    "monto": 1500.0,
+    "descripcion": "Ingreso mensual"
+  },
+  {
+    "fecha": "2024-10-19",
+    "tipoMovimiento": "deposito",
+    "monto": 1000.0,
+    "descripcion": "Ingreso navideño"
+  },
+  {
+    "fecha": "2024-06-29",
+    "tipoMovimiento": "deposito",
+    "monto": 1000.0,
+    "descripcion": "Ingreso navideño"
+  },
+  {
+    "fecha": "2024-02-09",
+    "tipoMovimiento": "deposito",
+    "monto": 2000.0,
+    "descripcion": "Retiro parcial"
+  }
+]
+
+=== 1.2 BFF WEB: perfil del titular (clientes-service) ===
+{
+  "nombre": "John Doe",
+  "edad": 40,
+  "email": "john.doe.101@clientes.bancoxyz.example",
+  "telefono": null,
+  "direccion": null
+}
+
+=== 1.3 BFF WEB: un token valido NO puede consultar la cuenta de otra persona (autorizacion) ===
+GET /api/web/cuentas/105 con token de la cuenta 101 -> HTTP 403 (se espera 403)
+GET /api/web/cuentas/101 SIN token -> HTTP 401 (se espera 401)
+
+=== 2. BFF MOVIL: login (cuenta 101 + PIN) y resumen LIVIANO ===
+Token movil obtenido: eyJhbGciOiJIUzI1NiJ9.eyJ...
+{
+  "saldo": 5000.0,
+  "tipo": "prestamo",
+  "ultimosMovimientos": [
+    {
+      "fecha": "2024-12-19",
+      "tipo": "compra",
+      "monto": 1500.0
+    },
+    {
+      "fecha": "2024-11-28",
+      "tipo": "compra",
+      "monto": 1000.0
+    },
+    {
+      "fecha": "2024-11-08",
+      "tipo": "deposito",
+      "monto": 3000.0
+    }
+  ]
+}
+
+=== 2.1 Optimizacion por canal: tamano de la respuesta para la MISMA cuenta ===
+BFF WEB   (detalle completo + historial): 4984 bytes
+BFF MOVIL (saldo + 3 ultimos movimientos): 221 bytes
+
+=== 3. BFF CAJERO: apertura de sesion con tarjeta + PIN (cuenta 105, 'Jane Smith') ===
+{
+  "sessionToken": "b0840b39-adb7-4e9e-96d1-2df5ff6b33f7",
+  "expiraEnSegundos": 120,
+  "cuentaId": 105
+}
+
+=== 3.1 BFF CAJERO: consulta de saldo (respuesta minima, sin nombre ni historial) ===
+{
+  "saldoDisponible": 8000.0
+}
+
+=== 3.2 BFF CAJERO: retiro de $1.000 (operacion critica, debita en cuentas-service) ===
+{
+  "retiroExitoso": true,
+  "montoRetirado": 1000.0,
+  "saldoDisponible": 7000.0
+}
+
+=== 3.3 BFF CAJERO: la sesion se invalida tras la operacion (debe fallar con HTTP 401) ===
+GET /api/atm/cuentas/105/saldo reusando la sesion ya usada -> HTTP 401 (se espera 401)
+
+=== 3.4 BFF CAJERO: un retiro que excede el limite maximo por operacion debe rechazarse ===
+{
+  "error": "El monto solicitado excede el limite maximo de retiro por operacion ($500000.0)."
+}
+
+=== 3.5 BFF CAJERO: deposito de $2.000 (procesado por pagos-service, que acredita en cuentas-service) ===
+Saldo antes del deposito: 7000.0
+{
+  "depositoExitoso": true,
+  "montoDepositado": 2000.0,
+  "comprobante": "97d1aad4-098a-4178-96be-a0e93a76be92"
+}
+Saldo despues del deposito: 9000.0
+
+=== 4. API GATEWAY: punto de entrada unico (puerto 8443), enruta por canal via Eureka ===
+--- Tabla de rutas vigente (/actuator/gateway/routes) ---
+{"route_id":"canal-web","uri":"lb://bff-web","predicate":"Paths: [/api/web/**], match trailing slash: true"}
+{"route_id":"canal-movil","uri":"lb://bff-mobile","predicate":"Paths: [/api/mobile/**], match trailing slash: true"}
+{"route_id":"canal-cajero","uri":"lb://bff-atm","predicate":"Paths: [/api/atm/**], match trailing slash: true"}
+--- Login del canal WEB a traves del gateway (notese el encabezado X-Banco-XYZ-Gateway) ---
+HTTP/1.1 200 OK
+X-Banco-XYZ-Gateway: api-gateway
+GET https://127.0.0.1:8443/api/web/cuentas/101 (canal web via gateway)            -> HTTP 200 (se espera 200)
+GET https://127.0.0.1:8443/api/mobile/cuentas/101/resumen (canal movil via gateway) -> HTTP 200 (se espera 200)
+POST https://127.0.0.1:8443/api/atm/sesion (canal cajero via gateway)                -> HTTP 200 (se espera 200)
+GET https://127.0.0.1:8443/internal/cuentas (los microservicios NO tienen ruta en el gateway) -> HTTP 404 (se espera 404)
+
+=== Fin de las pruebas de canales (Parte 2) ===

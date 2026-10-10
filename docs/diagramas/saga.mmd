@@ -1,0 +1,32 @@
+sequenceDiagram
+    autonumber
+    participant W as bff-web
+    participant P as pagos-service
+    participant K as Kafka
+    participant C as cuentas-service
+    participant N as notificaciones-service
+    W->>P: POST /internal/pagos/transferencias (JWT pagos.access)
+    P->>P: Registra el pago EN_PROCESO (pagos_db)
+    P-)K: transferencias.solicitadas
+    P-->>W: 202 Accepted + id
+    K-)C: TransferenciaSolicitada
+    C->>C: Paso 1: debita la cuenta origen (transaccion local + idempotencia)
+    alt Saldo insuficiente o cuenta invalida
+        C-)K: transferencias.resultado = RECHAZADA
+    else Debito aplicado
+        C-)K: transferencias.debito-aplicado
+        K-)C: DebitoAplicado
+        alt La cuenta destino existe y esta activa
+            C->>C: Paso 2: acredita la cuenta destino
+            C-)K: transferencias.resultado = COMPLETADA
+        else La cuenta destino no existe o esta cerrada
+            C->>C: COMPENSACION: devuelve el monto a la cuenta origen
+            C-)K: transferencias.resultado = COMPENSADA
+        end
+    end
+    K-)P: Resultado (consumer group pagos-service)
+    P->>P: Actualiza el estado del pago
+    K-)N: Resultado (consumer group notificaciones-service)
+    N->>N: Notifica al cliente
+    W->>P: GET /internal/transferencias/{id}
+    P-->>W: Estado final

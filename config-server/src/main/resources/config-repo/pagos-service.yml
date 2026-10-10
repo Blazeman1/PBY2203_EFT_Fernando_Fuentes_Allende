@@ -1,0 +1,23 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${seguridad.oauth2.issuer-uri}
+
+# Como pagos-service llama a cuentas-service (depositos y pagos de servicios).
+cuentas-service:
+  base-url: http://cuentas-service
+  oauth2:
+    token-uri: ${seguridad.oauth2.token-uri}
+    client-id: pagos-service-client
+    # Debe coincidir con auth-server.clientes.pagos-service.secreto. Valor de demostracion
+    # academica; en produccion viviria en un gestor de secretos.
+    client-secret: "secreto-oauth2-pagos-service-banco-xyz-no-usar-en-produccion-2026"
+    scope: cuentas.access
+
+pagos:
+  alertas:
+    # Toda transferencia por un monto igual o superior genera una alerta de seguridad
+    # (topico bancoxyz.seguridad.alertas). Ajustable aqui sin recompilar el servicio.
+    umbral-monto-alto: 1000000

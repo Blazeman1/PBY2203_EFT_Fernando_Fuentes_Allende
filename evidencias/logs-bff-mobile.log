@@ -1,0 +1,60 @@
+bff-mobile  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+bff-mobile  | 
+bff-mobile  |   .   ____          _            __ _ _
+bff-mobile  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bff-mobile  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bff-mobile  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bff-mobile  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bff-mobile  |  =========|_|==============|___/=/_/_/_/
+bff-mobile  | 
+bff-mobile  |  :: Spring Boot ::               (v3.3.13)
+bff-mobile  | 
+bff-mobile  | 2026-10-10 05:19:28.702 [main] INFO  com.bancoxyz.bff.mobile.BffMobileApplication - Starting BffMobileApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+bff-mobile  | 2026-10-10 05:19:28.714 [main] INFO  com.bancoxyz.bff.mobile.BffMobileApplication - The following 1 profile is active: "docker"
+bff-mobile  | 2026-10-10 05:19:28.978 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-mobile/default": Connection refused. Will be trying the next url if available
+bff-mobile  | 2026-10-10 05:19:28.981 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@1c807b1d uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/bff-mobile/default": Connection refused
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-mobile/docker": Connection refused. Will be trying the next url if available
+bff-mobile  | 2026-10-10 05:19:28.981 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@6ebd78d1 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/bff-mobile/docker": Connection refused
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-mobile/default": Connection refused. Will be trying the next url if available
+bff-mobile  | 2026-10-10 05:19:28.981 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@436390f4 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/bff-mobile/default": Connection refused
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=bff-mobile, profiles=[docker], label=null, version=null, state=null
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+bff-mobile  | 2026-10-10 05:19:28.981 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=bff-mobile, profiles=[default], label=null, version=null, state=null
+bff-mobile  | 2026-10-10 05:19:33.416 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=3f45749a-d39b-3fae-95bd-983180e0e040
+bff-mobile  | 2026-10-10 05:19:36.481 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (https)
+bff-mobile  | 2026-10-10 05:19:36.523 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+bff-mobile  | 2026-10-10 05:19:36.524 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+bff-mobile  | 2026-10-10 05:19:36.620 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+bff-mobile  | 2026-10-10 05:19:36.624 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7625 ms
+bff-mobile  | 2026-10-10 05:19:42.909 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+bff-mobile  | 2026-10-10 05:19:43.174 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+bff-mobile  | 2026-10-10 05:19:43.236 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+bff-mobile  | 2026-10-10 05:19:43.450 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+bff-mobile  | 2026-10-10 05:19:43.544 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+bff-mobile  | 2026-10-10 05:19:43.560 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+bff-mobile  | 2026-10-10 05:19:43.578 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+bff-mobile  | 2026-10-10 05:19:43.578 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+bff-mobile  | 2026-10-10 05:19:43.579 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+bff-mobile  | 2026-10-10 05:19:43.579 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+bff-mobile  | 2026-10-10 05:19:43.579 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+bff-mobile  | 2026-10-10 05:19:43.579 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+bff-mobile  | 2026-10-10 05:19:43.579 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+bff-mobile  | 2026-10-10 05:19:43.964 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+bff-mobile  | 2026-10-10 05:19:43.977 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+bff-mobile  | 2026-10-10 05:19:43.982 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+bff-mobile  | 2026-10-10 05:19:43.986 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609583985 with initial instances count: 5
+bff-mobile  | 2026-10-10 05:19:44.024 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application BFF-MOBILE with eureka with status UP
+bff-mobile  | 2026-10-10 05:19:44.027 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609584027, current=UP, previous=STARTING]
+bff-mobile  | 2026-10-10 05:19:44.033 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_BFF-MOBILE/987f385cfb51:bff-mobile:8082: registering service...
+bff-mobile  | 2026-10-10 05:19:44.120 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_BFF-MOBILE/987f385cfb51:bff-mobile:8082 - registration status: 204
+bff-mobile  | 2026-10-10 05:19:44.259 [main] INFO  o.a.tomcat.util.net.NioEndpoint.certificate - Connector [https-jsse-nio-8082], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [/root/.keystore] using alias [bffmobile] with trust store [null]
+bff-mobile  | 2026-10-10 05:19:44.294 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8082 (https) with context path '/'
+bff-mobile  | 2026-10-10 05:19:44.300 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8082
+bff-mobile  | 2026-10-10 05:19:44.350 [main] INFO  com.bancoxyz.bff.mobile.BffMobileApplication - Started BffMobileApplication in 18.678 seconds (process running for 20.813)
+bff-mobile  | 2026-10-10 05:19:44.644 [https-jsse-nio-8082-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+bff-mobile  | 2026-10-10 05:19:44.644 [https-jsse-nio-8082-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+bff-mobile  | 2026-10-10 05:19:44.646 [https-jsse-nio-8082-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms

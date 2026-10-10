@@ -1,0 +1,46 @@
+digraph arquitectura {
+  rankdir=TB; newrank=true; nodesep=0.4; ranksep=0.6; fontname="Helvetica"; fontsize=13; bgcolor="white"; splines=true;
+  node [fontname="Helvetica", fontsize=11, shape=box, style="rounded,filled", fillcolor="#FFFFFF", color="#4A5568", penwidth=1.2, margin="0.16,0.09"];
+  edge [fontname="Helvetica", fontsize=9, color="#4A5568", arrowsize=0.7];
+
+  subgraph cluster_canales { label="Canales (frontends)"; style="rounded,dashed"; color="#A0AEC0"; fontcolor="#4A5568";
+    web [label="Navegador web"]; movil [label="App movil"]; atm [label="Cajero automatico"]; }
+
+  gw [label="api-gateway :8443  -  Spring Cloud Gateway (HTTPS)\nenrutamiento por canal + balanceo de carga via Eureka", fillcolor="#FEEBC8", color="#C05621"];
+
+  subgraph cluster_bff { label="Parte 2 - Backend for Frontend (uno por canal, HTTPS)"; style="rounded,filled"; fillcolor="#EBF8FF"; color="#3182CE"; fontcolor="#2C5282";
+    bffweb [label="bff-web :8081\nJWT 30 min\nrespuesta completa"]; bffmob [label="bff-mobile :8082\nJWT 5 min\nrespuesta liviana"]; bffatm [label="bff-atm :8083\nsesion 2 min\noperaciones criticas"]; }
+
+  subgraph cluster_ms { label="Parte 3 - Microservicios de negocio (escalables, OAuth2 Resource Server, Resilience4j)"; style="rounded,filled"; fillcolor="#F0FFF4"; color="#38A169"; fontcolor="#22543D";
+    clientes [label="clientes-service :8086\nGestion de Clientes"]; cuentas [label="cuentas-service :8080\nGestion de Cuentas\n(fuente de verdad del saldo)"]; pagos [label="pagos-service :8087\nProcesamiento de Pagos"]; }
+
+  subgraph cluster_datos { label="PostgreSQL 16 - una base de datos por servicio"; style="rounded,filled"; fillcolor="#FAF5FF"; color="#805AD5"; fontcolor="#44337A";
+    node [shape=cylinder, margin="0.12,0.08"];
+    dbcli [label="clientes_db"]; dbcta [label="cuentas_db"]; dbpag [label="pagos_db"]; dbbat [label="batch_db"]; }
+
+  subgraph cluster_eventos { label="Mensajeria asincrona"; style="rounded,filled"; fillcolor="#FFF5F5"; color="#C53030"; fontcolor="#9B2C2C";
+    kafka [label="Apache Kafka (5 topicos, 4 particiones)\nsaga de transferencias | pagos completados | alertas de seguridad", shape=box3d];
+    notif [label="notificaciones-service\n2 replicas, mismo consumer group"]; }
+
+  subgraph cluster_batch { label="Parte 1 - Procesos batch"; style="rounded,filled"; fillcolor="#FFFFF0"; color="#B7791F"; fontcolor="#744210";
+    legacy [label="Archivos legacy\n(fin_legacy_data)", shape=note];
+    batch [label="batch - Spring Batch\n3 Jobs + modo particionado"]; }
+
+  subgraph cluster_infra { label="Infraestructura Spring Cloud (usada por todos los servicios)"; style="rounded,filled"; fillcolor="#F7FAFC"; color="#718096"; fontcolor="#2D3748";
+    config [label="config-server :8888\nconfiguracion centralizada"]; eureka [label="eureka-server :8761\ndescubrimiento de servicios"]; auth [label="auth-server :9000\nOAuth2 client_credentials (JWT + scopes)"]; }
+
+  web -> gw; movil -> gw; atm -> gw;
+  gw -> bffweb; gw -> bffmob; gw -> bffatm;
+  bffweb -> clientes; bffweb -> cuentas; bffweb -> pagos;
+  bffmob -> cuentas; bffatm -> cuentas; bffatm -> pagos;
+  cuentas -> clientes [label="valida titular", style=dashed, constraint=false];
+  pagos -> cuentas [label="REST", constraint=false];
+  clientes -> dbcli; cuentas -> dbcta; pagos -> dbpag;
+  pagos -> kafka [color="#C53030"]; cuentas -> kafka [color="#C53030", dir=both]; clientes -> kafka [color="#C53030"];
+  kafka -> notif [color="#C53030", constraint=false];
+  legacy -> batch [constraint=false]; batch -> dbbat;
+  {rank=same; clientes; cuentas; pagos; batch; legacy;}
+  {rank=same; dbcli; dbcta; dbpag; dbbat; kafka; notif;}
+  {rank=same; config; eureka; auth;}
+  dbcta -> eureka [style=invis]; kafka -> auth [style=invis]; dbcli -> config [style=invis];
+}

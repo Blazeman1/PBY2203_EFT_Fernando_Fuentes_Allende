@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bancoxyz</groupId>
+    <artifactId>banco-xyz-eft</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>banco-xyz-eft</name>
+
+    <!-- POM agregador: solo compila todos los modulos con un comando. No es parent de ninguno. -->
+    <modules>
+        <module>config-server</module>
+        <module>eureka-server</module>
+        <module>auth-server</module>
+        <module>api-gateway</module>
+        <module>clientes-service</module>
+        <module>cuentas-service</module>
+        <module>pagos-service</module>
+        <module>notificaciones-service</module>
+        <module>bff-web</module>
+        <module>bff-mobile</module>
+        <module>bff-atm</module>
+        <module>batch</module>
+    </modules>
+</project>

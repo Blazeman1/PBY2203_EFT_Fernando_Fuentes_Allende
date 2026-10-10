@@ -1,0 +1,27 @@
+digraph aws {
+  rankdir=TB; nodesep=0.35; ranksep=0.5; fontname="Helvetica"; fontsize=13; bgcolor="white"; compound=true;
+  node [fontname="Helvetica", fontsize=10.5, shape=box, style="rounded,filled", fillcolor="#FFFFFF", color="#4A5568", margin="0.14,0.08"];
+  edge [fontname="Helvetica", fontsize=9, color="#4A5568", arrowsize=0.7];
+  usuario [label="Clientes\n(web, movil, cajero)", shape=oval, fillcolor="#EDF2F7"];
+  admin [label="Administrador\n(IP autorizada)", shape=oval, fillcolor="#EDF2F7"];
+  subgraph cluster_aws { label="AWS - region us-east-1 (AWS Academy Learner Lab)"; style="rounded"; color="#DD6B20"; fontcolor="#C05621";
+    subgraph cluster_vpc { label="VPC por defecto - subred publica"; style="rounded,dashed"; color="#718096"; fontcolor="#4A5568";
+      sg [label="Security Group\n8443 abierto a Internet\n22 y 8761 solo IP del administrador", shape=octagon, fillcolor="#FEEBC8", color="#C05621"];
+      subgraph cluster_ec2 { label="EC2 t3.large - Ubuntu 24.04 - Docker Engine + docker compose"; style="rounded,filled"; fillcolor="#F7FAFC"; color="#2B6CB0"; fontcolor="#2C5282";
+        gw [label="api-gateway\n:8443 publicado", fillcolor="#FEEBC8"];
+        bff [label="bff-web | bff-mobile | bff-atm"];
+        subgraph cluster_red { label="Red interna de docker compose (sin puertos publicados)"; style="rounded,filled"; fillcolor="#F0FFF4"; color="#38A169"; fontcolor="#22543D";
+          ms1 [label="clientes-service\nx2 replicas"]; ms2 [label="cuentas-service\nx2 replicas"]; ms3 [label="pagos-service\nx2 replicas"];
+          notif [label="notificaciones-service\nx2 replicas"];
+          infra [label="config-server | eureka-server | auth-server"];
+          datos [label="PostgreSQL (volumen EBS) | Kafka", shape=cylinder, fillcolor="#FAF5FF"];
+        }
+      }
+    }
+  }
+  repo [label="GitHub\n(codigo fuente + Dockerfiles)", shape=folder, fillcolor="#EDF2F7"];
+  usuario -> sg [label="HTTPS 8443"]; admin -> sg [label="SSH 22 / Eureka 8761"];
+  sg -> gw; gw -> bff; bff -> ms2; bff -> ms1; bff -> ms3; ms3 -> ms2 [style=dashed]; ms2 -> datos; ms1 -> datos; ms3 -> datos; datos -> notif;
+  ms1 -> infra [style=dotted, arrowhead=none]; ms3 -> infra [style=dotted, arrowhead=none];
+  repo -> gw [label="git clone + docker compose build\n(user data al primer arranque)", style=dashed, lhead=cluster_ec2];
+}

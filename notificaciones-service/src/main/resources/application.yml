@@ -1,0 +1,38 @@
+# server.port se puede sobreescribir con la variable de entorno SERVER_PORT, para levantar mas
+# de una instancia en la misma maquina fuera de Docker. En docker-compose no hace falta: cada
+# replica es su propio contenedor y todas usan el mismo puerto interno.
+server:
+  port: ${SERVER_PORT:8084}
+
+spring:
+  application:
+    name: notificaciones-service
+  config:
+    # Los nombres de los topicos vienen de config-server (propiedades compartidas).
+    import: "optional:configserver:http://localhost:8888"
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      # Mismo group-id en todas las replicas: es justamente eso lo que hace que Kafka reparta
+      # las particiones de cada topico entre ellas en vez de que cada una reciba todos los mensajes.
+      group-id: notificaciones-service
+      auto-offset-reset: earliest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    # Refresca la copia local del registro cada 5 s (30 s por defecto): una replica nueva
+    # empieza a recibir trafico, y una caida deja de recibirlo, en pocos segundos.
+    registry-fetch-interval-seconds: 5
+  instance:
+    # Latido cada 5 s y expiracion a los 15 s: Eureka retira rapido una instancia que dejo de responder.
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{45} - %msg%n"
+  level:
+    root: INFO
+    com.bancoxyz.bff.notificaciones: INFO

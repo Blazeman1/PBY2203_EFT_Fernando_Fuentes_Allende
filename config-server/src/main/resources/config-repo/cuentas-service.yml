@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Spring resuelve el JWK Set de auth-server a partir de este issuer (via
+          # /.well-known/oauth-authorization-server) y valida firma, expiracion y emisor.
+          issuer-uri: ${seguridad.oauth2.issuer-uri}
+
+# Como cuentas-service llama a clientes-service (para validar al titular al abrir una cuenta).
+clientes-service:
+  base-url: http://clientes-service
+  oauth2:
+    token-uri: ${seguridad.oauth2.token-uri}
+    client-id: cuentas-service-client
+    # Debe coincidir con auth-server.clientes.cuentas-service.secreto. Valor de demostracion
+    # academica; en produccion viviria en un gestor de secretos.
+    client-secret: "secreto-oauth2-cuentas-service-banco-xyz-no-usar-en-produccion-2026"
+    scope: clientes.access

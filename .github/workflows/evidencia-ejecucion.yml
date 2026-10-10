@@ -1,0 +1,40 @@
+name: Evidencia de ejecución EFT (Banco XYZ)
+
+# Construye las 12 imágenes Docker, levanta el ecosistema completo con docker-compose.yaml y
+# ejecuta scripts/generar_evidencia.sh: procesos batch (Parte 1), canales BFF con seguridad
+# OAuth2 y api-gateway (Parte 2), microservicios de clientes, cuentas y pagos con la saga de
+# transferencias sobre Kafka (Parte 3), escalabilidad horizontal y tolerancia a fallos.
+# Es exactamente el mismo script que se ejecuta en local y en la instancia EC2 de AWS; los
+# runners de GitHub Actions ya traen Docker Engine y el plugin "docker compose".
+# Los logs resultantes se publican como artefacto descargable (evidencia de ejecución real).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  evidencia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Versiones de las herramientas
+        run: |
+          docker --version
+          docker compose version
+          jq --version
+          free -h
+
+      - name: Generar evidencia (build + levantar el stack + pruebas)
+        run: bash scripts/generar_evidencia.sh
+
+      - name: Publicar evidencia como artefacto descargable
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-ejecucion-eft
+          path: evidencias/*.log
+          retention-days: 90

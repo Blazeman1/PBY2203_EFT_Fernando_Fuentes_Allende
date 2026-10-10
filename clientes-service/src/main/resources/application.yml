@@ -1,0 +1,64 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: clientes-service
+  config:
+    # Las propiedades de negocio (topicos, issuer OAuth2) viven en config-server
+    # (config-repo/clientes-service.yml).
+    import: "optional:configserver:http://localhost:8888"
+  datasource:
+    # Base de datos PROPIA de este microservicio (database-per-service). Solo valores de
+    # demostracion academica.
+    url: jdbc:postgresql://localhost:5432/clientes_db
+    username: bancoxyz
+    password: bancoxyz
+    hikari:
+      maximum-pool-size: 10
+      pool-name: ClientesHikariPool
+  jpa:
+    hibernate:
+      # El esquema lo crea el script de inicializacion de PostgreSQL (infra/postgres/init).
+      ddl-auto: none
+    open-in-view: false
+  kafka:
+    bootstrap-servers: localhost:9092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    # Refresca la copia local del registro cada 5 s (30 s por defecto): una replica nueva
+    # empieza a recibir trafico, y una caida deja de recibirlo, en pocos segundos.
+    registry-fetch-interval-seconds: 5
+  instance:
+    # Latido cada 5 s y expiracion a los 15 s: Eureka retira rapido una instancia que dejo de responder.
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      kafkaProducer:
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 5
+        minimum-number-of-calls: 3
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 2
+        automatic-transition-from-open-to-half-open-enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # /actuator/health es publico (healthcheck); info y metrics exigen el JWT del servicio.
+        include: health,info,metrics
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{45} - %msg%n"
+  level:
+    root: INFO
+    com.bancoxyz.clientes: INFO

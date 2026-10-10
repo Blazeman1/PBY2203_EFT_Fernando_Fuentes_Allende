@@ -1,0 +1,52 @@
+api-gateway  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+api-gateway  | 
+api-gateway  |   .   ____          _            __ _ _
+api-gateway  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+api-gateway  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+api-gateway  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+api-gateway  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+api-gateway  |  =========|_|==============|___/=/_/_/_/
+api-gateway  | 
+api-gateway  |  :: Spring Boot ::               (v3.3.13)
+api-gateway  | 
+api-gateway  | 2026-10-10 05:19:52.174 [main] INFO  com.bancoxyz.gateway.ApiGatewayApplication - Starting ApiGatewayApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+api-gateway  | 2026-10-10 05:19:52.176 [main] INFO  com.bancoxyz.gateway.ApiGatewayApplication - The following 1 profile is active: "docker"
+api-gateway  | 2026-10-10 05:19:53.818 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=e0aad8ef-30fd-3966-9c59-3978133c9a4b
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+api-gateway  | 2026-10-10 05:19:55.561 [main] INFO  o.s.c.g.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+api-gateway  | 2026-10-10 05:19:55.858 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+api-gateway  | 2026-10-10 05:19:56.171 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+api-gateway  | 2026-10-10 05:19:56.202 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+api-gateway  | 2026-10-10 05:19:56.272 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+api-gateway  | 2026-10-10 05:19:56.301 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+api-gateway  | 2026-10-10 05:19:56.305 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+api-gateway  | 2026-10-10 05:19:56.312 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+api-gateway  | 2026-10-10 05:19:56.578 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+api-gateway  | 2026-10-10 05:19:56.580 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+api-gateway  | 2026-10-10 05:19:56.582 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+api-gateway  | 2026-10-10 05:19:56.583 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609596583 with initial instances count: 8
+api-gateway  | 2026-10-10 05:19:56.586 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+api-gateway  | 2026-10-10 05:19:56.587 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609596587, current=UP, previous=STARTING]
+api-gateway  | 2026-10-10 05:19:56.588 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/e2d38a41c281:api-gateway:8443: registering service...
+api-gateway  | 2026-10-10 05:19:56.629 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_API-GATEWAY/e2d38a41c281:api-gateway:8443 - registration status: 204
+api-gateway  | 2026-10-10 05:19:56.757 [main] INFO  o.s.boot.web.embedded.netty.NettyWebServer - Netty started on port 8443 (https)
+api-gateway  | 2026-10-10 05:19:56.759 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8443
+api-gateway  | 2026-10-10 05:19:56.800 [main] INFO  com.bancoxyz.gateway.ApiGatewayApplication - Started ApiGatewayApplication in 5.263 seconds (process running for 6.2)

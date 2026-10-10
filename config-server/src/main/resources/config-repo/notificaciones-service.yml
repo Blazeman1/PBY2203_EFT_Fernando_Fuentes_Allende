@@ -1,0 +1,5 @@
+# Los nombres de los topicos que consume notificaciones-service vienen de application.yml
+# (propiedades compartidas). Este archivo existe para dejar explicito que el servicio no tiene,
+# hoy, configuracion de negocio propia.
+notificaciones:
+  canal-simulado: log

@@ -1,0 +1,16 @@
+# Propiedades COMPARTIDAS por todos los clientes de config-server (Spring Cloud Config sirve
+# application.yml a cualquier aplicacion, fusionado bajo su archivo especifico). Aqui vive lo que
+# debe ser identico en todo el ecosistema: los nombres de los topicos Kafka y el emisor OAuth2.
+# Cambiar un topico o el issuer es, asi, una modificacion en UN solo lugar.
+kafka:
+  topics:
+    transferencias-solicitadas: bancoxyz.transferencias.solicitadas
+    transferencias-debito-aplicado: bancoxyz.transferencias.debito-aplicado
+    transferencias-resultado: bancoxyz.transferencias.resultado
+    pagos-completados: bancoxyz.pagos.completados
+    alertas-seguridad: bancoxyz.seguridad.alertas
+
+seguridad:
+  oauth2:
+    issuer-uri: http://localhost:9000
+    token-uri: http://localhost:9000/oauth2/token

@@ -1,0 +1,18 @@
+CLIENTES-SERVICE: 1 instancia(s) registrada(s) en Eureka.
+CUENTAS-SERVICE: 1 instancia(s) registrada(s) en Eureka.
+PAGOS-SERVICE: 1 instancia(s) registrada(s) en Eureka.
+BFF-WEB: 1 instancia(s) registrada(s) en Eureka.
+BFF-MOBILE: 1 instancia(s) registrada(s) en Eureka.
+BFF-ATM: 1 instancia(s) registrada(s) en Eureka.
+API-GATEWAY: 1 instancia(s) registrada(s) en Eureka.
+NOTIFICACIONES-SERVICE: 2 instancia(s) registrada(s) en Eureka.
+
+--- Servicios registrados en Eureka (nombre: instancias) ---
+API-GATEWAY: 1
+BFF-ATM: 1
+BFF-MOBILE: 1
+BFF-WEB: 1
+CLIENTES-SERVICE: 1
+CUENTAS-SERVICE: 1
+NOTIFICACIONES-SERVICE: 2
+PAGOS-SERVICE: 1

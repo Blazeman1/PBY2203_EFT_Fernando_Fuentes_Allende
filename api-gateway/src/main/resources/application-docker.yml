@@ -1,0 +1,7 @@
+# Activado con SPRING_PROFILES_ACTIVE=docker (ver docker-compose.yaml).
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    prefer-ip-address: true

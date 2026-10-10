@@ -1,0 +1,9 @@
+# Los scripts de shell y de SQL se ejecutan dentro de contenedores Linux: deben conservar finales
+# de linea LF aunque el repositorio se clone en Windows (con CRLF, bash falla con "\r: command not found").
+*.sh  text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+Dockerfile text eol=lf
+*.p12 binary
+*.csv text eol=lf

@@ -1,0 +1,95 @@
+
+=== 0. Login canal WEB (cuenta 101, 'John Doe') - se reutiliza en todos los escenarios ===
+Sesion web iniciada.
+
+=== 1. Transferencia EXITOSA: cuenta 101 -> cuenta 105, $500 ===
+Saldo antes: cuenta 101 = 11000.0 | cuenta 105 = 9000.0
+{
+  "transferenciaId": "4277922e-8952-4539-8ec6-62dadf43ac96",
+  "estado": "EN_PROCESO",
+  "mensaje": "Transferencia recibida y en procesamiento. Consulte su estado con GET /api/web/transferencias/4277922e-8952-4539-8ec6-62dadf43ac96"
+}
+POST /transferencias -> HTTP 202 (se espera 202: la escritura es asincrona)
+Esperando el resultado final de la saga...
+{
+  "transferenciaId": "4277922e-8952-4539-8ec6-62dadf43ac96",
+  "cuentaOrigen": 101,
+  "cuentaDestino": 105,
+  "monto": 500.0,
+  "estado": "COMPLETADA",
+  "detalle": null
+}
+Estado final -> COMPLETADA (se espera COMPLETADA)
+Saldo despues: cuenta 101 = 10500.0 (baja $500) | cuenta 105 = 9500.0 (sube $500)
+
+=== 2. Transferencia RECHAZADA: fondos insuficientes (y alerta de seguridad por monto alto) ===
+{
+  "transferenciaId": "5c4068a7-14c5-4d76-9bed-90ba0d4a751d",
+  "cuentaOrigen": 101,
+  "cuentaDestino": 105,
+  "monto": 999999999,
+  "estado": "RECHAZADA",
+  "detalle": "Saldo insuficiente en la cuenta origen (saldo=10500.0, solicitado=9.99999999E8)."
+}
+Estado final -> RECHAZADA (se espera RECHAZADA)
+Saldo cuenta 101: antes=10500.0 despues=10500.0 (deben ser iguales: nunca se llego a debitar)
+(por superar el umbral de monitoreo, pagos-service publico ademas una alerta en bancoxyz.seguridad.alertas)
+
+=== 3. Transferencia COMPENSADA: la cuenta destino no existe (se revierte el debito) ===
+{
+  "transferenciaId": "7c441377-de9d-4f4c-9e7a-a04b1f72a549",
+  "cuentaOrigen": 101,
+  "cuentaDestino": 999999,
+  "monto": 250.0,
+  "estado": "COMPENSADA",
+  "detalle": "La cuenta destino 999999 no existe; se revirtio el debito aplicado en la cuenta origen."
+}
+Estado final -> COMPENSADA (se espera COMPENSADA)
+Saldo cuenta 101: antes=10500.0 despues=10500.0 (deben ser iguales: se debito $250 y la compensacion lo devolvio)
+Movimientos que dejo la saga en la cuenta 101 (debito y su reverso):
+{"tipoMovimiento":"transferencia_enviada","monto":250.0,"descripcion":"Transferencia a la cuenta 999999"}
+{"tipoMovimiento":"reverso_transferencia","monto":250.0,"descripcion":"Reverso de transferencia a la cuenta 999999"}
+
+=== 4. Autorizacion: el token de la cuenta 101 no puede transferir DESDE la cuenta 105 ===
+POST /api/web/cuentas/105/transferencias con token de la cuenta 101 -> HTTP 403 (se espera 403)
+
+=== 5. Pago de un servicio desde el canal web (pagos-service -> cuentas-service, REST sincronico) ===
+{
+  "pagoId": "71c2294a-b094-43d3-a911-60d203b70702",
+  "tipo": "PAGO_SERVICIO",
+  "cuentaOrigen": 101,
+  "cuentaDestino": null,
+  "monto": 300.0,
+  "estado": "COMPLETADA",
+  "detalle": null,
+  "glosa": "Pago de servicio: Agua Potable",
+  "fecha": "2026-10-10T05:21:11.930926"
+}
+
+=== 6. Varias transferencias mas (para ver el reparto de particiones entre replicas) ===
+transferencia de $50 -> HTTP 202 id=17bfb891-3f04-4eea-b34c-6215c6f28dbf
+transferencia de $75 -> HTTP 202 id=9ae5b109-3257-45c6-b8ce-9f9d4440927e
+transferencia de $120 -> HTTP 202 id=4fc832d1-44e8-4645-9168-2a80fdff152d
+transferencia de $40 -> HTTP 202 id=0baa30c7-1c3e-48fb-8083-bfe1a47d37f3
+transferencia de $60 -> HTTP 202 id=f4076cf2-1103-4bee-9794-5721070ceeaf
+transferencia de $90 -> HTTP 202 id=8bc002f3-31b0-4201-bbfe-80c97bb2a007
+transferencia de $30 -> HTTP 202 id=ccee257b-1c0f-404b-aa45-3fc7d0758219
+transferencia de $20 -> HTTP 202 id=50ddab31-f9f4-45b7-a1ce-7d7ce92fdd48
+Esperando a que las sagas terminen y notificaciones-service procese los eventos...
+
+=== 7. Historial de pagos de la cuenta 101 visto desde el canal web ===
+{"tipo":"TRANSFERENCIA","monto":20.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":30.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":90.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":60.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":40.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":120.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":75.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":50.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"PAGO_SERVICIO","monto":300.0,"estado":"COMPLETADA","cuentaDestino":null,"glosa":"Pago de servicio: Agua Potable"}
+{"tipo":"TRANSFERENCIA","monto":250.0,"estado":"COMPENSADA","cuentaDestino":999999,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":999999999,"estado":"RECHAZADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":500.0,"estado":"COMPLETADA","cuentaDestino":105,"glosa":"Transferencia entre cuentas"}
+{"tipo":"TRANSFERENCIA","monto":6000.0,"estado":"COMPLETADA","cuentaDestino":101,"glosa":"Transferencia entre cuentas"}
+
+=== Fin de las pruebas de transferencias ===

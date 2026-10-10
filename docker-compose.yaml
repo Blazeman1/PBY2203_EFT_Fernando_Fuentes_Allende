@@ -1,0 +1,308 @@
+# =============================================================================================
+# Orquestacion COMPLETA del ecosistema Banco XYZ (EFT): cada componente en su propio contenedor,
+# construido desde el codigo fuente (ver el Dockerfile de cada modulo).
+#
+#   Infraestructura : postgres, kafka, config-server, eureka-server, auth-server
+#   Microservicios  : clientes-service, cuentas-service, pagos-service   (ESCALABLES)
+#   Canales (BFF)   : bff-web, bff-mobile, bff-atm
+#   Borde           : api-gateway (unico punto de entrada publico)
+#   Eventos         : notificaciones-service (2 replicas)
+#   Batch (Parte 1) : batch (perfil "batch": se ejecuta a pedido y termina)
+#
+# Uso basico:
+#   docker compose -f docker-compose.yaml up -d --build      # construye y levanta todo
+#   docker compose -f docker-compose.yaml ps                  # estado y salud de cada servicio
+#   docker compose -f docker-compose.yaml logs -f cuentas-service
+#   docker compose -f docker-compose.yaml down                # detener (conserva los datos)
+#   docker compose -f docker-compose.yaml down -v             # detener y BORRAR los datos
+#
+# Escalabilidad horizontal (agregar replicas de los microservicios, sin detener nada):
+#   docker compose -f docker-compose.yaml up -d --no-recreate \
+#       --scale clientes-service=2 --scale cuentas-service=2 --scale pagos-service=2
+#
+# Procesos batch (Parte 1):
+#   docker compose -f docker-compose.yaml --profile batch run --rm batch todos
+#
+# Por que los 3 microservicios NO publican puertos al host ("expose" en vez de "ports"):
+#   1. Seguridad: no son alcanzables desde fuera de la red interna; solo los BFF y el gateway lo son.
+#   2. Escalabilidad: un puerto fijo del host solo puede pertenecer a UN contenedor. Sin puerto
+#      publicado, cada replica vive en su propia IP interna, se registra en Eureka y los
+#      clientes (@LoadBalanced) reparten las peticiones entre todas.
+# =============================================================================================
+
+# Entorno comun de todos los contenedores Java. El perfil "docker" cambia "localhost" por los
+# nombres de servicio de esta red. Los limites de memoria permiten que el stack completo (hasta
+# 15 JVM con los microservicios escalados) entre en una instancia de 8 GB (EC2 t3.large).
+x-entorno-java: &entorno-java
+  SPRING_PROFILES_ACTIVE: docker
+  JAVA_TOOL_OPTIONS: "-Xms64m -Xmx256m -XX:+UseSerialGC"
+
+# config-server y eureka-server NO reciben el perfil "docker": no dependen de ningun otro
+# servicio, y en config-server ese valor reemplazaria su perfil "native" (repositorio de
+# configuracion en el classpath), que debe permanecer activo.
+x-entorno-java-base: &entorno-java-base
+  JAVA_TOOL_OPTIONS: "-Xms64m -Xmx256m -XX:+UseSerialGC"
+
+x-salud: &salud
+  interval: 5s
+  timeout: 5s
+  retries: 60
+  start_period: 30s
+
+# "restart: unless-stopped" en todos los servicios de larga duracion: si un contenedor termina
+# por una falla, Docker lo vuelve a levantar solo (auto-recuperacion); un contenedor detenido a
+# proposito con "docker compose stop" permanece detenido.
+services:
+
+  # -------------------------------------------------------------------------------------------
+  # Infraestructura
+  # -------------------------------------------------------------------------------------------
+
+  postgres:
+    restart: unless-stopped
+    image: postgres:16-alpine
+    container_name: postgres
+    command: ["postgres", "-c", "max_connections=200"]
+    environment:
+      # Valores de demostracion academica; en AWS se reemplazan por Amazon RDS + Secrets Manager.
+      POSTGRES_USER: bancoxyz
+      POSTGRES_PASSWORD: bancoxyz
+      POSTGRES_DB: postgres
+    ports:
+      # Publicado solo para inspeccionar los datos con un cliente SQL durante el desarrollo.
+      - "5432:5432"
+    volumes:
+      - bancoxyz_pgdata:/var/lib/postgresql/data
+      # Crea las 4 bases de datos (una por servicio + batch) y sus tablas la primera vez.
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # "-h 127.0.0.1" a proposito: mientras se ejecutan los scripts de inicializacion, postgres
+      # solo escucha por socket local (un pg_isready sin -h ya responderia "listo" antes de que
+      # existan las bases de datos). Por TCP solo responde cuando la inicializacion termino.
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U bancoxyz -d pagos_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  kafka:
+    restart: unless-stopped
+    image: apache/kafka:3.7.0
+    container_name: kafka
+    ports:
+      # 9092 queda solo DENTRO de la red (trafico de los microservicios); 9094 es el listener
+      # publicado al host, para inspeccionar el broker desde afuera.
+      - "9094:9094"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      # 4 particiones por topico: es lo que permite repartir el consumo entre varias replicas
+      # de un mismo consumer group (cuentas-service, pagos-service, notificaciones-service).
+      KAFKA_NUM_PARTITIONS: "4"
+      KAFKA_HEAP_OPTS: "-Xms256m -Xmx384m"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 || exit 1"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 15s
+
+  config-server:
+    restart: unless-stopped
+    build: ./config-server
+    container_name: config-server
+    environment: *entorno-java-base
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/actuator/health"]
+      <<: *salud
+
+  eureka-server:
+    restart: unless-stopped
+    build: ./eureka-server
+    container_name: eureka-server
+    environment: *entorno-java-base
+    ports:
+      # Panel de Eureka: http://localhost:8761 (muestra cada replica registrada).
+      - "8761:8761"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      <<: *salud
+
+  auth-server:
+    restart: unless-stopped
+    build: ./auth-server
+    container_name: auth-server
+    environment: *entorno-java
+    ports:
+      - "9000:9000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/actuator/health"]
+      <<: *salud
+
+  # -------------------------------------------------------------------------------------------
+  # Los 3 microservicios de negocio (Parte 3). Sin container_name ni puertos publicados: son
+  # escalables con "--scale" (ver encabezado).
+  # -------------------------------------------------------------------------------------------
+
+  clientes-service:
+    restart: unless-stopped
+    build: ./clientes-service
+    environment: *entorno-java
+    expose:
+      - "8086"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      config-server: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+      auth-server: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/actuator/health"]
+      <<: *salud
+
+  cuentas-service:
+    restart: unless-stopped
+    build: ./cuentas-service
+    environment: *entorno-java
+    expose:
+      - "8080"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      config-server: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+      auth-server: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      <<: *salud
+
+  pagos-service:
+    restart: unless-stopped
+    build: ./pagos-service
+    environment: *entorno-java
+    expose:
+      - "8087"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      config-server: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+      auth-server: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8087/actuator/health"]
+      <<: *salud
+
+  # -------------------------------------------------------------------------------------------
+  # Los 3 BFF (Parte 2): uno por canal, cada uno con su propio certificado HTTPS.
+  # -------------------------------------------------------------------------------------------
+
+  bff-web:
+    restart: unless-stopped
+    build: ./bff-web
+    container_name: bff-web
+    environment: *entorno-java
+    ports:
+      - "8081:8081"
+    depends_on:
+      clientes-service: { condition: service_healthy }
+      cuentas-service: { condition: service_healthy }
+      pagos-service: { condition: service_healthy }
+    healthcheck:
+      # -k: certificado autofirmado de uso academico.
+      test: ["CMD", "curl", "-kf", "https://localhost:8081/actuator/health"]
+      <<: *salud
+
+  bff-mobile:
+    restart: unless-stopped
+    build: ./bff-mobile
+    container_name: bff-mobile
+    environment: *entorno-java
+    ports:
+      - "8082:8082"
+    depends_on:
+      cuentas-service: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-kf", "https://localhost:8082/actuator/health"]
+      <<: *salud
+
+  bff-atm:
+    restart: unless-stopped
+    build: ./bff-atm
+    container_name: bff-atm
+    environment: *entorno-java
+    ports:
+      - "8083:8083"
+    depends_on:
+      cuentas-service: { condition: service_healthy }
+      pagos-service: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-kf", "https://localhost:8083/actuator/health"]
+      <<: *salud
+
+  # -------------------------------------------------------------------------------------------
+  # Punto de entrada unico: enruta /api/web, /api/mobile y /api/atm hacia su BFF via Eureka.
+  # En AWS es el UNICO puerto que el Security Group abre a Internet.
+  # -------------------------------------------------------------------------------------------
+
+  api-gateway:
+    restart: unless-stopped
+    build: ./api-gateway
+    container_name: api-gateway
+    environment: *entorno-java
+    ports:
+      - "8443:8443"
+    depends_on:
+      eureka-server: { condition: service_healthy }
+      bff-web: { condition: service_healthy }
+      bff-mobile: { condition: service_healthy }
+      bff-atm: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-kf", "https://localhost:8443/actuator/health"]
+      <<: *salud
+
+  # -------------------------------------------------------------------------------------------
+  # Consumidor de eventos: 2 replicas de la MISMA imagen en el mismo consumer group de Kafka.
+  # -------------------------------------------------------------------------------------------
+
+  notificaciones-service:
+    restart: unless-stopped
+    build: ./notificaciones-service
+    environment: *entorno-java
+    expose:
+      - "8084"
+    deploy:
+      replicas: 2
+    depends_on:
+      kafka: { condition: service_healthy }
+      config-server: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      <<: *salud
+
+  # -------------------------------------------------------------------------------------------
+  # Procesos batch (Parte 1). Perfil "batch": NO se levanta con "up"; se ejecuta a pedido,
+  # corre el Job indicado y termina (exit code 0 solo si el Job termino en COMPLETED).
+  # -------------------------------------------------------------------------------------------
+
+  batch:
+    build: ./batch
+    profiles: ["batch"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/batch_db
+      JAVA_TOOL_OPTIONS: "-Xms64m -Xmx384m"
+    depends_on:
+      postgres: { condition: service_healthy }
+
+volumes:
+  bancoxyz_pgdata:

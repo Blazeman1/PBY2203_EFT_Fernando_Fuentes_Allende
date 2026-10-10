@@ -1,0 +1,62 @@
+bff-atm  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+bff-atm  | 
+bff-atm  |   .   ____          _            __ _ _
+bff-atm  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bff-atm  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bff-atm  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bff-atm  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bff-atm  |  =========|_|==============|___/=/_/_/_/
+bff-atm  | 
+bff-atm  |  :: Spring Boot ::               (v3.3.13)
+bff-atm  | 
+bff-atm  | 2026-10-10 05:19:29.919 [main] INFO  com.bancoxyz.bff.atm.BffAtmApplication - Starting BffAtmApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+bff-atm  | 2026-10-10 05:19:29.927 [main] INFO  com.bancoxyz.bff.atm.BffAtmApplication - The following 1 profile is active: "docker"
+bff-atm  | 2026-10-10 05:19:30.218 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-atm  | 2026-10-10 05:19:30.219 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-atm/default": Connection refused. Will be trying the next url if available
+bff-atm  | 2026-10-10 05:19:30.231 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@2024293c uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/bff-atm/default": Connection refused
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-atm/docker": Connection refused. Will be trying the next url if available
+bff-atm  | 2026-10-10 05:19:30.231 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@51c929ae uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/bff-atm/docker": Connection refused
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-atm/default": Connection refused. Will be trying the next url if available
+bff-atm  | 2026-10-10 05:19:30.231 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@3c8bdd5b uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/bff-atm/default": Connection refused
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=bff-atm, profiles=[docker], label=null, version=null, state=null
+bff-atm  | 2026-10-10 05:19:30.231 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+bff-atm  | 2026-10-10 05:19:30.232 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=bff-atm, profiles=[default], label=null, version=null, state=null
+bff-atm  | 2026-10-10 05:19:34.595 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=d300cf78-7e09-3f89-9758-c01707ad45bb
+bff-atm  | 2026-10-10 05:19:37.768 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (https)
+bff-atm  | 2026-10-10 05:19:37.830 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+bff-atm  | 2026-10-10 05:19:37.832 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+bff-atm  | 2026-10-10 05:19:37.942 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+bff-atm  | 2026-10-10 05:19:37.946 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7680 ms
+bff-atm  | 2026-10-10 05:19:43.861 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+bff-atm  | 2026-10-10 05:19:44.136 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+bff-atm  | 2026-10-10 05:19:44.169 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+bff-atm  | 2026-10-10 05:19:44.415 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+bff-atm  | 2026-10-10 05:19:44.498 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+bff-atm  | 2026-10-10 05:19:44.507 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+bff-atm  | 2026-10-10 05:19:44.522 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+bff-atm  | 2026-10-10 05:19:44.523 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+bff-atm  | 2026-10-10 05:19:44.523 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+bff-atm  | 2026-10-10 05:19:44.523 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+bff-atm  | 2026-10-10 05:19:44.523 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+bff-atm  | 2026-10-10 05:19:44.523 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+bff-atm  | 2026-10-10 05:19:44.523 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+bff-atm  | 2026-10-10 05:19:44.813 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+bff-atm  | 2026-10-10 05:19:44.816 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+bff-atm  | 2026-10-10 05:19:44.820 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+bff-atm  | 2026-10-10 05:19:44.823 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609584823 with initial instances count: 5
+bff-atm  | 2026-10-10 05:19:44.836 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application BFF-ATM with eureka with status UP
+bff-atm  | 2026-10-10 05:19:44.837 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609584836, current=UP, previous=STARTING]
+bff-atm  | 2026-10-10 05:19:44.839 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_BFF-ATM/120d2904ed10:bff-atm:8083: registering service...
+bff-atm  | 2026-10-10 05:19:44.923 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_BFF-ATM/120d2904ed10:bff-atm:8083 - registration status: 204
+bff-atm  | 2026-10-10 05:19:45.002 [main] INFO  o.a.tomcat.util.net.NioEndpoint.certificate - Connector [https-jsse-nio-8083], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [/root/.keystore] using alias [bffatm] with trust store [null]
+bff-atm  | 2026-10-10 05:19:45.037 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8083 (https) with context path '/'
+bff-atm  | 2026-10-10 05:19:45.039 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8083
+bff-atm  | 2026-10-10 05:19:45.081 [main] INFO  com.bancoxyz.bff.atm.BffAtmApplication - Started BffAtmApplication in 18.528 seconds (process running for 20.343)
+bff-atm  | 2026-10-10 05:19:45.425 [https-jsse-nio-8083-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+bff-atm  | 2026-10-10 05:19:45.426 [https-jsse-nio-8083-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+bff-atm  | 2026-10-10 05:19:45.428 [https-jsse-nio-8083-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+bff-atm  | 2026-10-10 05:20:47.623 [https-jsse-nio-8083-exec-4] INFO  c.b.bff.atm.controller.CuentaAtmController - Retiro confirmado: cuenta=105 monto=1000.0 nuevoSaldo=7000.0
+bff-atm  | 2026-10-10 05:20:49.375 [https-jsse-nio-8083-exec-4] INFO  c.b.bff.atm.controller.CuentaAtmController - Deposito confirmado: cuenta=105 monto=2000.0 pagoId=97d1aad4-098a-4178-96be-a0e93a76be92

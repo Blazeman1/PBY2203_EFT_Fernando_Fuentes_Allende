@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    # Ajustes para que el registro refleje los cambios de escala en segundos y no en minutos
+    # (valores pensados para laboratorio y demostracion; en produccion se usan los por defecto):
+    # - la respuesta cacheada que reciben los clientes se regenera cada 3 s (30 s por defecto);
+    # - las instancias cuyo latido expiro se retiran cada 5 s (60 s por defecto);
+    # - sin modo de auto-preservacion, que con pocas instancias impediria retirar las caidas.
+    response-cache-update-interval-ms: 3000
+    eviction-interval-timer-in-ms: 5000
+    enable-self-preservation: false
+
+logging:
+  level:
+    root: INFO
+    com.bancoxyz.discovery: INFO

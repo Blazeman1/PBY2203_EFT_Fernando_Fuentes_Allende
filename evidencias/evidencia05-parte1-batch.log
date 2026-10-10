@@ -1,0 +1,227 @@
+
+=== 1. Politica de finalizacion: control de calidad con umbral estricto (20% de omisiones) ===
+(el archivo oficial trae ~23% de registros invalidos: con este umbral el decider NO deja generar
+ el reporte y el Job termina COMPLETED con exit status REVISION_REQUERIDA)
++ docker compose -f docker-compose.yaml --profile batch run --rm -T batch transacciones --batch.umbral-calidad-porcentaje=20
+2026-10-10 05:20:11.201 [main] INFO  c.b.batch.config.InfraestructuraBatchConfig - TaskExecutor inicializado: corePoolSize=3 maxPoolSize=3 queueCapacity=15
+2026-10-10 05:20:11.373 [main] INFO  c.b.b.c.TransaccionesParticionadoJobConfig - particionTaskExecutor inicializado: corePoolSize=4 maxPoolSize=4 (gridSize=4)
+2026-10-10 05:20:11.610 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [transaccionesDiariasJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609611539, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:11.685 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaTransaccionesStep] de Job [transaccionesDiariasJob] - hilo principal: main
+2026-10-10 05:20:13.749 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaTransaccionesStep] estado=COMPLETED | leidos=1000 escritos=768 omitidos(total=232, lectura=0, proceso=211, escritura=21) | chunks(commits)=256 | duracion=2063 ms | throughput=372.27 items/seg
+2026-10-10 05:20:13.761 [main] INFO  c.b.batch.listener.ControlCalidadDecider - [ControlCalidadDecider] Step [cargaTransaccionesStep]: 232 omitidos de 1000 intentados (23.2%). Umbral configurado: 20.0%
+2026-10-10 05:20:13.761 [main] WARN  c.b.batch.listener.ControlCalidadDecider - [ControlCalidadDecider] Porcentaje de omision (23.2%) supera el umbral (20.0%). Se deriva el flujo a revision manual antes de generar el reporte final.
+2026-10-10 05:20:13.775 [main] ERROR c.b.batch.tasklet.RevisionRequeridaTasklet - *** ATENCION: el proceso 'Reporte de Transacciones Diarias' NO generara su reporte final. ***
+2026-10-10 05:20:13.792 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [transaccionesDiariasJob] - estado=COMPLETED | duracion=2189 ms | leidos=1000 escritos=768 omitidos=232
+2026-10-10 05:20:13.792 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): REVISION_REQUERIDA
+--- Lineas de log por hilo de ejecucion (paralelismo) ---
+    711 Batch-Thread-3
+    710 Batch-Thread-2
+    700 Batch-Thread-1
+     52 main
+--- Avisos de omision en el log: 287 (incluye los repetidos al reprocesar un chunk que fallo al escribir; el total exacto esta en la metadata, seccion 6). 3 ejemplos: ---
+2026-10-10 05:20:11.721 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaTransaccionesStep] Registro omitido (1/900 permitidas) por InvalidDataException: Transaccion id=5: monto vacio o nulo, no se puede 
+2026-10-10 05:20:11.723 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaTransaccionesStep] Registro omitido (1/900 permitidas) por InvalidDataException: Transaccion id=6: monto vacio o nulo, no se puede 
+2026-10-10 05:20:11.760 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaTransaccionesStep] Registro omitido (3/900 permitidas) por InvalidDataException: Transaccion id=17: monto vacio o nulo, no se puede
+-> exit code del proceso batch: 0 (0 = todos los Jobs terminaron en COMPLETED). Log completo: evidencias/logs-batch-control-calidad.log
+
+=== 2. Fallo critico y reejecucion automatica (limite de omisiones forzado a 10) ===
+(con un limite de omisiones irreal, el Step supera el tope y el Job termina FAILED: el lanzador lo
+ reejecuta automaticamente 2 veces sobre la MISMA JobInstance y, al persistir la causa, lo da por
+ fallido con exit code distinto de 0. Este fallo es el resultado ESPERADO de esta prueba.)
++ docker compose -f docker-compose.yaml --profile batch run --rm -T batch cuentas-anuales --batch.limite-omisiones=10 --batch.reejecucion-espera-ms=1000
+2026-10-10 05:20:18.327 [main] INFO  c.b.batch.config.InfraestructuraBatchConfig - TaskExecutor inicializado: corePoolSize=3 maxPoolSize=3 queueCapacity=15
+2026-10-10 05:20:18.504 [main] INFO  c.b.b.c.TransaccionesParticionadoJobConfig - particionTaskExecutor inicializado: corePoolSize=4 maxPoolSize=4 (gridSize=4)
+2026-10-10 05:20:18.794 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:18.909 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:19.125 [Batch-Thread-3] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:19.130 [Batch-Thread-1] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+Caused by: com.bancoxyz.batch.exception.InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.138 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=FAILED | leidos=55 escritos=42 omitidos(total=10, lectura=0, proceso=10, escritura=0) | chunks(commits)=10 | duracion=229 ms | throughput=183.41 items/seg
+2026-10-10 05:20:19.159 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=FAILED | duracion=377 ms | leidos=55 escritos=42 omitidos=10
+2026-10-10 05:20:19.159 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): FAILED
+2026-10-10 05:20:19.168 [main] ERROR com.bancoxyz.batch.BancoXyzBatchApplication - El Job [estadosCuentaAnualesJob] termino con estado FAILED (exit status: FAILED) en el intento 1/3
+2026-10-10 05:20:19.169 [main] WARN  com.bancoxyz.batch.BancoXyzBatchApplication - Reejecucion automatica del Job [estadosCuentaAnualesJob] en 1000 ms (misma JobInstance, runId=1791609618670)...
+2026-10-10 05:20:20.214 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:20.290 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:20.388 [Batch-Thread-2] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:20.390 [Batch-Thread-1] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+Caused by: com.bancoxyz.batch.exception.InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.393 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=FAILED | leidos=60 escritos=42 omitidos(total=10, lectura=0, proceso=10, escritura=0) | chunks(commits)=10 | duracion=102 ms | throughput=411.76 items/seg
+2026-10-10 05:20:20.406 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=FAILED | duracion=196 ms | leidos=60 escritos=42 omitidos=10
+2026-10-10 05:20:20.406 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): FAILED
+2026-10-10 05:20:20.411 [main] ERROR com.bancoxyz.batch.BancoXyzBatchApplication - El Job [estadosCuentaAnualesJob] termino con estado FAILED (exit status: FAILED) en el intento 2/3
+2026-10-10 05:20:20.411 [main] WARN  com.bancoxyz.batch.BancoXyzBatchApplication - Reejecucion automatica del Job [estadosCuentaAnualesJob] en 1000 ms (misma JobInstance, runId=1791609618670)...
+2026-10-10 05:20:21.435 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:21.495 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:21.580 [Batch-Thread-2] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:21.582 [Batch-Thread-3] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:21.583 [Batch-Thread-1] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+Caused by: com.bancoxyz.batch.exception.InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.584 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=FAILED | leidos=65 escritos=41 omitidos(total=10, lectura=0, proceso=10, escritura=0) | chunks(commits)=10 | duracion=89 ms | throughput=460.67 items/seg
+2026-10-10 05:20:21.597 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=FAILED | duracion=168 ms | leidos=65 escritos=41 omitidos=10
+2026-10-10 05:20:21.597 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): FAILED
+2026-10-10 05:20:21.603 [main] ERROR com.bancoxyz.batch.BancoXyzBatchApplication - El Job [estadosCuentaAnualesJob] termino con estado FAILED (exit status: FAILED) en el intento 3/3
+--- Lineas de log por hilo de ejecucion (paralelismo) ---
+    128 Batch-Thread-3
+    120 Batch-Thread-1
+    103 Batch-Thread-2
+     91 main
+--- Avisos de omision en el log: 30 (incluye los repetidos al reprocesar un chunk que fallo al escribir; el total exacto esta en la metadata, seccion 6). 3 ejemplos: ---
+2026-10-10 05:20:18.954 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 110: movimiento con monto en cero, no s
+2026-10-10 05:20:18.954 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no s
+2026-10-10 05:20:18.991 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (3/10 permitidas) por InvalidDataException: Cuenta 109: movimiento con monto en cero, no s
+-> exit code del proceso batch: 1 (0 = todos los Jobs terminaron en COMPLETED). Log completo: evidencias/logs-batch-reejecucion.log
+-> Fallo esperado: la politica de limite de omisiones detuvo el Job y la reejecucion automatica quedo registrada.
+
+=== 3. Jobs base (multi-hilo): transacciones, intereses y cuentas-anuales ===
++ docker compose -f docker-compose.yaml --profile batch run --rm -T batch todos
+2026-10-10 05:20:26.653 [main] INFO  c.b.batch.config.InfraestructuraBatchConfig - TaskExecutor inicializado: corePoolSize=3 maxPoolSize=3 queueCapacity=15
+2026-10-10 05:20:26.894 [main] INFO  c.b.b.c.TransaccionesParticionadoJobConfig - particionTaskExecutor inicializado: corePoolSize=4 maxPoolSize=4 (gridSize=4)
+2026-10-10 05:20:27.200 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [transaccionesDiariasJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609627085, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:27.274 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaTransaccionesStep] de Job [transaccionesDiariasJob] - hilo principal: main
+2026-10-10 05:20:29.084 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaTransaccionesStep] estado=COMPLETED | leidos=1000 escritos=768 omitidos(total=232, lectura=0, proceso=211, escritura=21) | chunks(commits)=254 | duracion=1809 ms | throughput=424.54 items/seg
+2026-10-10 05:20:29.096 [main] INFO  c.b.batch.listener.ControlCalidadDecider - [ControlCalidadDecider] Step [cargaTransaccionesStep]: 232 omitidos de 1000 intentados (23.2%). Umbral configurado: 85.0%
+2026-10-10 05:20:29.115 [main] INFO  c.b.b.t.ResumenTransaccionesDiariasTasklet - Resumen diario generado -> procesadas=768, anomalias=390, omitidas=232, total creditos=232900.00, total debitos=267800.00
+2026-10-10 05:20:29.131 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [transaccionesDiariasJob] - estado=COMPLETED | duracion=1939 ms | leidos=1000 escritos=768 omitidos=232
+2026-10-10 05:20:29.131 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): COMPLETED
+2026-10-10 05:20:29.151 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [interesesMensualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609627085, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:29.161 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [calculoInteresesStep] de Job [interesesMensualesJob] - hilo principal: main
+2026-10-10 05:20:30.615 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [calculoInteresesStep] estado=COMPLETED | leidos=1000 escritos=217 omitidos(total=783, lectura=0, proceso=762, escritura=21) | chunks(commits)=220 | duracion=1454 ms | throughput=149.24 items/seg
+2026-10-10 05:20:30.626 [main] INFO  c.b.batch.listener.ControlCalidadDecider - [ControlCalidadDecider] Step [calculoInteresesStep]: 783 omitidos de 1000 intentados (78.3%). Umbral configurado: 85.0%
+2026-10-10 05:20:30.640 [main] INFO  com.bancoxyz.batch.config.InteresesJobConfig - Calculo de intereses mensuales finalizado. Total de cuentas con saldo actualizado: 49
+2026-10-10 05:20:30.654 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [interesesMensualesJob] - estado=COMPLETED | duracion=1508 ms | leidos=1000 escritos=217 omitidos=783
+2026-10-10 05:20:30.654 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): COMPLETED
+2026-10-10 05:20:30.671 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609627085, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:30.717 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:31.863 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=COMPLETED | leidos=1000 escritos=836 omitidos(total=164, lectura=0, proceso=164, escritura=0) | chunks(commits)=204 | duracion=1145 ms | throughput=730.13 items/seg
+2026-10-10 05:20:31.872 [main] INFO  c.b.batch.listener.ControlCalidadDecider - [ControlCalidadDecider] Step [cargaMovimientosAnualesStep]: 164 omitidos de 1000 intentados (16.4%). Umbral configurado: 85.0%
+2026-10-10 05:20:31.887 [main] INFO  c.b.b.tasklet.AgregacionEstadosCuentaTasklet - Estados de cuenta anuales generados/actualizados para 20 cuenta(s). Total historico en tabla: 20.
+2026-10-10 05:20:31.899 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=COMPLETED | duracion=1232 ms | leidos=1000 escritos=836 omitidos=164
+2026-10-10 05:20:31.899 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): COMPLETED
+--- Lineas de log por hilo de ejecucion (paralelismo) ---
+   2282 Batch-Thread-1
+   2168 Batch-Thread-2
+   2141 Batch-Thread-3
+     91 main
+--- Avisos de omision en el log: 1290 (incluye los repetidos al reprocesar un chunk que fallo al escribir; el total exacto esta en la metadata, seccion 6). 3 ejemplos: ---
+2026-10-10 05:20:27.315 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaTransaccionesStep] Registro omitido (1/900 permitidas) por InvalidDataException: Transaccion id=5: monto vacio o nulo, no se puede 
+2026-10-10 05:20:27.317 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaTransaccionesStep] Registro omitido (2/900 permitidas) por InvalidDataException: Transaccion id=6: monto vacio o nulo, no se puede 
+2026-10-10 05:20:27.355 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaTransaccionesStep] Registro omitido (3/900 permitidas) por InvalidDataException: Transaccion id=17: monto vacio o nulo, no se puede
+-> exit code del proceso batch: 0 (0 = todos los Jobs terminaron en COMPLETED). Log completo: evidencias/logs-batch-jobs-base.log
+
+=== 4. Job de transacciones en modo PARTICIONADO (grid-size=4) ===
++ docker compose -f docker-compose.yaml --profile batch run --rm -T batch transacciones-particionado --batch.grid-size=4
+2026-10-10 05:20:36.834 [main] INFO  c.b.batch.config.InfraestructuraBatchConfig - TaskExecutor inicializado: corePoolSize=3 maxPoolSize=3 queueCapacity=15
+2026-10-10 05:20:37.031 [main] INFO  c.b.b.c.TransaccionesParticionadoJobConfig - particionTaskExecutor inicializado: corePoolSize=4 maxPoolSize=4 (gridSize=4)
+2026-10-10 05:20:37.274 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [transaccionesDiariasParticionadoJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609637199, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:37.361 [main] INFO  c.b.b.partition.TransaccionesRangoPartitioner - Particion[0] asignada: filas 1 a 250 (250 filas)
+2026-10-10 05:20:37.361 [main] INFO  c.b.b.partition.TransaccionesRangoPartitioner - Particion[1] asignada: filas 251 a 500 (250 filas)
+2026-10-10 05:20:37.361 [main] INFO  c.b.b.partition.TransaccionesRangoPartitioner - Particion[2] asignada: filas 501 a 750 (250 filas)
+2026-10-10 05:20:37.361 [main] INFO  c.b.b.partition.TransaccionesRangoPartitioner - Particion[3] asignada: filas 751 a 1000 (250 filas)
+2026-10-10 05:20:37.361 [main] INFO  c.b.b.partition.TransaccionesRangoPartitioner - Particionado del archivo de transacciones: 1000 filas de datos repartidas en 4 particion(es) real(es) (gridSize solicitado=4)
+2026-10-10 05:20:37.384 [Particion-Thread-1] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [workerCargaTransaccionesStep:particion3] de Job [transaccionesDiariasParticionadoJob] - hilo principal: Particion-Thread-1
+2026-10-10 05:20:37.388 [Particion-Thread-2] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [workerCargaTransaccionesStep:particion1] de Job [transaccionesDiariasParticionadoJob] - hilo principal: Particion-Thread-2
+2026-10-10 05:20:37.392 [Particion-Thread-4] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [workerCargaTransaccionesStep:particion2] de Job [transaccionesDiariasParticionadoJob] - hilo principal: Particion-Thread-4
+2026-10-10 05:20:37.395 [Particion-Thread-3] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [workerCargaTransaccionesStep:particion0] de Job [transaccionesDiariasParticionadoJob] - hilo principal: Particion-Thread-3
+2026-10-10 05:20:38.291 [Particion-Thread-2] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [workerCargaTransaccionesStep:particion1] estado=COMPLETED | leidos=250 escritos=187 omitidos(total=63, lectura=0, proceso=60, escritura=3) | chunks(commits)=59 | duracion=895 ms | throughput=208.94 items/seg
+2026-10-10 05:20:38.325 [Particion-Thread-3] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [workerCargaTransaccionesStep:particion0] estado=COMPLETED | leidos=250 escritos=195 omitidos(total=55, lectura=0, proceso=50, escritura=5) | chunks(commits)=66 | duracion=930 ms | throughput=209.68 items/seg
+2026-10-10 05:20:38.332 [Particion-Thread-1] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [workerCargaTransaccionesStep:particion3] estado=COMPLETED | leidos=250 escritos=190 omitidos(total=60, lectura=0, proceso=54, escritura=6) | chunks(commits)=67 | duracion=937 ms | throughput=202.77 items/seg
+2026-10-10 05:20:38.379 [Particion-Thread-4] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [workerCargaTransaccionesStep:particion2] estado=COMPLETED | leidos=250 escritos=196 omitidos(total=54, lectura=0, proceso=47, escritura=7) | chunks(commits)=70 | duracion=983 ms | throughput=199.39 items/seg
+2026-10-10 05:20:38.399 [main] INFO  c.b.batch.listener.ControlCalidadDecider - [ControlCalidadDecider] Step [particionTransaccionesStep]: 232 omitidos de 1000 intentados (23.2%). Umbral configurado: 85.0%
+2026-10-10 05:20:38.420 [main] INFO  c.b.b.t.ResumenTransaccionesDiariasTasklet - Resumen diario generado -> procesadas=768, anomalias=390, omitidas=232, total creditos=232900.00, total debitos=267800.00
+2026-10-10 05:20:38.434 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [transaccionesDiariasParticionadoJob] - estado=COMPLETED | duracion=1169 ms | leidos=1000 escritos=768 omitidos=232
+2026-10-10 05:20:38.434 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): COMPLETED
+--- Lineas de log por hilo de ejecucion (paralelismo) ---
+    570 Particion-Thread-4
+    549 Particion-Thread-1
+    534 Particion-Thread-3
+    488 Particion-Thread-2
+     50 main
+--- Avisos de omision en el log: 289 (incluye los repetidos al reprocesar un chunk que fallo al escribir; el total exacto esta en la metadata, seccion 6). 3 ejemplos: ---
+2026-10-10 05:20:37.470 [Particion-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [workerCargaTransaccionesStep] Registro omitido (1/900 permitidas) por InvalidDataException: Transaccion id=751: monto vacio o nulo, 
+2026-10-10 05:20:37.473 [Particion-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [workerCargaTransaccionesStep] Registro omitido (1/900 permitidas) por InvalidDataException: Transaccion id=5: monto vacio o nulo, no
+2026-10-10 05:20:37.474 [Particion-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [workerCargaTransaccionesStep] Registro omitido (2/900 permitidas) por InvalidDataException: Transaccion id=753: monto vacio o nulo, 
+-> exit code del proceso batch: 0 (0 = todos los Jobs terminaron en COMPLETED). Log completo: evidencias/logs-batch-particionado.log
+
+=== 5. Metadata de Spring Batch: ejecuciones de Jobs (base de la re-ejecucion y reanudacion) ===
+ id |              job_name               |  status   |     exit_code      |  inicio  |   fin    | segundos 
+----+-------------------------------------+-----------+--------------------+----------+----------+----------
+  1 | transaccionesDiariasJob             | COMPLETED | REVISION_REQUERIDA | 05:20:11 | 05:20:13 |     2.19
+  2 | estadosCuentaAnualesJob             | FAILED    | FAILED             | 05:20:18 | 05:20:19 |     0.38
+  3 | estadosCuentaAnualesJob             | FAILED    | FAILED             | 05:20:20 | 05:20:20 |     0.20
+  4 | estadosCuentaAnualesJob             | FAILED    | FAILED             | 05:20:21 | 05:20:21 |     0.17
+  5 | transaccionesDiariasJob             | COMPLETED | COMPLETED          | 05:20:27 | 05:20:29 |     1.94
+  6 | interesesMensualesJob               | COMPLETED | COMPLETED          | 05:20:29 | 05:20:30 |     1.51
+  7 | estadosCuentaAnualesJob             | COMPLETED | COMPLETED          | 05:20:30 | 05:20:31 |     1.23
+  8 | transaccionesDiariasParticionadoJob | COMPLETED | COMPLETED          | 05:20:37 | 05:20:38 |     1.17
+(8 rows)
+
+
+=== 6. Metadata por Step: leidos, escritos, omitidos (skip), commits y rollbacks ===
+                step_name                |  status   | leidos | escritos | omitidos | commits | rollbacks 
+-----------------------------------------+-----------+--------+----------+----------+---------+-----------
+ purgaTransaccionesStep                  | COMPLETED |      0 |        0 |        0 |       1 |         0
+ cargaTransaccionesStep                  | COMPLETED |   1000 |      768 |      232 |     256 |       253
+ revisionTransaccionesStep               | COMPLETED |      0 |        0 |        0 |       1 |         0
+ purgaMovimientosAnualesStep             | COMPLETED |      0 |        0 |        0 |       1 |         0
+ cargaMovimientosAnualesStep             | FAILED    |     55 |       42 |       10 |      10 |        14
+ purgaMovimientosAnualesStep             | COMPLETED |      0 |        0 |        0 |       1 |         0
+ cargaMovimientosAnualesStep             | FAILED    |     60 |       42 |       10 |      10 |        15
+ purgaMovimientosAnualesStep             | COMPLETED |      0 |        0 |        0 |       1 |         0
+ cargaMovimientosAnualesStep             | FAILED    |     65 |       41 |       10 |      10 |        15
+ purgaTransaccionesStep                  | COMPLETED |      0 |        0 |        0 |       1 |         0
+ cargaTransaccionesStep                  | COMPLETED |   1000 |      768 |      232 |     254 |       253
+ resumenTransaccionesStep                | COMPLETED |      0 |        0 |        0 |       1 |         0
+ calculoInteresesStep                    | COMPLETED |   1000 |      217 |      783 |     220 |       805
+ confirmacionInteresesStep               | COMPLETED |      0 |        0 |        0 |       1 |         0
+ purgaMovimientosAnualesStep             | COMPLETED |      0 |        0 |        0 |       1 |         0
+ cargaMovimientosAnualesStep             | COMPLETED |   1000 |      836 |      164 |     204 |       164
+ agregacionEstadosCuentaStep             | COMPLETED |      0 |        0 |        0 |       1 |         0
+ purgaTransaccionesStep                  | COMPLETED |      0 |        0 |        0 |       1 |         0
+ particionTransaccionesStep              | COMPLETED |   1000 |      768 |      232 |     262 |       253
+ workerCargaTransaccionesStep:particion1 | COMPLETED |    250 |      187 |       63 |      59 |        66
+ workerCargaTransaccionesStep:particion0 | COMPLETED |    250 |      195 |       55 |      66 |        60
+ workerCargaTransaccionesStep:particion2 | COMPLETED |    250 |      196 |       54 |      70 |        61
+ workerCargaTransaccionesStep:particion3 | COMPLETED |    250 |      190 |       60 |      67 |        66
+ resumenTransaccionesStep                | COMPLETED |      0 |        0 |        0 |       1 |         0
+(24 rows)
+
+
+=== 7. Resultados de negocio ===
+            tabla            | filas | anomalias 
+-----------------------------+-------+-----------
+ transacciones_procesadas    |   768 |       390
+ cuentas_interes             |    49 |          
+ cuentas_anuales_movimientos |   836 |       467
+ estados_cuenta_anuales      |    20 |          
+(4 rows)
+
+--- Reporte de transacciones diarias (resumen generado por el Job) ---
+ total_procesadas | total_anomalias | total_omitidas | monto_total_creditos | monto_total_debitos 
+------------------+-----------------+----------------+----------------------+---------------------
+              768 |             390 |            232 |            232900.00 |           267800.00
+              768 |             390 |            232 |            232900.00 |           267800.00
+(2 rows)
+
+--- Calculo de intereses (5 cuentas de ejemplo) ---
+ cuenta_id |    nombre    |   tipo   | saldo_inicial |  tasa  | interes_calculado | saldo_final 
+-----------+--------------+----------+---------------+--------+-------------------+-------------
+       101 | John Doe     | prestamo |       5000.00 | 0.0250 |            125.00 |     5125.00
+       102 | Unknown      | ahorro   |      10000.00 | 0.0150 |            150.00 |    10150.00
+       103 | Jane Smith   | prestamo |      10000.00 | 0.0250 |            250.00 |    10250.00
+       104 | Steve Rogers | prestamo |      12000.00 | 0.0250 |            300.00 |    12300.00
+       105 | Jane Smith   | prestamo |       8000.00 | 0.0250 |            200.00 |     8200.00
+(5 rows)
+
+--- Estados de cuenta anuales (5 cuentas de ejemplo) ---
+ cuenta_id | anio | total_depositos | total_retiros | total_compras | saldo_neto | cantidad_movimientos | cantidad_anomalias 
+-----------+------+-----------------+---------------+---------------+------------+----------------------+--------------------
+       101 | 2024 |        20100.00 |     -23000.00 |     -29300.00 |  -34700.00 |                   46 |                 26
+       102 | 2024 |         5200.00 |      -8000.00 |     -26000.00 |  -38400.00 |                   35 |                 25
+       103 | 2024 |        31800.00 |     -20500.00 |     -21500.00 |  -13700.00 |                   47 |                 25
+       104 | 2024 |        10100.00 |     -12700.00 |     -41600.00 |  -48200.00 |                   43 |                 30
+       105 | 2024 |        18900.00 |     -17100.00 |     -18200.00 |  -18500.00 |                   48 |                 25
+(5 rows)
+
+
+=== Fin de las pruebas batch (Parte 1) ===

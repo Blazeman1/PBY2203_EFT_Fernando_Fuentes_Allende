@@ -1,0 +1,61 @@
+server:
+  port: 8082
+  ssl:
+    enabled: true
+    key-store: classpath:bff-mobile-keystore.p12
+    key-store-type: PKCS12
+    # Valor de demostracion academica; en produccion viviria en un gestor de secretos.
+    key-store-password: "keystore-canal-movil-banco-xyz-no-usar-en-produccion-2026"
+    key-alias: bffmobile
+
+spring:
+  application:
+    name: bff-mobile
+  cloud:
+    loadbalancer:
+      cache:
+        # El balanceador cachea la lista de instancias; 5 s (35 s por defecto) para que
+        # refleje rapido los cambios de escala.
+        ttl: 5s
+  config:
+    # Las URLs de los microservicios, las credenciales OAuth2 y los secretos del canal viven en
+    # config-server (config-repo/bff-mobile.yml).
+    import: "optional:configserver:http://localhost:8888"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    # Refresca la copia local del registro cada 5 s (30 s por defecto): una replica nueva
+    # empieza a recibir trafico, y una caida deja de recibirlo, en pocos segundos.
+    registry-fetch-interval-seconds: 5
+  instance:
+    # Latido cada 5 s y expiracion a los 15 s: Eureka retira rapido una instancia que dejo de responder.
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+    # Este BFF solo escucha HTTPS: se registra en Eureka con su puerto SEGURO, para que el
+    # api-gateway (y cualquier cliente balanceado) lo invoque por https y no por http.
+    secure-port-enabled: true
+    secure-port: ${server.port}
+    non-secure-port-enabled: false
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      cuentasService:
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+        ignore-exceptions:
+          - com.bancoxyz.bff.mobile.exception.CuentaNoEncontradaException
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{45} - %msg%n"
+  level:
+    root: INFO
+    com.bancoxyz.bff.mobile: INFO

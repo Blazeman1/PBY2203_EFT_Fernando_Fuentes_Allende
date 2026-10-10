@@ -1,0 +1,23 @@
+# bff-web es el canal mas completo: consume los 3 microservicios de negocio.
+cuentas-service:
+  base-url: http://cuentas-service
+  oauth2:
+    # auth-server no esta registrado en Eureka: es una direccion fija conocida por configuracion.
+    token-uri: ${seguridad.oauth2.token-uri}
+    client-id: bff-web-client
+    # Debe coincidir con auth-server.clientes.bff-web.secreto. Valor de demostracion academica;
+    # en produccion viviria en un gestor de secretos.
+    client-secret: "secreto-oauth2-bff-web-banco-xyz-no-usar-en-produccion-2026"
+    # Un unico token con los tres scopes que este canal tiene otorgados.
+    scope: "cuentas.access clientes.access pagos.access"
+
+clientes-service:
+  base-url: http://clientes-service
+
+pagos-service:
+  base-url: http://pagos-service
+
+seguridad:
+  jwt:
+    # Valor de demostracion academica; en produccion viviria en un gestor de secretos.
+    secreto: "clave-secreta-canal-web-banco-xyz-no-usar-en-produccion-2026"

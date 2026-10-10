@@ -1,0 +1,76 @@
+
+=== A. DEGRADACION CONTROLADA: clientes-service caido ===
+--- Con todo arriba: la vista web incluye al titular ---
+HTTP 200: {"cuentaId":101,"titular":"John Doe","edadTitular":40,"saldoActual":9325.0}
++ docker compose -f docker-compose.yaml stop clientes-service
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-1 Stopping 
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-1 Stopped 
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-2 Stopped 
+--- Con clientes-service caido: la cuenta SIGUE respondiendo (HTTP 200), sin datos personales ---
+HTTP 200: {"cuentaId":101,"titular":"(no disponible temporalmente)","edadTitular":0,"saldoActual":9325.0}
+HTTP 200: {"cuentaId":101,"titular":"(no disponible temporalmente)","edadTitular":0,"saldoActual":9325.0}
+HTTP 200: {"cuentaId":101,"titular":"(no disponible temporalmente)","edadTitular":0,"saldoActual":9325.0}
+--- El login web (que SI necesita el nombre del titular) responde un 503 controlado ---
+{"error":"clientes-service no disponible en este momento, intente mas tarde."}
+HTTP 503
+--- El canal movil no depende de clientes-service: no se entera de la falla ---
+GET /api/mobile/cuentas/101/resumen -> HTTP 200 (se espera 200)
++ docker compose -f docker-compose.yaml start clientes-service
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-2 Started 
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-1 Starting 
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-1 Started 
+
+=== B. CIRCUIT BREAKER + RETRY: cuentas-service caido ===
++ docker compose -f docker-compose.yaml stop cuentas-service
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-2 Stopping 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-2 Stopped 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-1 Stopped 
+--- B.1 bff-web -> cuentas-service: 8 llamadas seguidas ---
+(el circuito se abre cuando, con al menos 5 llamadas registradas, las fallas llegan al 50%; desde ahi el fallback responde
+ SIN intentar la llamada: lo prueban el estado OPEN y el contador notPermittedCalls)
+Estado del circuito ANTES:   {"circuito":"cuentasService","state":"CLOSED","failureRate":"0.0%","bufferedCalls":10,"failedCalls":0,"notPermittedCalls":0}
+intento 1 -> HTTP 503 en 0.049991s
+intento 2 -> HTTP 503 en 0.034050s
+intento 3 -> HTTP 503 en 0.042038s
+intento 4 -> HTTP 503 en 0.050948s
+intento 5 -> HTTP 503 en 0.053436s
+intento 6 -> HTTP 503 en 0.038151s
+intento 7 -> HTTP 503 en 0.031809s
+intento 8 -> HTTP 503 en 0.034299s
+Estado del circuito DESPUES: {"circuito":"cuentasService","state":"OPEN","failureRate":"50.0%","bufferedCalls":10,"failedCalls":5,"notPermittedCalls":3}
+--- Cuerpo de la respuesta de fallback ---
+{"error":"cuentas-service no disponible en este momento, intente mas tarde."}
+--- B.2 pagos-service -> cuentas-service: un deposito con el servicio de cuentas caido ---
+(pagos-service reintenta 3 veces, registra el pago como FALLIDA y responde 503: el dinero no se pierde ni se duplica)
+{"error":"cuentas-service no disponible en este momento; el pago no fue aplicado, intente mas tarde."}
+HTTP 503 en 1.052457s
+--- El intento quedo registrado en el historial de pagos con su motivo ---
+{"tipo":"DEPOSITO","monto":777.0,"estado":"FALLIDA","detalle":"cuentas-service no disponible en este momento; el pago no fue aplicado, intente mas tarde."}
+--- B.3 Una transferencia solicitada durante la caida NO se pierde: queda en Kafka ---
+Transferencia 23732606-562b-434d-beca-0d9ec34c2192 aceptada (202) con cuentas-service caido; estado actual:
+{"estado":"EN_PROCESO"}
+
+=== C. RECUPERACION AUTOMATICA ===
++ docker compose -f docker-compose.yaml start cuentas-service
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-2 Started 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-1 Starting 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-1 Started 
+Saludables: 13/17 (intento 1/120)...
+Saludables: 14/17 (intento 2/120)...
+Saludables: 15/17 (intento 3/120)...
+Saludables: 15/17 (intento 4/120)...
+Los 17 contenedores estan 'healthy' (intento 5/120).
+Esperando a que el circuito pase a semiabierto (10 s) y a que Eureka propague el registro...
+bff-web volvio a responder HTTP 200 (intento 1): el circuito esta SEMIABIERTO y deja pasar llamadas de prueba.
+Estado tras la primera llamada exitosa: {"circuito":"cuentasService","state":"HALF_OPEN","failureRate":"-1.0%","bufferedCalls":1,"failedCalls":0,"notPermittedCalls":0}
+llamada de prueba 1 en estado semiabierto -> HTTP 200
+llamada de prueba 2 en estado semiabierto -> HTTP 200
+Estado final del circuito: {"circuito":"cuentasService","state":"CLOSED","failureRate":"-1.0%","bufferedCalls":0,"failedCalls":0,"notPermittedCalls":0}
+--- Transiciones de estado registradas por Resilience4j (/actuator/circuitbreakerevents) ---
+2026-10-10T05:22:53.065983072Z[GMT]  CLOSED_TO_OPEN
+2026-10-10T05:23:03.068601791Z[GMT]  OPEN_TO_HALF_OPEN
+2026-10-10T05:23:27.984362791Z[GMT]  HALF_OPEN_TO_CLOSED
+--- La transferencia que quedo pendiente se proceso al volver el servicio (Kafka la conservo) ---
+{"transferenciaId":"23732606-562b-434d-beca-0d9ec34c2192","estado":"COMPLETADA","monto":111.0}
+
+=== Fin de la prueba de tolerancia a fallos ===

@@ -1,0 +1,19 @@
+digraph casos {
+  rankdir=LR; nodesep=0.22; ranksep=0.9; fontname="Helvetica"; fontsize=13; bgcolor="white";
+  node [fontname="Helvetica", fontsize=10.5];
+  edge [color="#4A5568", arrowhead=none];
+  cw [label="Cliente\nweb", shape=plaintext]; cm [label="Cliente\nmovil", shape=plaintext]; ca [label="Cliente\nen cajero", shape=plaintext];
+  ej [label="Ejecutivo /\nsistema interno", shape=plaintext]; op [label="Operador\nbatch", shape=plaintext];
+  subgraph cluster_s { label="Sistema Banco XYZ"; style="rounded"; color="#2B6CB0"; fontcolor="#2C5282";
+    node [shape=ellipse, style=filled, fillcolor="#EBF8FF", color="#3182CE"];
+    u1 [label="Iniciar sesion en su canal"]; u2 [label="Consultar cuenta completa\ne historial filtrado"]; u3 [label="Ver y actualizar\ndatos de contacto"];
+    u4 [label="Transferir a otra cuenta"]; u5 [label="Pagar un servicio"]; u6 [label="Consultar resumen liviano"];
+    u7 [label="Consultar saldo"]; u8 [label="Retirar dinero"]; u9 [label="Depositar dinero"];
+    u10 [label="Dar de alta / desactivar cliente", fillcolor="#F0FFF4", color="#38A169"]; u11 [label="Abrir, mantener y cerrar cuenta", fillcolor="#F0FFF4", color="#38A169"];
+    u12 [label="Ejecutar reporte de\ntransacciones diarias", fillcolor="#FFFFF0", color="#B7791F"]; u13 [label="Calcular intereses", fillcolor="#FFFFF0", color="#B7791F"]; u14 [label="Generar estados de\ncuenta anuales", fillcolor="#FFFFF0", color="#B7791F"];
+    u15 [label="Recibir notificaciones\ny alertas de seguridad", fillcolor="#FFF5F5", color="#C53030"];
+  }
+  cw -> u1; cw -> u2; cw -> u3; cw -> u4; cw -> u5; cw -> u15;
+  cm -> u1; cm -> u6; ca -> u1; ca -> u7; ca -> u8; ca -> u9;
+  ej -> u10; ej -> u11; op -> u12; op -> u13; op -> u14;
+}

@@ -1,0 +1,11 @@
+# bff-atm consulta saldos y retira (cuentas-service) y deposita (pagos-service).
+cuentas-service:
+  base-url: http://cuentas-service
+  oauth2:
+    token-uri: ${seguridad.oauth2.token-uri}
+    client-id: bff-atm-client
+    client-secret: "secreto-oauth2-bff-atm-banco-xyz-no-usar-en-produccion-2026"
+    scope: "cuentas.access pagos.access"
+
+pagos-service:
+  base-url: http://pagos-service

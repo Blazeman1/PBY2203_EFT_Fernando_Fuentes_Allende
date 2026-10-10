@@ -1,0 +1,98 @@
+
+=== 1. Estado inicial: instancias registradas en Eureka ===
+CLIENTES-SERVICE: 1 instancia(s)
+CUENTAS-SERVICE: 1 instancia(s)
+PAGOS-SERVICE: 1 instancia(s)
+NOTIFICACIONES-SERVICE: 2 instancia(s)
+
+=== 2. Escalando a 2 replicas: clientes-service, cuentas-service y pagos-service ===
++ docker compose -f docker-compose.yaml up -d --no-recreate --scale clientes-service=2 --scale cuentas-service=2 --scale pagos-service=2
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-2 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-1 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-2 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-1 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-2 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-cuentas-service-1 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-2 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-clientes-service-1 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-pagos-service-2 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-pagos-service-1 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-pagos-service-2 Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-pagos-service-1 Healthy 
+ Container bff-atm Waiting 
+ Container eureka-server Waiting 
+ Container bff-web Waiting 
+ Container bff-mobile Waiting 
+ Container bff-atm Healthy 
+ Container eureka-server Healthy 
+ Container bff-web Healthy 
+ Container bff-mobile Healthy 
+Los 17 contenedores estan 'healthy' (intento 1/120).
+
+=== 3. Las replicas nuevas se registran solas en Eureka (nadie reconfigura a los clientes) ===
+CLIENTES-SERVICE: 2 instancia(s) registrada(s) en Eureka.
+CUENTAS-SERVICE: 2 instancia(s) registrada(s) en Eureka.
+PAGOS-SERVICE: 2 instancia(s) registrada(s) en Eureka.
+--- Instancias por servicio (host:puerto registrados) ---
+API-GATEWAY: 172.18.0.15:8443
+BFF-ATM: 172.18.0.14:8083
+BFF-MOBILE: 172.18.0.12:8082
+BFF-WEB: 172.18.0.13:8081
+CLIENTES-SERVICE: 172.18.0.17:8086, 172.18.0.9:8086
+CUENTAS-SERVICE: 172.18.0.10:8080, 172.18.0.16:8080
+NOTIFICACIONES-SERVICE: 172.18.0.8:8084, 172.18.0.7:8084
+PAGOS-SERVICE: 172.18.0.18:8087, 172.18.0.11:8087
+--- Contenedores ---
+NAME                                                            IMAGE                                                         COMMAND                  SERVICE                  CREATED          STATUS                    PORTS
+pby2203_eft_fernando_fuentes_allende-clientes-service-1         pby2203_eft_fernando_fuentes_allende-clientes-service         "java -jar app.jar"      clientes-service         3 minutes ago    Up 3 minutes (healthy)    8086/tcp
+pby2203_eft_fernando_fuentes_allende-clientes-service-2         pby2203_eft_fernando_fuentes_allende-clientes-service         "java -jar app.jar"      clientes-service         30 seconds ago   Up 28 seconds (healthy)   8086/tcp
+pby2203_eft_fernando_fuentes_allende-cuentas-service-1          pby2203_eft_fernando_fuentes_allende-cuentas-service          "java -jar app.jar"      cuentas-service          3 minutes ago    Up 3 minutes (healthy)    8080/tcp
+pby2203_eft_fernando_fuentes_allende-cuentas-service-2          pby2203_eft_fernando_fuentes_allende-cuentas-service          "java -jar app.jar"      cuentas-service          30 seconds ago   Up 29 seconds (healthy)   8080/tcp
+pby2203_eft_fernando_fuentes_allende-notificaciones-service-1   pby2203_eft_fernando_fuentes_allende-notificaciones-service   "java -jar app.jar"      notificaciones-service   3 minutes ago    Up 3 minutes (healthy)    8084/tcp
+pby2203_eft_fernando_fuentes_allende-notificaciones-service-2   pby2203_eft_fernando_fuentes_allende-notificaciones-service   "java -jar app.jar"      notificaciones-service   3 minutes ago    Up 3 minutes (healthy)    8084/tcp
+pby2203_eft_fernando_fuentes_allende-pagos-service-1            pby2203_eft_fernando_fuentes_allende-pagos-service            "java -jar app.jar"      pagos-service            3 minutes ago    Up 3 minutes (healthy)    8087/tcp
+pby2203_eft_fernando_fuentes_allende-pagos-service-2            pby2203_eft_fernando_fuentes_allende-pagos-service            "java -jar app.jar"      pagos-service            30 seconds ago   Up 28 seconds (healthy)   8087/tcp
+Esperando 15 s a que los BFF refresquen su copia del registro y su cache de balanceo...
+
+=== 4. Carga de prueba: 30 consultas (movil + web), 6 pagos y 8 transferencias ===
+Consultas respondidas con HTTP 200: 30 de 30
+6 pagos de servicios y 8 transferencias enviados. Esperando a que terminen las sagas...
+
+=== 5. Balanceo de carga REST: peticiones atendidas por cada replica (log de auditoria PETICION) ===
+cuentas-service:
+    cuentas-service-1            18 linea(s)
+    cuentas-service-2            19 linea(s)
+clientes-service:
+    clientes-service-1           7 linea(s)
+    clientes-service-2           8 linea(s)
+pagos-service:
+    pagos-service-1              7 linea(s)
+    pagos-service-2              7 linea(s)
+
+=== 6. Eventos Kafka: particiones repartidas entre las replicas del mismo consumer group ===
+cuentas-service (pasos de la saga procesados por cada replica):
+    cuentas-service-1            12 linea(s)
+    cuentas-service-2            12 linea(s)
+pagos-service (resultados de transferencias aplicados por cada replica):
+    pagos-service-1              4 linea(s)
+    pagos-service-2              4 linea(s)
+notificaciones-service (notificaciones procesadas por cada replica):
+    notificaciones-service-1     4 linea(s)
+    notificaciones-service-2     4 linea(s)
+--- Asignacion de particiones del consumer group cuentas-service (kafka-consumer-groups) ---
+    TOPIC                                         PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG    HOST
+    bancoxyz.transferencias.solicitadas           0          6               6               0      /172.18.0.16
+    bancoxyz.transferencias.solicitadas           1          3               3               0      /172.18.0.16
+    bancoxyz.transferencias.solicitadas           2          8               8               0      /172.18.0.10
+    bancoxyz.transferencias.solicitadas           3          3               3               0      /172.18.0.10
+    bancoxyz.transferencias.debito-aplicado       2          7               7               0      /172.18.0.10
+    bancoxyz.transferencias.debito-aplicado       3          3               3               0      /172.18.0.10
+    bancoxyz.transferencias.debito-aplicado       0          6               6               0      /172.18.0.16
+    bancoxyz.transferencias.debito-aplicado       1          3               3               0      /172.18.0.16
+(cada particion tiene un unico consumidor asignado -columna HOST-: dos replicas nunca procesan el mismo evento)
+
+=== 7. Consistencia con varias replicas: el dinero total no cambia ===
+Saldo cuenta 101 = 9325.0 | cuenta 105 = 10165.0
+(todas las replicas leen y escriben la misma base PostgreSQL con bloqueo de fila: no hay saldos divergentes)
+
+=== Fin de la prueba de escalabilidad horizontal ===

@@ -1,0 +1,546 @@
+ Container postgres Running 
+ Container postgres Waiting 
+ Container postgres Healthy 
+ Container pby2203_eft_fernando_fuentes_allende-batch-run-e9edd973cee0 Creating 
+ Container pby2203_eft_fernando_fuentes_allende-batch-run-e9edd973cee0 Created 
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx384m
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.3.13)
+
+2026-10-10 05:20:17.087 [main] INFO  com.bancoxyz.batch.BancoXyzBatchApplication - Starting BancoXyzBatchApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+2026-10-10 05:20:17.089 [main] INFO  com.bancoxyz.batch.BancoXyzBatchApplication - No active profile set, falling back to 1 default profile: "default"
+2026-10-10 05:20:17.711 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.754 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.757 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.758 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jdbcConnectionDetails' of type [org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.781 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.786 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.794 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizationAutoConfiguration' of type [org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizationAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.802 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'transactionExecutionListeners' of type [org.springframework.boot.autoconfigure.transaction.ExecutionListenersTransactionManagerCustomizer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.809 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties' of type [org.springframework.boot.autoconfigure.transaction.TransactionProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.811 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'platformTransactionManagerCustomizers' of type [org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.821 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'transactionManager' of type [org.springframework.jdbc.support.JdbcTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.830 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.batch-org.springframework.boot.autoconfigure.batch.BatchProperties' of type [org.springframework.boot.autoconfigure.batch.BatchProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-10-10 05:20:17.852 [main] WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [jobRegistryBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-10-10 05:20:17.946 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoXyzHikariPool - Starting...
+2026-10-10 05:20:18.254 [main] INFO  com.zaxxer.hikari.pool.HikariPool - BancoXyzHikariPool - Added connection org.postgresql.jdbc.PgConnection@10358c32
+2026-10-10 05:20:18.255 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoXyzHikariPool - Start completed.
+2026-10-10 05:20:18.327 [main] INFO  c.b.batch.config.InfraestructuraBatchConfig - TaskExecutor inicializado: corePoolSize=3 maxPoolSize=3 queueCapacity=15
+2026-10-10 05:20:18.397 [main] WARN  o.s.b.c.step.builder.FaultTolerantStepBuilder - Asynchronous TaskExecutor detected with ItemStream reader.  This is probably an error, and may lead to incorrect restart data being stored.
+2026-10-10 05:20:18.459 [main] WARN  o.s.b.c.step.builder.FaultTolerantStepBuilder - Asynchronous TaskExecutor detected with ItemStream reader.  This is probably an error, and may lead to incorrect restart data being stored.
+2026-10-10 05:20:18.504 [main] INFO  c.b.b.c.TransaccionesParticionadoJobConfig - particionTaskExecutor inicializado: corePoolSize=4 maxPoolSize=4 (gridSize=4)
+2026-10-10 05:20:18.531 [main] WARN  o.s.b.c.step.builder.FaultTolerantStepBuilder - Asynchronous TaskExecutor detected with ItemStream reader.  This is probably an error, and may lead to incorrect restart data being stored.
+2026-10-10 05:20:18.664 [main] INFO  com.bancoxyz.batch.BancoXyzBatchApplication - Started BancoXyzBatchApplication in 2.004 seconds (process running for 2.649)
+2026-10-10 05:20:18.767 [main] INFO  o.s.b.core.launch.support.SimpleJobLauncher - Job: [FlowJob: [name=estadosCuentaAnualesJob]] launched with the following parameters: [{'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}]
+2026-10-10 05:20:18.794 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:18.794 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:18.795 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:18.816 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [purgaMovimientosAnualesStep]
+2026-10-10 05:20:18.836 [main] INFO  com.bancoxyz.batch.tasklet.PurgaTablaTasklet - Purgando datos previos de la tabla 'cuentas_anuales_movimientos' antes de cargar la nueva corrida...
+2026-10-10 05:20:18.865 [main] INFO  com.bancoxyz.batch.tasklet.PurgaTablaTasklet - Tabla 'cuentas_anuales_movimientos' purgada correctamente.
+2026-10-10 05:20:18.879 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [purgaMovimientosAnualesStep] executed in 62ms
+2026-10-10 05:20:18.903 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [cargaMovimientosAnualesStep]
+2026-10-10 05:20:18.909 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:18.910 [main] WARN  o.s.batch.core.step.item.ChunkMonitor - No ItemReader set (must be concurrent step), so ignoring offset data.
+2026-10-10 05:20:18.947 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: fecha corregida de formato legacy '25-11-2024' a '2024-11-25'
+2026-10-10 05:20:18.947 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '2024/03/22' a '2024-03-22'
+2026-10-10 05:20:18.947 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '2024/04/30' a '2024-04-30'
+2026-10-10 05:20:18.948 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.948 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.949 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.949 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '23/08/2024' a '2024-08-23'
+2026-10-10 05:20:18.949 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '26-03-2024' a '2024-03-26'
+2026-10-10 05:20:18.950 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:18.950 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:18.950 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:18.950 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:18.950 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '02-01-2024' a '2024-01-02'
+2026-10-10 05:20:18.950 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '11/03/2024' a '2024-03-11'
+2026-10-10 05:20:18.950 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.950 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.950 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.950 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/28' a '2024-08-28'
+2026-10-10 05:20:18.951 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '22-02-2024' a '2024-02-22'
+2026-10-10 05:20:18.953 [Batch-Thread-2] WARN  o.s.batch.core.step.item.ChunkMonitor - ItemStream was opened in a different thread.  Restart data could be compromised.
+2026-10-10 05:20:18.953 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '2024/03/22' a '2024-03-22'
+2026-10-10 05:20:18.953 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.953 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '2024/04/30' a '2024-04-30'
+2026-10-10 05:20:18.953 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:18.953 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.953 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '02-01-2024' a '2024-01-02'
+2026-10-10 05:20:18.953 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.953 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '26-03-2024' a '2024-03-26'
+2026-10-10 05:20:18.954 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:18.954 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 110: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:18.954 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:18.955 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: fecha corregida de formato legacy '14/07/2024' a '2024-07-14'
+2026-10-10 05:20:18.956 [Batch-Thread-1] WARN  o.s.batch.core.step.item.ChunkMonitor - ItemStream was opened in a different thread.  Restart data could be compromised.
+2026-10-10 05:20:18.956 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:18.956 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: fecha corregida de formato legacy '09-08-2024' a '2024-08-09'
+2026-10-10 05:20:18.971 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=110, fecha=2024/08/28, transaccion=retiro, monto=0, descripcion=)' - InvalidDataException: Cuenta 110: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:18.990 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '2024/04/30' a '2024-04-30'
+2026-10-10 05:20:18.990 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:18.990 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '26-03-2024' a '2024-03-26'
+2026-10-10 05:20:18.990 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:18.991 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: fecha corregida de formato legacy '14/07/2024' a '2024-07-14'
+2026-10-10 05:20:18.991 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:18.991 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (3/10 permitidas) por InvalidDataException: Cuenta 109: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:18.991 [Batch-Thread-3] WARN  o.s.batch.core.step.item.ChunkMonitor - ItemStream was opened in a different thread.  Restart data could be compromised.
+2026-10-10 05:20:18.996 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=106, fecha=2024-06-22, transaccion=retiro, monto=0, descripcion=Compra en tienda)' - InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:18.996 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=109, fecha=09-08-2024, transaccion=deposito, monto=0, descripcion=Compra en tienda)' - InvalidDataException: Cuenta 109: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.012 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: fecha corregida de formato legacy '22-10-2024' a '2024-10-22'
+2026-10-10 05:20:19.012 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:19.013 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/04/22' a '2024-04-22'
+2026-10-10 05:20:19.013 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.013 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: fecha corregida de formato legacy '13/05/2024' a '2024-05-13'
+2026-10-10 05:20:19.014 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '04/11/2024' a '2024-11-04'
+2026-10-10 05:20:19.032 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:19.033 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '2024/06/08' a '2024-06-08'
+2026-10-10 05:20:19.041 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.041 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.042 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/01/24' a '2024-01-24'
+2026-10-10 05:20:19.042 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '19/02/2024' a '2024-02-19'
+2026-10-10 05:20:19.042 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:19.042 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '09/11/2024' a '2024-11-09'
+2026-10-10 05:20:19.042 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.042 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: fecha corregida de formato legacy '2024/04/12' a '2024-04-12'
+2026-10-10 05:20:19.043 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '22/10/2024' a '2024-10-22'
+2026-10-10 05:20:19.043 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:19.043 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/07/01' a '2024-07-01'
+2026-10-10 05:20:19.043 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:19.043 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (4/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.043 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '2024/06/08' a '2024-06-08'
+2026-10-10 05:20:19.043 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.043 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '05/11/2024' a '2024-11-05'
+2026-10-10 05:20:19.043 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:19.044 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:19.044 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.044 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: fecha corregida de formato legacy '25-02-2024' a '2024-02-25'
+2026-10-10 05:20:19.044 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (4/10 permitidas) por InvalidDataException: Cuenta 108: monto vacio o nulo
+2026-10-10 05:20:19.044 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '25-08-2024' a '2024-08-25'
+2026-10-10 05:20:19.044 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.044 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:19.045 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '07-09-2024' a '2024-09-07'
+2026-10-10 05:20:19.045 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:19.047 [Batch-Thread-2] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=108, fecha=2024/01/24, transaccion=compra, monto=, descripcion=Ingreso extra)' - InvalidDataException: Cuenta 108: monto vacio o nulo
+2026-10-10 05:20:19.047 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=106, fecha=2024/04/12, transaccion=deposito, monto=0, descripcion=Ingreso de fin de año)' - InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.062 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '19/02/2024' a '2024-02-19'
+2026-10-10 05:20:19.063 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:19.063 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '09/11/2024' a '2024-11-09'
+2026-10-10 05:20:19.063 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.064 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '22/10/2024' a '2024-10-22'
+2026-10-10 05:20:19.064 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:19.064 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (6/10 permitidas) por InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.067 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=103, fecha=2024/07/01, transaccion=deposito, monto=0, descripcion=Ingreso de fin de año)' - InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.077 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '12/07/2024' a '2024-07-12'
+2026-10-10 05:20:19.078 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (7/10 permitidas) por InvalidDataException: Cuenta 107: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.079 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '2024/03/03' a '2024-03-03'
+2026-10-10 05:20:19.079 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.080 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '11/09/2024' a '2024-09-11'
+2026-10-10 05:20:19.080 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '21-09-2024' a '2024-09-21'
+2026-10-10 05:20:19.080 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:19.081 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:19.084 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=107, fecha=12/07/2024, transaccion=pago, monto=0, descripcion=Ingreso navideño)' - InvalidDataException: Cuenta 107: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.100 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/02/08' a '2024-02-08'
+2026-10-10 05:20:19.101 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '27/08/2024' a '2024-08-27'
+2026-10-10 05:20:19.101 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (8/10 permitidas) por InvalidDataException: Cuenta 108: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.101 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/07' a '2024-08-07'
+2026-10-10 05:20:19.101 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:19.101 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:19.101 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:19.102 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '04/01/2024' a '2024-01-04'
+2026-10-10 05:20:19.102 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:19.102 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: fecha corregida de formato legacy '04/11/2024' a '2024-11-04'
+2026-10-10 05:20:19.102 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:19.102 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:19.102 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:19.103 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '10/02/2024' a '2024-02-10'
+2026-10-10 05:20:19.103 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (9/10 permitidas) por InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.103 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/04/14' a '2024-04-14'
+2026-10-10 05:20:19.113 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:19.114 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:19.114 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:19.114 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (10/10 permitidas) por InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.115 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '30/01/2024' a '2024-01-30'
+2026-10-10 05:20:19.117 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=113, fecha=2024-10-18, transaccion=depósito, monto=0, descripcion=)' - InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:19.125 [Batch-Thread-3] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:19.128 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/04/14' a '2024-04-14'
+2026-10-10 05:20:19.130 [Batch-Thread-1] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:19.132 [main] ERROR o.s.batch.core.step.AbstractStep - Encountered an error executing step cargaMovimientosAnualesStep in job estadosCuentaAnualesJob
+org.springframework.batch.core.step.skip.SkipLimitExceededException: Skip limit of '10' exceeded
+	at com.bancoxyz.batch.policy.RegistroInvalidoSkipPolicy.shouldSkip(RegistroInvalidoSkipPolicy.java:62)
+	at org.springframework.batch.core.step.skip.CompositeSkipPolicy.shouldSkip(CompositeSkipPolicy.java:42)
+	at org.springframework.batch.core.step.skip.ExceptionClassifierSkipPolicy.shouldSkip(ExceptionClassifierSkipPolicy.java:65)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.shouldSkip(FaultTolerantChunkProcessor.java:486)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.lambda$transform$1(FaultTolerantChunkProcessor.java:274)
+	at org.springframework.retry.support.RetryTemplate.handleRetryExhausted(RetryTemplate.java:573)
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:418)
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:276)
+	at org.springframework.batch.core.step.item.BatchRetryTemplate.execute(BatchRetryTemplate.java:216)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.transform(FaultTolerantChunkProcessor.java:291)
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:220)
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:75)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:388)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:312)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:255)
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82)
+	at org.springframework.batch.repeat.support.TaskExecutorRepeatTemplate$ExecutingRunnable.run(TaskExecutorRepeatTemplate.java:261)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: com.bancoxyz.batch.exception.InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+	at com.bancoxyz.batch.processor.MovimientoAnualItemProcessor.process(MovimientoAnualItemProcessor.java:82)
+	at com.bancoxyz.batch.processor.MovimientoAnualItemProcessor.process(MovimientoAnualItemProcessor.java:44)
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doProcess(SimpleChunkProcessor.java:146)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.lambda$transform$0(FaultTolerantChunkProcessor.java:228)
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:357)
+	... 14 common frames omitted
+2026-10-10 05:20:19.138 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=FAILED | leidos=55 escritos=42 omitidos(total=10, lectura=0, proceso=10, escritura=0) | chunks(commits)=10 | duracion=229 ms | throughput=183.41 items/seg
+2026-10-10 05:20:19.139 [main] WARN  c.b.batch.listener.RendimientoStepListener - [cargaMovimientosAnualesStep] 10 registro(s) omitido(s) (18.2% del total procesado). Revisar log de WARN de RegistroInvalidoSkipPolicy / RegistroOmitidoListener para detalle.
+2026-10-10 05:20:19.146 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [cargaMovimientosAnualesStep] executed in 242ms
+2026-10-10 05:20:19.158 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:19.159 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=FAILED | duracion=377 ms | leidos=55 escritos=42 omitidos=10
+2026-10-10 05:20:19.159 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): FAILED
+2026-10-10 05:20:19.159 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:19.168 [main] INFO  o.s.b.core.launch.support.SimpleJobLauncher - Job: [FlowJob: [name=estadosCuentaAnualesJob]] completed with the following parameters: [{'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}] and the following status: [FAILED] in 377ms
+2026-10-10 05:20:19.168 [main] ERROR com.bancoxyz.batch.BancoXyzBatchApplication - El Job [estadosCuentaAnualesJob] termino con estado FAILED (exit status: FAILED) en el intento 1/3
+2026-10-10 05:20:19.169 [main] WARN  com.bancoxyz.batch.BancoXyzBatchApplication - Reejecucion automatica del Job [estadosCuentaAnualesJob] en 1000 ms (misma JobInstance, runId=1791609618670)...
+2026-10-10 05:20:20.209 [main] INFO  o.s.b.core.launch.support.SimpleJobLauncher - Job: [FlowJob: [name=estadosCuentaAnualesJob]] launched with the following parameters: [{'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}]
+2026-10-10 05:20:20.214 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:20.214 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:20.215 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:20.230 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [purgaMovimientosAnualesStep]
+2026-10-10 05:20:20.245 [main] INFO  com.bancoxyz.batch.tasklet.PurgaTablaTasklet - Purgando datos previos de la tabla 'cuentas_anuales_movimientos' antes de cargar la nueva corrida...
+2026-10-10 05:20:20.259 [main] INFO  com.bancoxyz.batch.tasklet.PurgaTablaTasklet - Tabla 'cuentas_anuales_movimientos' purgada correctamente.
+2026-10-10 05:20:20.269 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [purgaMovimientosAnualesStep] executed in 39ms
+2026-10-10 05:20:20.286 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [cargaMovimientosAnualesStep]
+2026-10-10 05:20:20.290 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:20.291 [main] WARN  o.s.batch.core.step.item.ChunkMonitor - No ItemReader set (must be concurrent step), so ignoring offset data.
+2026-10-10 05:20:20.297 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '2024/03/22' a '2024-03-22'
+2026-10-10 05:20:20.298 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.298 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: fecha corregida de formato legacy '25-11-2024' a '2024-11-25'
+2026-10-10 05:20:20.298 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.298 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '2024/04/30' a '2024-04-30'
+2026-10-10 05:20:20.298 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.298 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.298 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '23/08/2024' a '2024-08-23'
+2026-10-10 05:20:20.298 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.298 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:20.300 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '02-01-2024' a '2024-01-02'
+2026-10-10 05:20:20.301 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.301 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '26-03-2024' a '2024-03-26'
+2026-10-10 05:20:20.301 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:20.301 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/28' a '2024-08-28'
+2026-10-10 05:20:20.301 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '11/03/2024' a '2024-03-11'
+2026-10-10 05:20:20.301 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.301 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.301 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '22-02-2024' a '2024-02-22'
+2026-10-10 05:20:20.305 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 110: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.306 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: fecha corregida de formato legacy '22-10-2024' a '2024-10-22'
+2026-10-10 05:20:20.306 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.306 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/04/22' a '2024-04-22'
+2026-10-10 05:20:20.306 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.307 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: fecha corregida de formato legacy '13/05/2024' a '2024-05-13'
+2026-10-10 05:20:20.308 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '04/11/2024' a '2024-11-04'
+2026-10-10 05:20:20.310 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (2/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.311 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: fecha corregida de formato legacy '14/07/2024' a '2024-07-14'
+2026-10-10 05:20:20.311 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.311 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: fecha corregida de formato legacy '09-08-2024' a '2024-08-09'
+2026-10-10 05:20:20.315 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: fecha corregida de formato legacy '14/07/2024' a '2024-07-14'
+2026-10-10 05:20:20.315 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.316 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (3/10 permitidas) por InvalidDataException: Cuenta 109: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.318 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=110, fecha=2024/08/28, transaccion=retiro, monto=0, descripcion=)' - InvalidDataException: Cuenta 110: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.318 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=106, fecha=2024-06-22, transaccion=retiro, monto=0, descripcion=Compra en tienda)' - InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.318 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=109, fecha=09-08-2024, transaccion=deposito, monto=0, descripcion=Compra en tienda)' - InvalidDataException: Cuenta 109: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.325 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: fecha corregida de formato legacy '2024/04/12' a '2024-04-12'
+2026-10-10 05:20:20.326 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (4/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.326 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:20.327 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '19/02/2024' a '2024-02-19'
+2026-10-10 05:20:20.327 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:20.327 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '05/11/2024' a '2024-11-05'
+2026-10-10 05:20:20.327 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.327 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:20.328 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=106, fecha=2024/04/12, transaccion=deposito, monto=0, descripcion=Ingreso de fin de año)' - InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.339 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '2024/06/08' a '2024-06-08'
+2026-10-10 05:20:20.339 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.339 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '09/11/2024' a '2024-11-09'
+2026-10-10 05:20:20.339 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.339 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.339 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '22/10/2024' a '2024-10-22'
+2026-10-10 05:20:20.340 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.340 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: fecha corregida de formato legacy '25-02-2024' a '2024-02-25'
+2026-10-10 05:20:20.340 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/01/24' a '2024-01-24'
+2026-10-10 05:20:20.340 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '07-09-2024' a '2024-09-07'
+2026-10-10 05:20:20.340 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '25-08-2024' a '2024-08-25'
+2026-10-10 05:20:20.340 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:20.340 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.340 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (5/10 permitidas) por InvalidDataException: Cuenta 108: monto vacio o nulo
+2026-10-10 05:20:20.341 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '12/07/2024' a '2024-07-12'
+2026-10-10 05:20:20.340 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '11/09/2024' a '2024-09-11'
+2026-10-10 05:20:20.341 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.341 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/07/01' a '2024-07-01'
+2026-10-10 05:20:20.341 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.341 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: fecha corregida de formato legacy '25-02-2024' a '2024-02-25'
+2026-10-10 05:20:20.342 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '25-08-2024' a '2024-08-25'
+2026-10-10 05:20:20.342 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.342 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (5/10 permitidas) por InvalidDataException: Cuenta 107: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.342 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '21-09-2024' a '2024-09-21'
+2026-10-10 05:20:20.342 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.344 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=107, fecha=12/07/2024, transaccion=pago, monto=0, descripcion=Ingreso navideño)' - InvalidDataException: Cuenta 107: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.354 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.354 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (7/10 permitidas) por InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.354 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '2024/03/03' a '2024-03-03'
+2026-10-10 05:20:20.354 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.355 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.357 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=108, fecha=2024/01/24, transaccion=compra, monto=, descripcion=Ingreso extra)' - InvalidDataException: Cuenta 108: monto vacio o nulo
+2026-10-10 05:20:20.358 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=103, fecha=2024/07/01, transaccion=deposito, monto=0, descripcion=Ingreso de fin de año)' - InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.365 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/02/08' a '2024-02-08'
+2026-10-10 05:20:20.365 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (8/10 permitidas) por InvalidDataException: Cuenta 108: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.367 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '27/08/2024' a '2024-08-27'
+2026-10-10 05:20:20.369 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=108, fecha=2024/02/08, transaccion=compra, monto=0, descripcion=Ingreso extra)' - InvalidDataException: Cuenta 108: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.379 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:20.379 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.379 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: fecha corregida de formato legacy '04/11/2024' a '2024-11-04'
+2026-10-10 05:20:20.379 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.380 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/07' a '2024-08-07'
+2026-10-10 05:20:20.380 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:20.380 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:20.380 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (9/10 permitidas) por InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.380 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '04/01/2024' a '2024-01-04'
+2026-10-10 05:20:20.380 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:20.380 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/04/14' a '2024-04-14'
+2026-10-10 05:20:20.380 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:20.380 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.380 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.381 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.381 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '10/02/2024' a '2024-02-10'
+2026-10-10 05:20:20.381 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (9/10 permitidas) por InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:20.381 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: fecha corregida de formato legacy '2024/10/03' a '2024-10-03'
+2026-10-10 05:20:20.381 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '30/01/2024' a '2024-01-30'
+2026-10-10 05:20:20.381 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.381 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '10/04/2024' a '2024-04-10'
+2026-10-10 05:20:20.381 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 114: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:20.388 [Batch-Thread-2] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:20.389 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:20.389 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.389 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:20.390 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '30/01/2024' a '2024-01-30'
+2026-10-10 05:20:20.390 [Batch-Thread-1] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:20.391 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/04/14' a '2024-04-14'
+2026-10-10 05:20:20.392 [main] ERROR o.s.batch.core.step.AbstractStep - Encountered an error executing step cargaMovimientosAnualesStep in job estadosCuentaAnualesJob
+org.springframework.batch.core.step.skip.SkipLimitExceededException: Skip limit of '10' exceeded
+	at com.bancoxyz.batch.policy.RegistroInvalidoSkipPolicy.shouldSkip(RegistroInvalidoSkipPolicy.java:62)
+	at org.springframework.batch.core.step.skip.CompositeSkipPolicy.shouldSkip(CompositeSkipPolicy.java:42)
+	at org.springframework.batch.core.step.skip.ExceptionClassifierSkipPolicy.shouldSkip(ExceptionClassifierSkipPolicy.java:65)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.shouldSkip(FaultTolerantChunkProcessor.java:486)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.lambda$transform$1(FaultTolerantChunkProcessor.java:274)
+	at org.springframework.retry.support.RetryTemplate.handleRetryExhausted(RetryTemplate.java:573)
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:418)
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:276)
+	at org.springframework.batch.core.step.item.BatchRetryTemplate.execute(BatchRetryTemplate.java:216)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.transform(FaultTolerantChunkProcessor.java:291)
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:220)
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:75)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:388)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:312)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:255)
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82)
+	at org.springframework.batch.repeat.support.TaskExecutorRepeatTemplate$ExecutingRunnable.run(TaskExecutorRepeatTemplate.java:261)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: com.bancoxyz.batch.exception.InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+	at com.bancoxyz.batch.processor.MovimientoAnualItemProcessor.process(MovimientoAnualItemProcessor.java:82)
+	at com.bancoxyz.batch.processor.MovimientoAnualItemProcessor.process(MovimientoAnualItemProcessor.java:44)
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doProcess(SimpleChunkProcessor.java:146)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.lambda$transform$0(FaultTolerantChunkProcessor.java:228)
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:357)
+	... 14 common frames omitted
+2026-10-10 05:20:20.393 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=FAILED | leidos=60 escritos=42 omitidos(total=10, lectura=0, proceso=10, escritura=0) | chunks(commits)=10 | duracion=102 ms | throughput=411.76 items/seg
+2026-10-10 05:20:20.393 [main] WARN  c.b.batch.listener.RendimientoStepListener - [cargaMovimientosAnualesStep] 10 registro(s) omitido(s) (16.7% del total procesado). Revisar log de WARN de RegistroInvalidoSkipPolicy / RegistroOmitidoListener para detalle.
+2026-10-10 05:20:20.398 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [cargaMovimientosAnualesStep] executed in 111ms
+2026-10-10 05:20:20.406 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:20.406 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=FAILED | duracion=196 ms | leidos=60 escritos=42 omitidos=10
+2026-10-10 05:20:20.406 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): FAILED
+2026-10-10 05:20:20.406 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:20.410 [main] INFO  o.s.b.core.launch.support.SimpleJobLauncher - Job: [FlowJob: [name=estadosCuentaAnualesJob]] completed with the following parameters: [{'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}] and the following status: [FAILED] in 196ms
+2026-10-10 05:20:20.411 [main] ERROR com.bancoxyz.batch.BancoXyzBatchApplication - El Job [estadosCuentaAnualesJob] termino con estado FAILED (exit status: FAILED) en el intento 2/3
+2026-10-10 05:20:20.411 [main] WARN  com.bancoxyz.batch.BancoXyzBatchApplication - Reejecucion automatica del Job [estadosCuentaAnualesJob] en 1000 ms (misma JobInstance, runId=1791609618670)...
+2026-10-10 05:20:21.429 [main] INFO  o.s.b.core.launch.support.SimpleJobLauncher - Job: [FlowJob: [name=estadosCuentaAnualesJob]] launched with the following parameters: [{'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}]
+2026-10-10 05:20:21.435 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:21.435 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - INICIO JOB [estadosCuentaAnualesJob] - parametros={'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}
+2026-10-10 05:20:21.435 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:21.445 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [purgaMovimientosAnualesStep]
+2026-10-10 05:20:21.453 [main] INFO  com.bancoxyz.batch.tasklet.PurgaTablaTasklet - Purgando datos previos de la tabla 'cuentas_anuales_movimientos' antes de cargar la nueva corrida...
+2026-10-10 05:20:21.464 [main] INFO  com.bancoxyz.batch.tasklet.PurgaTablaTasklet - Tabla 'cuentas_anuales_movimientos' purgada correctamente.
+2026-10-10 05:20:21.473 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [purgaMovimientosAnualesStep] executed in 26ms
+2026-10-10 05:20:21.490 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [cargaMovimientosAnualesStep]
+2026-10-10 05:20:21.495 [main] INFO  c.b.batch.listener.RendimientoStepListener - ==> Inicio Step [cargaMovimientosAnualesStep] de Job [estadosCuentaAnualesJob] - hilo principal: main
+2026-10-10 05:20:21.495 [main] WARN  o.s.batch.core.step.item.ChunkMonitor - No ItemReader set (must be concurrent step), so ignoring offset data.
+2026-10-10 05:20:21.501 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '2024/03/22' a '2024-03-22'
+2026-10-10 05:20:21.501 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.502 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: fecha corregida de formato legacy '25-11-2024' a '2024-11-25'
+2026-10-10 05:20:21.502 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.502 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '2024/04/30' a '2024-04-30'
+2026-10-10 05:20:21.502 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.502 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.502 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '02-01-2024' a '2024-01-02'
+2026-10-10 05:20:21.502 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.506 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/28' a '2024-08-28'
+2026-10-10 05:20:21.507 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '23/08/2024' a '2024-08-23'
+2026-10-10 05:20:21.507 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.507 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.509 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 110: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.509 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '23/08/2024' a '2024-08-23'
+2026-10-10 05:20:21.509 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.509 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.509 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '26-03-2024' a '2024-03-26'
+2026-10-10 05:20:21.509 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.509 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (1/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.509 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '22-02-2024' a '2024-02-22'
+2026-10-10 05:20:21.509 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: fecha corregida de formato legacy '11/03/2024' a '2024-03-11'
+2026-10-10 05:20:21.509 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: fecha corregida de formato legacy '09-08-2024' a '2024-08-09'
+2026-10-10 05:20:21.509 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 104: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.509 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.510 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: fecha corregida de formato legacy '14/07/2024' a '2024-07-14'
+2026-10-10 05:20:21.510 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 112: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.512 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=110, fecha=2024/08/28, transaccion=retiro, monto=0, descripcion=)' - InvalidDataException: Cuenta 110: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.512 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: fecha corregida de formato legacy '22-10-2024' a '2024-10-22'
+2026-10-10 05:20:21.512 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.512 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/04/22' a '2024-04-22'
+2026-10-10 05:20:21.512 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.512 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: fecha corregida de formato legacy '13/05/2024' a '2024-05-13'
+2026-10-10 05:20:21.513 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '04/11/2024' a '2024-11-04'
+2026-10-10 05:20:21.521 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '23/08/2024' a '2024-08-23'
+2026-10-10 05:20:21.521 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.521 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.522 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '22-02-2024' a '2024-02-22'
+2026-10-10 05:20:21.522 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (3/10 permitidas) por InvalidDataException: Cuenta 109: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.523 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=106, fecha=2024-06-22, transaccion=retiro, monto=0, descripcion=Compra en tienda)' - InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.524 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=109, fecha=09-08-2024, transaccion=deposito, monto=0, descripcion=Compra en tienda)' - InvalidDataException: Cuenta 109: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.530 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 106: fecha corregida de formato legacy '2024/04/12' a '2024-04-12'
+2026-10-10 05:20:21.531 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (4/10 permitidas) por InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.531 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 109: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:21.531 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '19/02/2024' a '2024-02-19'
+2026-10-10 05:20:21.531 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'pago')
+2026-10-10 05:20:21.532 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: fecha corregida de formato legacy '05/11/2024' a '2024-11-05'
+2026-10-10 05:20:21.532 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.532 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 101: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.533 [Batch-Thread-2] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=106, fecha=2024/04/12, transaccion=deposito, monto=0, descripcion=Ingreso de fin de año)' - InvalidDataException: Cuenta 106: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.540 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: fecha corregida de formato legacy '2024/06/08' a '2024-06-08'
+2026-10-10 05:20:21.540 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 119: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.540 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '09/11/2024' a '2024-11-09'
+2026-10-10 05:20:21.540 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.540 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: fecha corregida de formato legacy '25-02-2024' a '2024-02-25'
+2026-10-10 05:20:21.540 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.540 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '22/10/2024' a '2024-10-22'
+2026-10-10 05:20:21.540 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.542 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/01/24' a '2024-01-24'
+2026-10-10 05:20:21.542 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 115: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.543 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: fecha corregida de formato legacy '25-08-2024' a '2024-08-25'
+2026-10-10 05:20:21.543 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 111: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.543 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '07-09-2024' a '2024-09-07'
+2026-10-10 05:20:21.544 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.544 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: fecha corregida de formato legacy '2024/03/03' a '2024-03-03'
+2026-10-10 05:20:21.544 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 118: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.544 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.546 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (5/10 permitidas) por InvalidDataException: Cuenta 108: monto vacio o nulo
+2026-10-10 05:20:21.547 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 103: fecha corregida de formato legacy '2024/07/01' a '2024-07-01'
+2026-10-10 05:20:21.548 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/02/08' a '2024-02-08'
+2026-10-10 05:20:21.552 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (6/10 permitidas) por InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.552 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '12/07/2024' a '2024-07-12'
+2026-10-10 05:20:21.553 [Batch-Thread-3] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (7/10 permitidas) por InvalidDataException: Cuenta 108: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.554 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '27/08/2024' a '2024-08-27'
+2026-10-10 05:20:21.556 [Batch-Thread-3] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=108, fecha=2024/02/08, transaccion=compra, monto=0, descripcion=Ingreso extra)' - InvalidDataException: Cuenta 108: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.560 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (8/10 permitidas) por InvalidDataException: Cuenta 107: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.561 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '11/09/2024' a '2024-09-11'
+2026-10-10 05:20:21.561 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '21-09-2024' a '2024-09-21'
+2026-10-10 05:20:21.561 [Batch-Thread-2] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'compra')
+2026-10-10 05:20:21.563 [Batch-Thread-2] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=108, fecha=2024/01/24, transaccion=compra, monto=, descripcion=Ingreso extra)' - InvalidDataException: Cuenta 108: monto vacio o nulo
+2026-10-10 05:20:21.563 [Batch-Thread-2] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=103, fecha=2024/07/01, transaccion=deposito, monto=0, descripcion=Ingreso de fin de año)' - InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.563 [Batch-Thread-2] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=107, fecha=12/07/2024, transaccion=pago, monto=0, descripcion=Ingreso navideño)' - InvalidDataException: Cuenta 107: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.570 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:21.571 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.571 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.571 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:21.571 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/06/10' a '2024-06-10'
+2026-10-10 05:20:21.571 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.571 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 116: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.571 [Batch-Thread-1] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (9/10 permitidas) por InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.572 [Batch-Thread-1] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.572 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '10/02/2024' a '2024-02-10'
+2026-10-10 05:20:21.573 [Batch-Thread-2] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 113: fecha corregida de formato legacy '04/11/2024' a '2024-11-04'
+2026-10-10 05:20:21.573 [Batch-Thread-1] WARN  c.b.batch.listener.RegistroOmitidoListener - [cargaMovimientosAnualesStep] OMISION en PROCESAMIENTO - item='MovimientoAnualRaw(cuentaId=113, fecha=2024-10-18, transaccion=depósito, monto=0, descripcion=)' - InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.573 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/07' a '2024-08-07'
+2026-10-10 05:20:21.573 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.573 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '04/01/2024' a '2024-01-04'
+2026-10-10 05:20:21.573 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:21.573 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.574 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/08/09' a '2024-08-09'
+2026-10-10 05:20:21.574 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:21.574 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.574 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 120: fecha corregida de formato legacy '10/04/2024' a '2024-04-10'
+2026-10-10 05:20:21.580 [Batch-Thread-1] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 108: fecha corregida de formato legacy '2024/03/22' a '2024-03-22'
+2026-10-10 05:20:21.580 [Batch-Thread-2] WARN  c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Registro omitido (10/10 permitidas) por InvalidDataException: Cuenta 113: movimiento con monto en cero, no se puede clasificar
+2026-10-10 05:20:21.580 [Batch-Thread-2] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:21.581 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: fecha corregida de formato legacy '2024/08/07' a '2024-08-07'
+2026-10-10 05:20:21.581 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 110: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'retiro')
+2026-10-10 05:20:21.581 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: fecha corregida de formato legacy '04/01/2024' a '2024-01-04'
+2026-10-10 05:20:21.581 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:21.582 [Batch-Thread-3] WARN  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 105: signo de monto corregido automaticamente (no correspondia al tipo de movimiento 'deposito')
+2026-10-10 05:20:21.582 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: fecha corregida de formato legacy '2024/08/09' a '2024-08-09'
+2026-10-10 05:20:21.582 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: tipo de movimiento corregido de 'depósito' a 'deposito' (se normalizo el acento)
+2026-10-10 05:20:21.582 [Batch-Thread-3] INFO  c.b.b.processor.MovimientoAnualItemProcessor - Cuenta 107: descripcion vacia corregida con valor por defecto
+2026-10-10 05:20:21.582 [Batch-Thread-3] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:21.583 [Batch-Thread-1] ERROR c.b.batch.policy.RegistroInvalidoSkipPolicy - [cargaMovimientosAnualesStep] Se alcanzo el limite de omisiones permitidas (10). El Step se marcara como fallido para evitar perdida silenciosa de datos.
+2026-10-10 05:20:21.584 [main] ERROR o.s.batch.core.step.AbstractStep - Encountered an error executing step cargaMovimientosAnualesStep in job estadosCuentaAnualesJob
+org.springframework.batch.core.step.skip.SkipLimitExceededException: Skip limit of '10' exceeded
+	at com.bancoxyz.batch.policy.RegistroInvalidoSkipPolicy.shouldSkip(RegistroInvalidoSkipPolicy.java:62)
+	at org.springframework.batch.core.step.skip.CompositeSkipPolicy.shouldSkip(CompositeSkipPolicy.java:42)
+	at org.springframework.batch.core.step.skip.ExceptionClassifierSkipPolicy.shouldSkip(ExceptionClassifierSkipPolicy.java:65)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.shouldSkip(FaultTolerantChunkProcessor.java:486)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.lambda$transform$1(FaultTolerantChunkProcessor.java:274)
+	at org.springframework.retry.support.RetryTemplate.handleRetryExhausted(RetryTemplate.java:573)
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:418)
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:276)
+	at org.springframework.batch.core.step.item.BatchRetryTemplate.execute(BatchRetryTemplate.java:216)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.transform(FaultTolerantChunkProcessor.java:291)
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:220)
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:75)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:388)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:312)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:255)
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82)
+	at org.springframework.batch.repeat.support.TaskExecutorRepeatTemplate$ExecutingRunnable.run(TaskExecutorRepeatTemplate.java:261)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: com.bancoxyz.batch.exception.InvalidDataException: Cuenta 103: movimiento con monto en cero, no se puede clasificar
+	at com.bancoxyz.batch.processor.MovimientoAnualItemProcessor.process(MovimientoAnualItemProcessor.java:82)
+	at com.bancoxyz.batch.processor.MovimientoAnualItemProcessor.process(MovimientoAnualItemProcessor.java:44)
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doProcess(SimpleChunkProcessor.java:146)
+	at org.springframework.batch.core.step.item.FaultTolerantChunkProcessor.lambda$transform$0(FaultTolerantChunkProcessor.java:228)
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:357)
+	... 14 common frames omitted
+2026-10-10 05:20:21.584 [main] INFO  c.b.batch.listener.RendimientoStepListener - <== Fin Step [cargaMovimientosAnualesStep] estado=FAILED | leidos=65 escritos=41 omitidos(total=10, lectura=0, proceso=10, escritura=0) | chunks(commits)=10 | duracion=89 ms | throughput=460.67 items/seg
+2026-10-10 05:20:21.584 [main] WARN  c.b.batch.listener.RendimientoStepListener - [cargaMovimientosAnualesStep] 10 registro(s) omitido(s) (15.4% del total procesado). Revisar log de WARN de RegistroInvalidoSkipPolicy / RegistroOmitidoListener para detalle.
+2026-10-10 05:20:21.588 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [cargaMovimientosAnualesStep] executed in 98ms
+2026-10-10 05:20:21.597 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:21.597 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - FIN JOB [estadosCuentaAnualesJob] - estado=FAILED | duracion=168 ms | leidos=65 escritos=41 omitidos=10
+2026-10-10 05:20:21.597 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - Estado de salida (exit status): FAILED
+2026-10-10 05:20:21.598 [main] INFO  c.bancoxyz.batch.listener.JobResumenListener - ############################################################
+2026-10-10 05:20:21.602 [main] INFO  o.s.b.core.launch.support.SimpleJobLauncher - Job: [FlowJob: [name=estadosCuentaAnualesJob]] completed with the following parameters: [{'fechaProceso':'{value=2026-10-10, type=class java.lang.String, identifying=true}','runId':'{value=1791609618670, type=class java.lang.String, identifying=true}'}] and the following status: [FAILED] in 168ms
+2026-10-10 05:20:21.603 [main] ERROR com.bancoxyz.batch.BancoXyzBatchApplication - El Job [estadosCuentaAnualesJob] termino con estado FAILED (exit status: FAILED) en el intento 3/3
+2026-10-10 05:20:21.609 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoXyzHikariPool - Shutdown initiated...
+2026-10-10 05:20:21.611 [main] INFO  com.zaxxer.hikari.HikariDataSource - BancoXyzHikariPool - Shutdown completed.
+

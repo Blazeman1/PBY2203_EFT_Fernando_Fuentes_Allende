@@ -1,0 +1,670 @@
+pagos-service-1  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+pagos-service-1  | 
+pagos-service-1  |   .   ____          _            __ _ _
+pagos-service-2  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+pagos-service-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+pagos-service-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+pagos-service-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+pagos-service-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+pagos-service-1  |  =========|_|==============|___/=/_/_/_/
+pagos-service-1  | 
+pagos-service-1  |  :: Spring Boot ::               (v3.3.13)
+pagos-service-2  | 
+pagos-service-2  |   .   ____          _            __ _ _
+pagos-service-2  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+pagos-service-2  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+pagos-service-2  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+pagos-service-1  | 
+pagos-service-2  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+pagos-service-2  |  =========|_|==============|___/=/_/_/_/
+pagos-service-2  | 
+pagos-service-2  |  :: Spring Boot ::               (v3.3.13)
+pagos-service-2  | 
+pagos-service-1  | 2026-10-10 05:18:53.100 [main] INFO  com.bancoxyz.pagos.PagosServiceApplication - Starting PagosServiceApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+pagos-service-1  | 2026-10-10 05:18:53.107 [main] INFO  com.bancoxyz.pagos.PagosServiceApplication - The following 1 profile is active: "docker"
+pagos-service-1  | 2026-10-10 05:18:53.259 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused. Will be trying the next url if available
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@5a772895 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/pagos-service/docker": Connection refused. Will be trying the next url if available
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@75201592 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/pagos-service/docker": Connection refused
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused. Will be trying the next url if available
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@7726e185 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused
+pagos-service-2  | 2026-10-10 05:21:31.814 [main] INFO  com.bancoxyz.pagos.PagosServiceApplication - Starting PagosServiceApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+pagos-service-2  | 2026-10-10 05:21:31.817 [main] INFO  com.bancoxyz.pagos.PagosServiceApplication - The following 1 profile is active: "docker"
+pagos-service-2  | 2026-10-10 05:21:31.936 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+pagos-service-2  | 2026-10-10 05:21:31.936 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused. Will be trying the next url if available
+pagos-service-2  | 2026-10-10 05:21:31.936 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@5a772895 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/pagos-service/docker": Connection refused. Will be trying the next url if available
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@75201592 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/pagos-service/docker": Connection refused
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused. Will be trying the next url if available
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@7726e185 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/pagos-service/default": Connection refused
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=pagos-service, profiles=[docker], label=null, version=null, state=null
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+pagos-service-2  | 2026-10-10 05:21:31.937 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=pagos-service, profiles=[default], label=null, version=null, state=null
+pagos-service-2  | 2026-10-10 05:21:34.886 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+pagos-service-2  | 2026-10-10 05:21:35.327 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 414 ms. Found 1 JPA repository interface.
+pagos-service-2  | 2026-10-10 05:21:36.619 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a2b5ecd6-48f5-3f9c-98ef-7c2129e64581
+pagos-service-2  | 2026-10-10 05:21:39.139 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8087 (http)
+pagos-service-2  | 2026-10-10 05:21:39.177 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+pagos-service-2  | 2026-10-10 05:21:39.178 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+pagos-service-2  | 2026-10-10 05:21:39.268 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+pagos-service-2  | 2026-10-10 05:21:39.272 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7328 ms
+pagos-service-2  | 2026-10-10 05:21:40.878 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+pagos-service-2  | 2026-10-10 05:21:41.033 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+pagos-service-2  | 2026-10-10 05:21:41.117 [main] INFO  o.h.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+pagos-service-2  | 2026-10-10 05:21:41.641 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+pagos-service-2  | 2026-10-10 05:21:41.695 [main] INFO  com.zaxxer.hikari.HikariDataSource - PagosHikariPool - Starting...
+pagos-service-2  | 2026-10-10 05:21:42.035 [main] INFO  com.zaxxer.hikari.pool.HikariPool - PagosHikariPool - Added connection org.postgresql.jdbc.PgConnection@59509393
+pagos-service-2  | 2026-10-10 05:21:42.040 [main] INFO  com.zaxxer.hikari.HikariDataSource - PagosHikariPool - Start completed.
+pagos-service-2  | 2026-10-10 05:21:44.023 [main] INFO  o.h.e.t.j.p.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+pagos-service-2  | 2026-10-10 05:21:44.027 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+pagos-service-2  | 2026-10-10 05:21:44.906 [main] INFO  o.s.d.j.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+pagos-service-2  | 2026-10-10 05:21:49.362 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+pagos-service-2  | 2026-10-10 05:21:51.557 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+pagos-service-2  | 2026-10-10 05:21:51.755 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+pagos-service-2  | 2026-10-10 05:21:51.913 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+pagos-service-2  | 2026-10-10 05:21:51.969 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+pagos-service-2  | 2026-10-10 05:21:51.979 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+pagos-service-2  | 2026-10-10 05:21:52.001 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+pagos-service-2  | 2026-10-10 05:21:52.002 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+pagos-service-2  | 2026-10-10 05:21:52.002 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+pagos-service-2  | 2026-10-10 05:21:52.002 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+pagos-service-2  | 2026-10-10 05:21:52.002 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=pagos-service, profiles=[docker], label=null, version=null, state=null
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+pagos-service-1  | 2026-10-10 05:18:53.260 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=pagos-service, profiles=[default], label=null, version=null, state=null
+pagos-service-1  | 2026-10-10 05:18:58.208 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+pagos-service-2  | 2026-10-10 05:21:52.002 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+pagos-service-2  | 2026-10-10 05:21:52.002 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+pagos-service-2  | 2026-10-10 05:21:52.315 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+pagos-service-2  | 2026-10-10 05:21:52.318 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+pagos-service-2  | 2026-10-10 05:21:52.322 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+pagos-service-2  | 2026-10-10 05:21:52.324 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609712323 with initial instances count: 9
+pagos-service-2  | 2026-10-10 05:21:52.339 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application PAGOS-SERVICE with eureka with status UP
+pagos-service-2  | 2026-10-10 05:21:52.340 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609712340, current=UP, previous=STARTING]
+pagos-service-2  | 2026-10-10 05:21:52.343 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_PAGOS-SERVICE/0360d9069b9b:pagos-service:8087: registering service...
+pagos-service-2  | 2026-10-10 05:21:52.369 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8087 (http) with context path '/'
+pagos-service-2  | 2026-10-10 05:21:52.371 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8087
+pagos-service-2  | 2026-10-10 05:21:52.411 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_PAGOS-SERVICE/0360d9069b9b:pagos-service:8087 - registration status: 204
+pagos-service-2  | 2026-10-10 05:21:52.468 [main] INFO  o.a.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+pagos-service-2  | 	allow.auto.create.topics = true
+pagos-service-2  | 	auto.commit.interval.ms = 5000
+pagos-service-2  | 	auto.include.jmx.reporter = true
+pagos-service-2  | 	auto.offset.reset = earliest
+pagos-service-2  | 	bootstrap.servers = [kafka:9092]
+pagos-service-2  | 	check.crcs = true
+pagos-service-2  | 	client.dns.lookup = use_all_dns_ips
+pagos-service-2  | 	client.id = consumer-pagos-service-1
+pagos-service-2  | 	client.rack = 
+pagos-service-2  | 	connections.max.idle.ms = 540000
+pagos-service-2  | 	default.api.timeout.ms = 60000
+pagos-service-2  | 	enable.auto.commit = false
+pagos-service-2  | 	enable.metrics.push = true
+pagos-service-2  | 	exclude.internal.topics = true
+pagos-service-2  | 	fetch.max.bytes = 52428800
+pagos-service-2  | 	fetch.max.wait.ms = 500
+pagos-service-2  | 	fetch.min.bytes = 1
+pagos-service-2  | 	group.id = pagos-service
+pagos-service-2  | 	group.instance.id = null
+pagos-service-2  | 	group.protocol = classic
+pagos-service-2  | 	group.remote.assignor = null
+pagos-service-2  | 	heartbeat.interval.ms = 3000
+pagos-service-2  | 	interceptor.classes = []
+pagos-service-2  | 	internal.leave.group.on.close = true
+pagos-service-2  | 	internal.throw.on.fetch.stable.offset.unsupported = false
+pagos-service-2  | 	isolation.level = read_uncommitted
+pagos-service-2  | 	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+pagos-service-2  | 	max.partition.fetch.bytes = 1048576
+pagos-service-2  | 	max.poll.interval.ms = 300000
+pagos-service-2  | 	max.poll.records = 500
+pagos-service-2  | 	metadata.max.age.ms = 300000
+pagos-service-2  | 	metric.reporters = []
+pagos-service-2  | 	metrics.num.samples = 2
+pagos-service-2  | 	metrics.recording.level = INFO
+pagos-service-2  | 	metrics.sample.window.ms = 30000
+pagos-service-2  | 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+pagos-service-2  | 	receive.buffer.bytes = 65536
+pagos-service-2  | 	reconnect.backoff.max.ms = 1000
+pagos-service-2  | 	reconnect.backoff.ms = 50
+pagos-service-2  | 	request.timeout.ms = 30000
+pagos-service-2  | 	retry.backoff.max.ms = 1000
+pagos-service-2  | 	retry.backoff.ms = 100
+pagos-service-2  | 	sasl.client.callback.handler.class = null
+pagos-service-2  | 	sasl.jaas.config = null
+pagos-service-2  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+pagos-service-2  | 	sasl.kerberos.min.time.before.relogin = 60000
+pagos-service-2  | 	sasl.kerberos.service.name = null
+pagos-service-2  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+pagos-service-2  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+pagos-service-1  | 2026-10-10 05:18:58.882 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 625 ms. Found 1 JPA repository interface.
+pagos-service-2  | 	sasl.login.callback.handler.class = null
+pagos-service-2  | 	sasl.login.class = null
+pagos-service-2  | 	sasl.login.connect.timeout.ms = null
+pagos-service-2  | 	sasl.login.read.timeout.ms = null
+pagos-service-2  | 	sasl.login.refresh.buffer.seconds = 300
+pagos-service-2  | 	sasl.login.refresh.min.period.seconds = 60
+pagos-service-1  | 2026-10-10 05:19:01.205 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a2b5ecd6-48f5-3f9c-98ef-7c2129e64581
+pagos-service-1  | 2026-10-10 05:19:05.614 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8087 (http)
+pagos-service-1  | 2026-10-10 05:19:05.653 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+pagos-service-1  | 2026-10-10 05:19:05.654 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+pagos-service-1  | 2026-10-10 05:19:05.789 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+pagos-service-2  | 	sasl.login.refresh.window.factor = 0.8
+pagos-service-1  | 2026-10-10 05:19:05.791 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 12525 ms
+pagos-service-1  | 2026-10-10 05:19:09.090 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+pagos-service-2  | 	sasl.login.refresh.window.jitter = 0.05
+pagos-service-1  | 2026-10-10 05:19:09.465 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+pagos-service-1  | 2026-10-10 05:19:09.569 [main] INFO  o.h.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+pagos-service-2  | 	sasl.login.retry.backoff.max.ms = 10000
+pagos-service-2  | 	sasl.login.retry.backoff.ms = 100
+pagos-service-2  | 	sasl.mechanism = GSSAPI
+pagos-service-2  | 	sasl.oauthbearer.clock.skew.seconds = 30
+pagos-service-2  | 	sasl.oauthbearer.expected.audience = null
+pagos-service-2  | 	sasl.oauthbearer.expected.issuer = null
+pagos-service-1  | 2026-10-10 05:19:10.341 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+pagos-service-1  | 2026-10-10 05:19:10.412 [main] INFO  com.zaxxer.hikari.HikariDataSource - PagosHikariPool - Starting...
+pagos-service-1  | 2026-10-10 05:19:10.823 [main] INFO  com.zaxxer.hikari.pool.HikariPool - PagosHikariPool - Added connection org.postgresql.jdbc.PgConnection@6bfc5296
+pagos-service-1  | 2026-10-10 05:19:10.827 [main] INFO  com.zaxxer.hikari.HikariDataSource - PagosHikariPool - Start completed.
+pagos-service-1  | 2026-10-10 05:19:12.992 [main] INFO  o.h.e.t.j.p.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+pagos-service-1  | 2026-10-10 05:19:13.003 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+pagos-service-1  | 2026-10-10 05:19:14.049 [main] INFO  o.s.d.j.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+pagos-service-1  | 2026-10-10 05:19:18.710 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 3 endpoints beneath base path '/actuator'
+pagos-service-1  | 2026-10-10 05:19:21.059 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+pagos-service-1  | 2026-10-10 05:19:21.211 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.url = null
+pagos-service-1  | 2026-10-10 05:19:21.433 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+pagos-service-1  | 2026-10-10 05:19:21.507 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+pagos-service-1  | 2026-10-10 05:19:21.518 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+pagos-service-2  | 	sasl.oauthbearer.scope.claim.name = scope
+pagos-service-2  | 	sasl.oauthbearer.sub.claim.name = sub
+pagos-service-2  | 	sasl.oauthbearer.token.endpoint.url = null
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+pagos-service-2  | 	security.protocol = PLAINTEXT
+pagos-service-2  | 	security.providers = null
+pagos-service-2  | 	send.buffer.bytes = 131072
+pagos-service-2  | 	session.timeout.ms = 45000
+pagos-service-2  | 	socket.connection.setup.timeout.max.ms = 30000
+pagos-service-2  | 	socket.connection.setup.timeout.ms = 10000
+pagos-service-2  | 	ssl.cipher.suites = null
+pagos-service-2  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+pagos-service-2  | 	ssl.endpoint.identification.algorithm = https
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+pagos-service-1  | 2026-10-10 05:19:21.538 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+pagos-service-1  | 2026-10-10 05:19:21.806 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+pagos-service-1  | 2026-10-10 05:19:21.809 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+pagos-service-2  | 	ssl.engine.factory.class = null
+pagos-service-2  | 	ssl.key.password = null
+pagos-service-2  | 	ssl.keymanager.algorithm = SunX509
+pagos-service-2  | 	ssl.keystore.certificate.chain = null
+pagos-service-1  | 2026-10-10 05:19:21.813 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+pagos-service-1  | 2026-10-10 05:19:21.815 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609561815 with initial instances count: 3
+pagos-service-1  | 2026-10-10 05:19:21.830 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application PAGOS-SERVICE with eureka with status UP
+pagos-service-1  | 2026-10-10 05:19:21.831 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609561831, current=UP, previous=STARTING]
+pagos-service-2  | 	ssl.keystore.key = null
+pagos-service-1  | 2026-10-10 05:19:21.833 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_PAGOS-SERVICE/73f525a0b846:pagos-service:8087: registering service...
+pagos-service-1  | 2026-10-10 05:19:21.858 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8087 (http) with context path '/'
+pagos-service-1  | 2026-10-10 05:19:21.859 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8087
+pagos-service-1  | 2026-10-10 05:19:21.914 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_PAGOS-SERVICE/73f525a0b846:pagos-service:8087 - registration status: 204
+pagos-service-2  | 	ssl.keystore.location = null
+pagos-service-2  | 	ssl.keystore.password = null
+pagos-service-2  | 	ssl.keystore.type = JKS
+pagos-service-2  | 	ssl.protocol = TLSv1.3
+pagos-service-2  | 	ssl.provider = null
+pagos-service-2  | 	ssl.secure.random.implementation = null
+pagos-service-2  | 	ssl.trustmanager.algorithm = PKIX
+pagos-service-2  | 	ssl.truststore.certificates = null
+pagos-service-2  | 	ssl.truststore.location = null
+pagos-service-2  | 	ssl.truststore.password = null
+pagos-service-1  | 2026-10-10 05:19:21.976 [main] INFO  o.a.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+pagos-service-1  | 	allow.auto.create.topics = true
+pagos-service-1  | 	auto.commit.interval.ms = 5000
+pagos-service-1  | 	auto.include.jmx.reporter = true
+pagos-service-2  | 	ssl.truststore.type = JKS
+pagos-service-2  | 	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+pagos-service-2  | 
+pagos-service-2  | 2026-10-10 05:21:52.540 [main] INFO  o.a.k.c.t.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+pagos-service-1  | 	auto.offset.reset = earliest
+pagos-service-1  | 	bootstrap.servers = [kafka:9092]
+pagos-service-1  | 	check.crcs = true
+pagos-service-1  | 	client.dns.lookup = use_all_dns_ips
+pagos-service-1  | 	client.id = consumer-pagos-service-1
+pagos-service-1  | 	client.rack = 
+pagos-service-1  | 	connections.max.idle.ms = 540000
+pagos-service-1  | 	default.api.timeout.ms = 60000
+pagos-service-1  | 	enable.auto.commit = false
+pagos-service-1  | 	enable.metrics.push = true
+pagos-service-2  | 2026-10-10 05:21:52.788 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.2
+pagos-service-2  | 2026-10-10 05:21:52.788 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 79a8f2b5f44f9d5a
+pagos-service-2  | 2026-10-10 05:21:52.788 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1791609712787
+pagos-service-1  | 	exclude.internal.topics = true
+pagos-service-1  | 	fetch.max.bytes = 52428800
+pagos-service-1  | 	fetch.max.wait.ms = 500
+pagos-service-1  | 	fetch.min.bytes = 1
+pagos-service-2  | 2026-10-10 05:21:52.793 [main] INFO  o.a.k.c.c.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Subscribed to topic(s): bancoxyz.transferencias.resultado
+pagos-service-1  | 	group.id = pagos-service
+pagos-service-1  | 	group.instance.id = null
+pagos-service-1  | 	group.protocol = classic
+pagos-service-1  | 	group.remote.assignor = null
+pagos-service-1  | 	heartbeat.interval.ms = 3000
+pagos-service-1  | 	interceptor.classes = []
+pagos-service-1  | 	internal.leave.group.on.close = true
+pagos-service-1  | 	internal.throw.on.fetch.stable.offset.unsupported = false
+pagos-service-1  | 	isolation.level = read_uncommitted
+pagos-service-1  | 	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+pagos-service-1  | 	max.partition.fetch.bytes = 1048576
+pagos-service-2  | 2026-10-10 05:21:52.828 [main] INFO  com.bancoxyz.pagos.PagosServiceApplication - Started PagosServiceApplication in 22.766 seconds (process running for 23.74)
+pagos-service-1  | 	max.poll.interval.ms = 300000
+pagos-service-1  | 	max.poll.records = 500
+pagos-service-1  | 	metadata.max.age.ms = 300000
+pagos-service-1  | 	metric.reporters = []
+pagos-service-1  | 	metrics.num.samples = 2
+pagos-service-1  | 	metrics.recording.level = INFO
+pagos-service-1  | 	metrics.sample.window.ms = 30000
+pagos-service-1  | 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+pagos-service-1  | 	receive.buffer.bytes = 65536
+pagos-service-1  | 	reconnect.backoff.max.ms = 1000
+pagos-service-2  | 2026-10-10 05:21:53.355 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+pagos-service-2  | 2026-10-10 05:21:53.356 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+pagos-service-1  | 	reconnect.backoff.ms = 50
+pagos-service-1  | 	request.timeout.ms = 30000
+pagos-service-1  | 	retry.backoff.max.ms = 1000
+pagos-service-1  | 	retry.backoff.ms = 100
+pagos-service-1  | 	sasl.client.callback.handler.class = null
+pagos-service-1  | 	sasl.jaas.config = null
+pagos-service-2  | 2026-10-10 05:21:53.358 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] (Re-)joining group
+pagos-service-2  | 2026-10-10 05:21:53.372 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Request joining group due to: need to re-join with the given member-id: consumer-pagos-service-1-26762f72-35d4-4a37-9a48-f05e62a1ab96
+pagos-service-2  | 2026-10-10 05:21:53.373 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] (Re-)joining group
+pagos-service-2  | 2026-10-10 05:21:54.263 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Successfully joined group with generation Generation{generationId=2, memberId='consumer-pagos-service-1-26762f72-35d4-4a37-9a48-f05e62a1ab96', protocol='range'}
+pagos-service-2  | 2026-10-10 05:21:54.268 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Successfully synced group in generation Generation{generationId=2, memberId='consumer-pagos-service-1-26762f72-35d4-4a37-9a48-f05e62a1ab96', protocol='range'}
+pagos-service-2  | 2026-10-10 05:21:54.271 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Notifying assignor about the new Assignment(partitions=[bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1])
+pagos-service-2  | 2026-10-10 05:21:54.274 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Adding newly assigned partitions: bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1
+pagos-service-2  | 2026-10-10 05:21:54.281 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerUtils - Setting offset for partition bancoxyz.transferencias.resultado-1 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+pagos-service-2  | 2026-10-10 05:21:54.282 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerUtils - Setting offset for partition bancoxyz.transferencias.resultado-0 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+pagos-service-2  | 2026-10-10 05:21:54.282 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.listener.KafkaMessageListenerContainer - pagos-service: partitions assigned: [bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1]
+pagos-service-2  | 2026-10-10 05:21:54.621 [http-nio-8087-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+pagos-service-2  | 2026-10-10 05:21:54.622 [http-nio-8087-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+pagos-service-2  | 2026-10-10 05:21:54.626 [http-nio-8087-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+pagos-service-2  | 2026-10-10 05:22:17.926 [http-nio-8087-exec-1] INFO  com.bancoxyz.pagos.service.PagoService - Pago 830ea9d1-c23a-4c5f-9356-158a7ba024b1 (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:17.953 [http-nio-8087-exec-1] INFO  o.a.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+pagos-service-1  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+pagos-service-1  | 	sasl.kerberos.min.time.before.relogin = 60000
+pagos-service-1  | 	sasl.kerberos.service.name = null
+pagos-service-1  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+pagos-service-1  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+pagos-service-1  | 	sasl.login.callback.handler.class = null
+pagos-service-1  | 	sasl.login.class = null
+pagos-service-1  | 	sasl.login.connect.timeout.ms = null
+pagos-service-1  | 	sasl.login.read.timeout.ms = null
+pagos-service-1  | 	sasl.login.refresh.buffer.seconds = 300
+pagos-service-1  | 	sasl.login.refresh.min.period.seconds = 60
+pagos-service-1  | 	sasl.login.refresh.window.factor = 0.8
+pagos-service-1  | 	sasl.login.refresh.window.jitter = 0.05
+pagos-service-1  | 	sasl.login.retry.backoff.max.ms = 10000
+pagos-service-1  | 	sasl.login.retry.backoff.ms = 100
+pagos-service-1  | 	sasl.mechanism = GSSAPI
+pagos-service-1  | 	sasl.oauthbearer.clock.skew.seconds = 30
+pagos-service-1  | 	sasl.oauthbearer.expected.audience = null
+pagos-service-1  | 	sasl.oauthbearer.expected.issuer = null
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.url = null
+pagos-service-1  | 	sasl.oauthbearer.scope.claim.name = scope
+pagos-service-1  | 	sasl.oauthbearer.sub.claim.name = sub
+pagos-service-1  | 	sasl.oauthbearer.token.endpoint.url = null
+pagos-service-1  | 	security.protocol = PLAINTEXT
+pagos-service-1  | 	security.providers = null
+pagos-service-1  | 	send.buffer.bytes = 131072
+pagos-service-1  | 	session.timeout.ms = 45000
+pagos-service-1  | 	socket.connection.setup.timeout.max.ms = 30000
+pagos-service-1  | 	socket.connection.setup.timeout.ms = 10000
+pagos-service-1  | 	ssl.cipher.suites = null
+pagos-service-1  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+pagos-service-1  | 	ssl.endpoint.identification.algorithm = https
+pagos-service-1  | 	ssl.engine.factory.class = null
+pagos-service-1  | 	ssl.key.password = null
+pagos-service-1  | 	ssl.keymanager.algorithm = SunX509
+pagos-service-1  | 	ssl.keystore.certificate.chain = null
+pagos-service-1  | 	ssl.keystore.key = null
+pagos-service-1  | 	ssl.keystore.location = null
+pagos-service-1  | 	ssl.keystore.password = null
+pagos-service-1  | 	ssl.keystore.type = JKS
+pagos-service-1  | 	ssl.protocol = TLSv1.3
+pagos-service-1  | 	ssl.provider = null
+pagos-service-1  | 	ssl.secure.random.implementation = null
+pagos-service-1  | 	ssl.trustmanager.algorithm = PKIX
+pagos-service-1  | 	ssl.truststore.certificates = null
+pagos-service-1  | 	ssl.truststore.location = null
+pagos-service-1  | 	ssl.truststore.password = null
+pagos-service-1  | 	ssl.truststore.type = JKS
+pagos-service-1  | 	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+pagos-service-1  | 
+pagos-service-1  | 2026-10-10 05:19:22.143 [main] INFO  o.a.k.c.t.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+pagos-service-1  | 2026-10-10 05:19:22.625 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.2
+pagos-service-1  | 2026-10-10 05:19:22.625 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 79a8f2b5f44f9d5a
+pagos-service-1  | 2026-10-10 05:19:22.625 [main] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1791609562623
+pagos-service-1  | 2026-10-10 05:19:22.630 [main] INFO  o.a.k.c.c.internals.LegacyKafkaConsumer - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Subscribed to topic(s): bancoxyz.transferencias.resultado
+pagos-service-1  | 2026-10-10 05:19:22.672 [main] INFO  com.bancoxyz.pagos.PagosServiceApplication - Started PagosServiceApplication in 33.005 seconds (process running for 34.789)
+pagos-service-1  | 2026-10-10 05:19:22.849 [http-nio-8087-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+pagos-service-1  | 2026-10-10 05:19:22.850 [http-nio-8087-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+pagos-service-1  | 2026-10-10 05:19:22.855 [http-nio-8087-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+pagos-service-1  | 2026-10-10 05:19:24.112 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+pagos-service-1  | 2026-10-10 05:19:24.120 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+pagos-service-1  | 2026-10-10 05:19:24.129 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] (Re-)joining group
+pagos-service-1  | 2026-10-10 05:19:24.184 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Request joining group due to: need to re-join with the given member-id: consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b
+pagos-service-1  | 2026-10-10 05:19:24.191 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] (Re-)joining group
+pagos-service-1  | 2026-10-10 05:19:27.201 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Successfully joined group with generation Generation{generationId=1, memberId='consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b', protocol='range'}
+pagos-service-1  | 2026-10-10 05:19:27.226 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Finished assignment for group at generation 1: {consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b=Assignment(partitions=[bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1, bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3])}
+pagos-service-1  | 2026-10-10 05:19:27.247 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Successfully synced group in generation Generation{generationId=1, memberId='consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b', protocol='range'}
+pagos-service-1  | 2026-10-10 05:19:27.248 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Notifying assignor about the new Assignment(partitions=[bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1, bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3])
+pagos-service-1  | 2026-10-10 05:19:27.256 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Adding newly assigned partitions: bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1, bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3
+pagos-service-1  | 2026-10-10 05:19:27.274 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Found no committed offset for partition bancoxyz.transferencias.resultado-2
+pagos-service-1  | 2026-10-10 05:19:27.274 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Found no committed offset for partition bancoxyz.transferencias.resultado-1
+pagos-service-1  | 2026-10-10 05:19:27.274 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Found no committed offset for partition bancoxyz.transferencias.resultado-0
+pagos-service-1  | 2026-10-10 05:19:27.274 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Found no committed offset for partition bancoxyz.transferencias.resultado-3
+pagos-service-1  | 2026-10-10 05:19:27.295 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.SubscriptionState - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Resetting offset for partition bancoxyz.transferencias.resultado-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+pagos-service-1  | 2026-10-10 05:19:27.296 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.SubscriptionState - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Resetting offset for partition bancoxyz.transferencias.resultado-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+pagos-service-1  | 2026-10-10 05:19:27.297 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.SubscriptionState - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Resetting offset for partition bancoxyz.transferencias.resultado-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+pagos-service-1  | 2026-10-10 05:19:27.297 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.SubscriptionState - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Resetting offset for partition bancoxyz.transferencias.resultado-3 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+pagos-service-1  | 2026-10-10 05:19:27.299 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.listener.KafkaMessageListenerContainer - pagos-service: partitions assigned: [bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1, bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3]
+pagos-service-1  | 2026-10-10 05:20:49.179 [http-nio-8087-exec-8] INFO  com.bancoxyz.pagos.service.PagoService - Pago 97d1aad4-098a-4178-96be-a0e93a76be92 (DEPOSITO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:20:49.203 [http-nio-8087-exec-8] INFO  o.a.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+pagos-service-1  | 	acks = -1
+pagos-service-1  | 	auto.include.jmx.reporter = true
+pagos-service-1  | 	batch.size = 16384
+pagos-service-1  | 	bootstrap.servers = [kafka:9092]
+pagos-service-1  | 	buffer.memory = 33554432
+pagos-service-1  | 	client.dns.lookup = use_all_dns_ips
+pagos-service-1  | 	client.id = pagos-service-producer-1
+pagos-service-1  | 	compression.type = none
+pagos-service-1  | 	connections.max.idle.ms = 540000
+pagos-service-1  | 	delivery.timeout.ms = 120000
+pagos-service-1  | 	enable.idempotence = true
+pagos-service-1  | 	enable.metrics.push = true
+pagos-service-1  | 	interceptor.classes = []
+pagos-service-1  | 	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+pagos-service-1  | 	linger.ms = 0
+pagos-service-1  | 	max.block.ms = 3000
+pagos-service-1  | 	max.in.flight.requests.per.connection = 5
+pagos-service-1  | 	max.request.size = 1048576
+pagos-service-2  | 	acks = -1
+pagos-service-2  | 	auto.include.jmx.reporter = true
+pagos-service-2  | 	batch.size = 16384
+pagos-service-1  | 	metadata.max.age.ms = 300000
+pagos-service-1  | 	metadata.max.idle.ms = 300000
+pagos-service-1  | 	metric.reporters = []
+pagos-service-1  | 	metrics.num.samples = 2
+pagos-service-2  | 	bootstrap.servers = [kafka:9092]
+pagos-service-2  | 	buffer.memory = 33554432
+pagos-service-2  | 	client.dns.lookup = use_all_dns_ips
+pagos-service-2  | 	client.id = pagos-service-producer-1
+pagos-service-2  | 	compression.type = none
+pagos-service-2  | 	connections.max.idle.ms = 540000
+pagos-service-2  | 	delivery.timeout.ms = 120000
+pagos-service-2  | 	enable.idempotence = true
+pagos-service-2  | 	enable.metrics.push = true
+pagos-service-2  | 	interceptor.classes = []
+pagos-service-2  | 	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+pagos-service-2  | 	linger.ms = 0
+pagos-service-2  | 	max.block.ms = 3000
+pagos-service-2  | 	max.in.flight.requests.per.connection = 5
+pagos-service-2  | 	max.request.size = 1048576
+pagos-service-2  | 	metadata.max.age.ms = 300000
+pagos-service-2  | 	metadata.max.idle.ms = 300000
+pagos-service-2  | 	metric.reporters = []
+pagos-service-1  | 	metrics.recording.level = INFO
+pagos-service-1  | 	metrics.sample.window.ms = 30000
+pagos-service-2  | 	metrics.num.samples = 2
+pagos-service-1  | 	partitioner.adaptive.partitioning.enable = true
+pagos-service-1  | 	partitioner.availability.timeout.ms = 0
+pagos-service-2  | 	metrics.recording.level = INFO
+pagos-service-2  | 	metrics.sample.window.ms = 30000
+pagos-service-2  | 	partitioner.adaptive.partitioning.enable = true
+pagos-service-2  | 	partitioner.availability.timeout.ms = 0
+pagos-service-2  | 	partitioner.class = null
+pagos-service-2  | 	partitioner.ignore.keys = false
+pagos-service-2  | 	receive.buffer.bytes = 32768
+pagos-service-2  | 	reconnect.backoff.max.ms = 1000
+pagos-service-2  | 	reconnect.backoff.ms = 50
+pagos-service-2  | 	request.timeout.ms = 30000
+pagos-service-2  | 	retries = 2147483647
+pagos-service-2  | 	retry.backoff.max.ms = 1000
+pagos-service-2  | 	retry.backoff.ms = 100
+pagos-service-2  | 	sasl.client.callback.handler.class = null
+pagos-service-2  | 	sasl.jaas.config = null
+pagos-service-2  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+pagos-service-2  | 	sasl.kerberos.min.time.before.relogin = 60000
+pagos-service-2  | 	sasl.kerberos.service.name = null
+pagos-service-2  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+pagos-service-2  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+pagos-service-2  | 	sasl.login.callback.handler.class = null
+pagos-service-2  | 	sasl.login.class = null
+pagos-service-2  | 	sasl.login.connect.timeout.ms = null
+pagos-service-2  | 	sasl.login.read.timeout.ms = null
+pagos-service-2  | 	sasl.login.refresh.buffer.seconds = 300
+pagos-service-2  | 	sasl.login.refresh.min.period.seconds = 60
+pagos-service-2  | 	sasl.login.refresh.window.factor = 0.8
+pagos-service-2  | 	sasl.login.refresh.window.jitter = 0.05
+pagos-service-2  | 	sasl.login.retry.backoff.max.ms = 10000
+pagos-service-2  | 	sasl.login.retry.backoff.ms = 100
+pagos-service-2  | 	sasl.mechanism = GSSAPI
+pagos-service-2  | 	sasl.oauthbearer.clock.skew.seconds = 30
+pagos-service-2  | 	sasl.oauthbearer.expected.audience = null
+pagos-service-2  | 	sasl.oauthbearer.expected.issuer = null
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+pagos-service-2  | 	sasl.oauthbearer.jwks.endpoint.url = null
+pagos-service-2  | 	sasl.oauthbearer.scope.claim.name = scope
+pagos-service-2  | 	sasl.oauthbearer.sub.claim.name = sub
+pagos-service-2  | 	sasl.oauthbearer.token.endpoint.url = null
+pagos-service-2  | 	security.protocol = PLAINTEXT
+pagos-service-2  | 	security.providers = null
+pagos-service-2  | 	send.buffer.bytes = 131072
+pagos-service-2  | 	socket.connection.setup.timeout.max.ms = 30000
+pagos-service-2  | 	socket.connection.setup.timeout.ms = 10000
+pagos-service-2  | 	ssl.cipher.suites = null
+pagos-service-2  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+pagos-service-2  | 	ssl.endpoint.identification.algorithm = https
+pagos-service-2  | 	ssl.engine.factory.class = null
+pagos-service-2  | 	ssl.key.password = null
+pagos-service-2  | 	ssl.keymanager.algorithm = SunX509
+pagos-service-2  | 	ssl.keystore.certificate.chain = null
+pagos-service-2  | 	ssl.keystore.key = null
+pagos-service-2  | 	ssl.keystore.location = null
+pagos-service-2  | 	ssl.keystore.password = null
+pagos-service-2  | 	ssl.keystore.type = JKS
+pagos-service-2  | 	ssl.protocol = TLSv1.3
+pagos-service-2  | 	ssl.provider = null
+pagos-service-2  | 	ssl.secure.random.implementation = null
+pagos-service-2  | 	ssl.trustmanager.algorithm = PKIX
+pagos-service-2  | 	ssl.truststore.certificates = null
+pagos-service-2  | 	ssl.truststore.location = null
+pagos-service-2  | 	ssl.truststore.password = null
+pagos-service-1  | 	partitioner.class = null
+pagos-service-1  | 	partitioner.ignore.keys = false
+pagos-service-1  | 	receive.buffer.bytes = 32768
+pagos-service-1  | 	reconnect.backoff.max.ms = 1000
+pagos-service-2  | 	ssl.truststore.type = JKS
+pagos-service-1  | 	reconnect.backoff.ms = 50
+pagos-service-1  | 	request.timeout.ms = 30000
+pagos-service-1  | 	retries = 2147483647
+pagos-service-1  | 	retry.backoff.max.ms = 1000
+pagos-service-1  | 	retry.backoff.ms = 100
+pagos-service-1  | 	sasl.client.callback.handler.class = null
+pagos-service-1  | 	sasl.jaas.config = null
+pagos-service-1  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+pagos-service-1  | 	sasl.kerberos.min.time.before.relogin = 60000
+pagos-service-1  | 	sasl.kerberos.service.name = null
+pagos-service-1  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+pagos-service-1  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+pagos-service-1  | 	sasl.login.callback.handler.class = null
+pagos-service-1  | 	sasl.login.class = null
+pagos-service-2  | 	transaction.timeout.ms = 60000
+pagos-service-2  | 	transactional.id = null
+pagos-service-2  | 	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+pagos-service-2  | 
+pagos-service-2  | 2026-10-10 05:22:17.953 [http-nio-8087-exec-1] INFO  o.a.k.c.t.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+pagos-service-2  | 2026-10-10 05:22:17.970 [http-nio-8087-exec-1] INFO  o.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=pagos-service-producer-1] Instantiated an idempotent producer.
+pagos-service-2  | 2026-10-10 05:22:17.982 [http-nio-8087-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.2
+pagos-service-2  | 2026-10-10 05:22:17.982 [http-nio-8087-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 79a8f2b5f44f9d5a
+pagos-service-2  | 2026-10-10 05:22:17.982 [http-nio-8087-exec-1] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1791609737982
+pagos-service-2  | 2026-10-10 05:22:17.987 [kafka-producer-network-thread | pagos-service-producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=pagos-service-producer-1] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+pagos-service-2  | 2026-10-10 05:22:17.987 [kafka-producer-network-thread | pagos-service-producer-1] INFO  o.a.k.c.producer.internals.TransactionManager - [Producer clientId=pagos-service-producer-1] ProducerId set to 3 with epoch 0
+pagos-service-2  | 2026-10-10 05:22:18.015 [http-nio-8087-exec-1] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 851 ms)
+pagos-service-2  | 2026-10-10 05:22:18.242 [http-nio-8087-exec-2] INFO  com.bancoxyz.pagos.service.PagoService - Pago f643dc8d-d73e-4548-8bf9-5daed89e8bae (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:18.251 [http-nio-8087-exec-2] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 40 ms)
+pagos-service-2  | 2026-10-10 05:22:18.518 [http-nio-8087-exec-3] INFO  com.bancoxyz.pagos.service.PagoService - Pago f4fbe3bd-0bdb-4904-a97b-dced06d59e2e (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:18.526 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 39 ms)
+pagos-service-2  | 2026-10-10 05:22:18.772 [http-nio-8087-exec-4] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 19 ms)
+pagos-service-2  | 2026-10-10 05:22:18.915 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 4748d8bc-f578-47f2-8e90-590003fd3c60: estado final -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:18.933 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia d1054398-bd06-4333-8570-87b0730822e6: estado final -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:18.997 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 9 ms)
+pagos-service-2  | 2026-10-10 05:22:19.217 [http-nio-8087-exec-6] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 12 ms)
+pagos-service-2  | 2026-10-10 05:22:19.252 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia a61c6ae3-c909-499d-8299-d3ca1e0ce71f: estado final -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:19.366 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 1d5308de-9253-415f-80d8-6b3efe60a61b: estado final -> COMPLETADA
+pagos-service-2  | 2026-10-10 05:22:19.436 [http-nio-8087-exec-7] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 10 ms)
+pagos-service-2  | 2026-10-10 05:22:56.386 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/pagos -> HTTP 200 (cliente=bff-web-client, 140 ms)
+pagos-service-2  | 2026-10-10 05:22:56.969 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/23732606-562b-434d-beca-0d9ec34c2192 -> HTTP 200 (cliente=bff-web-client, 28 ms)
+pagos-service-2  | 2026-10-10 05:23:25.563 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 23732606-562b-434d-beca-0d9ec34c2192: estado final -> COMPLETADA
+pagos-service-1  | 	sasl.login.connect.timeout.ms = null
+pagos-service-1  | 	sasl.login.read.timeout.ms = null
+pagos-service-1  | 	sasl.login.refresh.buffer.seconds = 300
+pagos-service-1  | 	sasl.login.refresh.min.period.seconds = 60
+pagos-service-1  | 	sasl.login.refresh.window.factor = 0.8
+pagos-service-1  | 	sasl.login.refresh.window.jitter = 0.05
+pagos-service-1  | 	sasl.login.retry.backoff.max.ms = 10000
+pagos-service-1  | 	sasl.login.retry.backoff.ms = 100
+pagos-service-1  | 	sasl.mechanism = GSSAPI
+pagos-service-1  | 	sasl.oauthbearer.clock.skew.seconds = 30
+pagos-service-1  | 	sasl.oauthbearer.expected.audience = null
+pagos-service-1  | 	sasl.oauthbearer.expected.issuer = null
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+pagos-service-1  | 	sasl.oauthbearer.jwks.endpoint.url = null
+pagos-service-1  | 	sasl.oauthbearer.scope.claim.name = scope
+pagos-service-1  | 	sasl.oauthbearer.sub.claim.name = sub
+pagos-service-1  | 	sasl.oauthbearer.token.endpoint.url = null
+pagos-service-1  | 	security.protocol = PLAINTEXT
+pagos-service-1  | 	security.providers = null
+pagos-service-1  | 	send.buffer.bytes = 131072
+pagos-service-1  | 	socket.connection.setup.timeout.max.ms = 30000
+pagos-service-1  | 	socket.connection.setup.timeout.ms = 10000
+pagos-service-1  | 	ssl.cipher.suites = null
+pagos-service-1  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+pagos-service-1  | 	ssl.endpoint.identification.algorithm = https
+pagos-service-1  | 	ssl.engine.factory.class = null
+pagos-service-1  | 	ssl.key.password = null
+pagos-service-1  | 	ssl.keymanager.algorithm = SunX509
+pagos-service-1  | 	ssl.keystore.certificate.chain = null
+pagos-service-1  | 	ssl.keystore.key = null
+pagos-service-1  | 	ssl.keystore.location = null
+pagos-service-1  | 	ssl.keystore.password = null
+pagos-service-1  | 	ssl.keystore.type = JKS
+pagos-service-1  | 	ssl.protocol = TLSv1.3
+pagos-service-1  | 	ssl.provider = null
+pagos-service-1  | 	ssl.secure.random.implementation = null
+pagos-service-1  | 	ssl.trustmanager.algorithm = PKIX
+pagos-service-1  | 	ssl.truststore.certificates = null
+pagos-service-1  | 	ssl.truststore.location = null
+pagos-service-1  | 	ssl.truststore.password = null
+pagos-service-1  | 	ssl.truststore.type = JKS
+pagos-service-1  | 	transaction.timeout.ms = 60000
+pagos-service-1  | 	transactional.id = null
+pagos-service-1  | 	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+pagos-service-1  | 
+pagos-service-1  | 2026-10-10 05:20:49.203 [http-nio-8087-exec-8] INFO  o.a.k.c.t.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+pagos-service-1  | 2026-10-10 05:20:49.214 [http-nio-8087-exec-8] INFO  o.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=pagos-service-producer-1] Instantiated an idempotent producer.
+pagos-service-1  | 2026-10-10 05:20:49.228 [http-nio-8087-exec-8] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.7.2
+pagos-service-1  | 2026-10-10 05:20:49.228 [http-nio-8087-exec-8] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: 79a8f2b5f44f9d5a
+pagos-service-1  | 2026-10-10 05:20:49.229 [http-nio-8087-exec-8] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1791609649228
+pagos-service-1  | 2026-10-10 05:20:49.234 [kafka-producer-network-thread | pagos-service-producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=pagos-service-producer-1] Cluster ID: Some(5L6g3nShT-eMCtK--X86sw)
+pagos-service-1  | 2026-10-10 05:20:49.342 [kafka-producer-network-thread | pagos-service-producer-1] INFO  o.a.k.c.producer.internals.TransactionManager - [Producer clientId=pagos-service-producer-1] ProducerId set to 0 with epoch 0
+pagos-service-1  | 2026-10-10 05:20:49.373 [http-nio-8087-exec-8] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/depositos -> HTTP 201 (cliente=bff-atm-client, 710 ms)
+pagos-service-1  | 2026-10-10 05:20:58.336 [http-nio-8087-exec-3] INFO  com.bancoxyz.pagos.service.PagoService - Pago 13797bec-f8c8-4db1-bbb0-2b93cb0c7299 (DEPOSITO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:20:58.344 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/depositos -> HTTP 201 (cliente=bff-web-client, 43 ms)
+pagos-service-1  | 2026-10-10 05:20:58.889 [http-nio-8087-exec-5] INFO  com.bancoxyz.pagos.service.PagoService - Pago 93e2d6d0-32e5-43c4-89cc-79b464be7620 (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:20:58.898 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 52 ms)
+pagos-service-1  | 2026-10-10 05:20:59.423 [http-nio-8087-exec-7] INFO  com.bancoxyz.pagos.service.PagoService - Pago 1fefee60-a79e-4a9b-8af8-930d7d6ec9e5 (PAGO_SERVICIO): estado -> RECHAZADA (Saldo insuficiente en la cuenta 1001.)
+pagos-service-1  | 2026-10-10 05:20:59.428 [http-nio-8087-exec-7] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 31 ms)
+pagos-service-1  | 2026-10-10 05:21:00.038 [http-nio-8087-exec-1] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 29 ms)
+pagos-service-1  | 2026-10-10 05:21:00.228 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia df276489-bb7e-4ce5-bbe3-2c2df4a28f00: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:00.916 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/df276489-bb7e-4ce5-bbe3-2c2df4a28f00 -> HTTP 200 (cliente=bff-web-client, 11 ms)
+pagos-service-1  | 2026-10-10 05:21:01.271 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/df276489-bb7e-4ce5-bbe3-2c2df4a28f00 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+pagos-service-1  | 2026-10-10 05:21:01.852 [http-nio-8087-exec-7] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/pagos -> HTTP 200 (cliente=bff-web-client, 47 ms)
+pagos-service-1  | 2026-10-10 05:21:04.388 [http-nio-8087-exec-9] INFO  com.bancoxyz.pagos.service.PagoService - Pago 52b8c2e1-c50f-4f7c-9ad2-f6250255cc77 (DEPOSITO): estado -> RECHAZADA (La cuenta 1001 no admite la operacion (cuenta cerrada).)
+pagos-service-1  | 2026-10-10 05:21:04.393 [http-nio-8087-exec-9] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/depositos -> HTTP 201 (cliente=bff-web-client, 26 ms)
+pagos-service-1  | 2026-10-10 05:21:07.113 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 15 ms)
+pagos-service-1  | 2026-10-10 05:21:07.159 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 4277922e-8952-4539-8ec6-62dadf43ac96: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:07.576 [http-nio-8087-exec-4] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/4277922e-8952-4539-8ec6-62dadf43ac96 -> HTTP 200 (cliente=bff-web-client, 4 ms)
+pagos-service-1  | 2026-10-10 05:21:09.039 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 25 ms)
+pagos-service-1  | 2026-10-10 05:21:09.050 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 5c4068a7-14c5-4d76-9bed-90ba0d4a751d: estado final -> RECHAZADA
+pagos-service-1  | 2026-10-10 05:21:09.343 [http-nio-8087-exec-6] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/5c4068a7-14c5-4d76-9bed-90ba0d4a751d -> HTTP 200 (cliente=bff-web-client, 4 ms)
+pagos-service-1  | 2026-10-10 05:21:10.461 [http-nio-8087-exec-9] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 10 ms)
+pagos-service-1  | 2026-10-10 05:21:10.494 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 7c441377-de9d-4f4c-9e7a-a04b1f72a549: estado final -> COMPENSADA
+pagos-service-1  | 2026-10-10 05:21:10.737 [http-nio-8087-exec-10] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/7c441377-de9d-4f4c-9e7a-a04b1f72a549 -> HTTP 200 (cliente=bff-web-client, 3 ms)
+pagos-service-1  | 2026-10-10 05:21:11.966 [http-nio-8087-exec-1] INFO  com.bancoxyz.pagos.service.PagoService - Pago 71c2294a-b094-43d3-a911-60d203b70702 (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:11.976 [http-nio-8087-exec-1] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 47 ms)
+pagos-service-1  | 2026-10-10 05:21:12.095 [http-nio-8087-exec-2] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 12 ms)
+pagos-service-1  | 2026-10-10 05:21:12.127 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 17bfb891-3f04-4eea-b34c-6215c6f28dbf: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:12.379 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 13 ms)
+pagos-service-1  | 2026-10-10 05:21:12.411 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 9ae5b109-3257-45c6-b8ce-9f9d4440927e: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:12.670 [http-nio-8087-exec-4] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 26 ms)
+pagos-service-1  | 2026-10-10 05:21:12.703 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 4fc832d1-44e8-4645-9168-2a80fdff152d: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:12.940 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 10 ms)
+pagos-service-1  | 2026-10-10 05:21:12.972 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 0baa30c7-1c3e-48fb-8083-bfe1a47d37f3: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:13.267 [http-nio-8087-exec-6] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 31 ms)
+pagos-service-1  | 2026-10-10 05:21:13.309 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia f4076cf2-1103-4bee-9794-5721070ceeaf: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:13.703 [http-nio-8087-exec-7] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 12 ms)
+pagos-service-1  | 2026-10-10 05:21:13.739 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 8bc002f3-31b0-4201-bbfe-80c97bb2a007: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:14.065 [http-nio-8087-exec-8] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 13 ms)
+pagos-service-1  | 2026-10-10 05:21:14.106 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia ccee257b-1c0f-404b-aa45-3fc7d0758219: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:14.417 [http-nio-8087-exec-9] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 10 ms)
+pagos-service-1  | 2026-10-10 05:21:14.447 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 50ddab31-f9f4-45b7-a1ce-7d7ce92fdd48: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:21:22.740 [http-nio-8087-exec-4] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/pagos -> HTTP 200 (cliente=bff-web-client, 6 ms)
+pagos-service-1  | 2026-10-10 05:21:54.259 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Request joining group due to: group is already rebalancing
+pagos-service-1  | 2026-10-10 05:21:54.259 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Revoke previously assigned partitions bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1, bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3
+pagos-service-1  | 2026-10-10 05:21:54.260 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.listener.KafkaMessageListenerContainer - pagos-service: partitions revoked: [bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1, bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3]
+pagos-service-1  | 2026-10-10 05:21:54.261 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] (Re-)joining group
+pagos-service-1  | 2026-10-10 05:21:54.263 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Successfully joined group with generation Generation{generationId=2, memberId='consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b', protocol='range'}
+pagos-service-1  | 2026-10-10 05:21:54.264 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Finished assignment for group at generation 2: {consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b=Assignment(partitions=[bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3]), consumer-pagos-service-1-26762f72-35d4-4a37-9a48-f05e62a1ab96=Assignment(partitions=[bancoxyz.transferencias.resultado-0, bancoxyz.transferencias.resultado-1])}
+pagos-service-1  | 2026-10-10 05:21:54.266 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Successfully synced group in generation Generation{generationId=2, memberId='consumer-pagos-service-1-6072513f-fe15-4dec-bbfc-cab273836d6b', protocol='range'}
+pagos-service-1  | 2026-10-10 05:21:54.267 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.internals.ConsumerCoordinator - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Notifying assignor about the new Assignment(partitions=[bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3])
+pagos-service-1  | 2026-10-10 05:21:54.267 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-pagos-service-1, groupId=pagos-service] Adding newly assigned partitions: bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3
+pagos-service-1  | 2026-10-10 05:21:54.269 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerUtils - Setting offset for partition bancoxyz.transferencias.resultado-2 to the committed offset FetchPosition{offset=5, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+pagos-service-1  | 2026-10-10 05:21:54.269 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerUtils - Setting offset for partition bancoxyz.transferencias.resultado-3 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+pagos-service-1  | 2026-10-10 05:21:54.269 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.listener.KafkaMessageListenerContainer - pagos-service: partitions assigned: [bancoxyz.transferencias.resultado-2, bancoxyz.transferencias.resultado-3]
+pagos-service-1  | 2026-10-10 05:22:18.122 [http-nio-8087-exec-8] INFO  com.bancoxyz.pagos.service.PagoService - Pago 041a447d-68e2-43f6-afa3-4cd34e3000d7 (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:18.130 [http-nio-8087-exec-8] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 33 ms)
+pagos-service-1  | 2026-10-10 05:22:18.379 [http-nio-8087-exec-9] INFO  com.bancoxyz.pagos.service.PagoService - Pago fba8112a-513f-4164-bcf8-a7525ca457e3 (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:18.387 [http-nio-8087-exec-9] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 39 ms)
+pagos-service-1  | 2026-10-10 05:22:18.639 [http-nio-8087-exec-10] INFO  com.bancoxyz.pagos.service.PagoService - Pago 6d127c8b-59ee-4bf2-9883-3c0f9ca3bfb6 (PAGO_SERVICIO): estado -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:18.647 [http-nio-8087-exec-10] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/servicios -> HTTP 201 (cliente=bff-web-client, 34 ms)
+pagos-service-1  | 2026-10-10 05:22:18.885 [http-nio-8087-exec-1] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 12 ms)
+pagos-service-1  | 2026-10-10 05:22:19.026 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 1ba7afc7-bb71-4a26-820c-29a09143a781: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:19.089 [http-nio-8087-exec-2] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 9 ms)
+pagos-service-1  | 2026-10-10 05:22:19.119 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 9fa8394f-6866-42da-a161-3363bfbe4bb1: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:19.331 [http-nio-8087-exec-3] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 10 ms)
+pagos-service-1  | 2026-10-10 05:22:19.461 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia e2a25b76-7604-4adf-8e16-e9c3fc4ef625: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:19.528 [http-nio-8087-exec-4] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 8 ms)
+pagos-service-1  | 2026-10-10 05:22:19.560 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.bancoxyz.pagos.service.PagoService - Transferencia 685af9e4-2d4d-4823-8ffa-bb76f30f7cdd: estado final -> COMPLETADA
+pagos-service-1  | 2026-10-10 05:22:54.533 [http-nio-8087-exec-9] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+pagos-service-1  | 2026-10-10 05:22:55.048 [http-nio-8087-exec-9] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+pagos-service-1  | 2026-10-10 05:22:55.550 [http-nio-8087-exec-9] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+pagos-service-1  | 2026-10-10 05:22:55.556 [http-nio-8087-exec-9] INFO  com.bancoxyz.pagos.service.PagoService - Pago 7426501d-ae03-4869-b70e-be4052522107 (DEPOSITO): estado -> FALLIDA (cuentas-service no disponible en este momento; el pago no fue aplicado, intente mas tarde.)
+pagos-service-1  | 2026-10-10 05:22:55.567 [http-nio-8087-exec-9] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/depositos -> HTTP 503 (cliente=bff-web-client, 1046 ms)
+pagos-service-1  | 2026-10-10 05:22:56.706 [http-nio-8087-exec-2] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION POST /internal/pagos/transferencias -> HTTP 202 (cliente=bff-web-client, 29 ms)
+pagos-service-1  | 2026-10-10 05:23:28.524 [http-nio-8087-exec-5] INFO  c.b.pagos.config.RegistroPeticionesFilter - PETICION GET /internal/transferencias/23732606-562b-434d-beca-0d9ec34c2192 -> HTTP 200 (cliente=bff-web-client, 4 ms)

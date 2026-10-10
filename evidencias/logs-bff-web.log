@@ -1,0 +1,72 @@
+bff-web  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m -XX:+UseSerialGC
+bff-web  | 
+bff-web  |   .   ____          _            __ _ _
+bff-web  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bff-web  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bff-web  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bff-web  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bff-web  |  =========|_|==============|___/=/_/_/_/
+bff-web  | 
+bff-web  |  :: Spring Boot ::               (v3.3.13)
+bff-web  | 
+bff-web  | 2026-10-10 05:19:29.276 [main] INFO  com.bancoxyz.bff.web.BffWebApplication - Starting BffWebApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by root in /app)
+bff-web  | 2026-10-10 05:19:29.286 [main] INFO  com.bancoxyz.bff.web.BffWebApplication - The following 1 profile is active: "docker"
+bff-web  | 2026-10-10 05:19:29.478 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-web  | 2026-10-10 05:19:29.478 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-web/default": Connection refused. Will be trying the next url if available
+bff-web  | 2026-10-10 05:19:29.478 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@7577b641 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/bff-web/default": Connection refused
+bff-web  | 2026-10-10 05:19:29.478 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-web  | 2026-10-10 05:19:29.478 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-web/docker": Connection refused. Will be trying the next url if available
+bff-web  | 2026-10-10 05:19:29.478 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@27dc79f7 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/bff-web/docker": Connection refused
+bff-web  | 2026-10-10 05:19:29.479 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+bff-web  | 2026-10-10 05:19:29.479 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/bff-web/default": Connection refused. Will be trying the next url if available
+bff-web  | 2026-10-10 05:19:29.479 [main] WARN  o.s.c.c.client.ConfigServerConfigDataLoader - Could not locate PropertySource ([ConfigServerConfigDataResource@6b85300e uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/bff-web/default": Connection refused
+bff-web  | 2026-10-10 05:19:29.479 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+bff-web  | 2026-10-10 05:19:29.479 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=bff-web, profiles=[docker], label=null, version=null, state=null
+bff-web  | 2026-10-10 05:19:29.480 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+bff-web  | 2026-10-10 05:19:29.482 [main] INFO  o.s.c.c.client.ConfigServerConfigDataLoader - Located environment: name=bff-web, profiles=[default], label=null, version=null, state=null
+bff-web  | 2026-10-10 05:19:34.202 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a0b107b9-176e-387c-903c-dd9737c847c9
+bff-web  | 2026-10-10 05:19:37.108 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (https)
+bff-web  | 2026-10-10 05:19:37.180 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+bff-web  | 2026-10-10 05:19:37.180 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+bff-web  | 2026-10-10 05:19:37.388 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+bff-web  | 2026-10-10 05:19:37.396 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7889 ms
+bff-web  | 2026-10-10 05:19:43.943 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+bff-web  | 2026-10-10 05:19:44.177 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+bff-web  | 2026-10-10 05:19:44.223 [main] INFO  o.s.b.a.endpoint.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+bff-web  | 2026-10-10 05:19:44.449 [main] INFO  o.s.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+bff-web  | 2026-10-10 05:19:44.536 [main] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+bff-web  | 2026-10-10 05:19:44.547 [main] INFO  c.n.d.s.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+bff-web  | 2026-10-10 05:19:44.559 [main] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+bff-web  | 2026-10-10 05:19:44.843 [main] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+bff-web  | 2026-10-10 05:19:44.847 [main] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+bff-web  | 2026-10-10 05:19:44.850 [main] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+bff-web  | 2026-10-10 05:19:44.852 [main] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1791609584852 with initial instances count: 5
+bff-web  | 2026-10-10 05:19:44.868 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application BFF-WEB with eureka with status UP
+bff-web  | 2026-10-10 05:19:44.869 [main] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1791609584868, current=UP, previous=STARTING]
+bff-web  | 2026-10-10 05:19:44.872 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_BFF-WEB/0c94457039f6:bff-web:8081: registering service...
+bff-web  | 2026-10-10 05:19:44.985 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_BFF-WEB/0c94457039f6:bff-web:8081 - registration status: 204
+bff-web  | 2026-10-10 05:19:45.054 [main] INFO  o.a.tomcat.util.net.NioEndpoint.certificate - Connector [https-jsse-nio-8081], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [/root/.keystore] using alias [bffweb] with trust store [null]
+bff-web  | 2026-10-10 05:19:45.088 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (https) with context path '/'
+bff-web  | 2026-10-10 05:19:45.090 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+bff-web  | 2026-10-10 05:19:45.140 [main] INFO  com.bancoxyz.bff.web.BffWebApplication - Started BffWebApplication in 18.928 seconds (process running for 20.993)
+bff-web  | 2026-10-10 05:19:49.839 [https-jsse-nio-8081-exec-5] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+bff-web  | 2026-10-10 05:19:49.839 [https-jsse-nio-8081-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+bff-web  | 2026-10-10 05:19:49.840 [https-jsse-nio-8081-exec-5] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+bff-web  | 2026-10-10 05:22:41.999 [https-jsse-nio-8081-exec-7] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: clientes-service
+bff-web  | 2026-10-10 05:22:42.001 [https-jsse-nio-8081-exec-7] WARN  c.b.bff.web.controller.CuentaWebController - Cuenta 101: no se pudo obtener el titular (clientes-service no disponible en este momento, intente mas tarde.); se responde sin datos personales
+bff-web  | 2026-10-10 05:22:42.318 [https-jsse-nio-8081-exec-9] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: clientes-service
+bff-web  | 2026-10-10 05:22:42.319 [https-jsse-nio-8081-exec-9] WARN  c.b.bff.web.controller.CuentaWebController - Cuenta 101: no se pudo obtener el titular (clientes-service no disponible en este momento, intente mas tarde.); se responde sin datos personales
+bff-web  | 2026-10-10 05:22:42.625 [https-jsse-nio-8081-exec-7] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: clientes-service
+bff-web  | 2026-10-10 05:22:42.626 [https-jsse-nio-8081-exec-7] WARN  c.b.bff.web.controller.CuentaWebController - Cuenta 101: no se pudo obtener el titular (clientes-service no disponible en este momento, intente mas tarde.); se responde sin datos personales
+bff-web  | 2026-10-10 05:22:42.951 [https-jsse-nio-8081-exec-4] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: clientes-service
+bff-web  | 2026-10-10 05:22:52.352 [https-jsse-nio-8081-exec-6] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+bff-web  | 2026-10-10 05:22:52.515 [https-jsse-nio-8081-exec-4] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+bff-web  | 2026-10-10 05:22:52.694 [https-jsse-nio-8081-exec-8] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+bff-web  | 2026-10-10 05:22:52.872 [https-jsse-nio-8081-exec-3] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
+bff-web  | 2026-10-10 05:22:53.053 [https-jsse-nio-8081-exec-8] WARN  o.s.c.l.core.RoundRobinLoadBalancer - No servers available for service: cuentas-service
